@@ -26,7 +26,10 @@ export default [
             //   sourceTag: 'scope:{app}',
             //   onlyDependOnLibsWithTags: ['scope:shared', 'scope:{app}'],
             // },
-            
+            {
+              sourceTag: 'scope:aperture',
+              onlyDependOnLibsWithTags: ['scope:shared', 'scope:aperture'],
+            },
             // type:ui може залежати від utils, types, hooks
             {
               sourceTag: 'type:ui',

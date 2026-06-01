@@ -1,0 +1,9 @@
+{
+  "name": "aperture",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/aperture/src",
+  "projectType": "application",
+  "tags": ["scope:aperture", "type:app"],
+  "// targets": "to see all targets run: nx show project aperture --web",
+  "targets": {}
+}
