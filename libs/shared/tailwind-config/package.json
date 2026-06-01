@@ -1,0 +1,9 @@
+{
+  "name": "@portfolio/tailwind-config",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    "./preset": "./tailwind.preset.js",
+    "./postcss": "./postcss.config.js"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "nxConsole.projectViewingStyle": "list",
+  "terminal.integrated.hideOnStartup": "always",
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.nx/cache/**": true,
+    "**/dist/**": true
+  }
+}
