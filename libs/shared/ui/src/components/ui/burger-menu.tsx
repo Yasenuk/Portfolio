@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@portfolio/shared-utils';
 
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 
 const contentVariants = cva(
   'fixed md:static top-0 z-40 flex h-full flex-col md:flex-row transition-transform duration-300 ease-in-out',

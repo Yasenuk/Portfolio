@@ -1,4 +1,10 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* You can add global styles to this file, and also import other style files */
+
+@layer base {
+	:root {
+		--primary: 0 0% 100%;
+		--secondary: 0 0% 75%;
+		--black: 0 0% 10%;
+		--text: 0 0% 0%;
+	}
+}

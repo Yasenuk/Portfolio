@@ -1,3 +1,3 @@
 export default function Native() {
-	return ();
+	return (<></>);
 }
