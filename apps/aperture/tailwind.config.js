@@ -25,7 +25,7 @@ module.exports = {
       colors: {
         primary: 'hsl(var(--primary))',
         secondary: 'hsl(var(--secondary))',
-        black: 'hsl(var(--black))',
+        dark: 'hsl(var(--dark))',
         text: 'hsl(var(--text))',
       },
       container: {

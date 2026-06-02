@@ -1,3 +1,77 @@
+import {
+	Card,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+	Button
+} from "@portfolio/shared-ui";
+import { cn } from '@portfolio/shared-utils';
+
+const buttonClass = cn(
+  'text-sm text-dark mt-4 rounded-[0.875rem] border-primary',
+  'p-2.5 pl-10 relative transition-all duration-300',
+  'after:absolute after:w-8 after:h-8 after:bg-dark after:rounded-[0.875rem]',
+  'after:left-1 after:top-1/2 after:-translate-y-1/2',
+  'hover:text-primary hover:bg-dark hover:px-[1.625rem]',
+  'hover:after:w-full hover:after:left-0 hover:after:h-full',
+  'after:transition-all',
+);
+
+const cardClass = cn(
+	'bg-cover bg-center flex flex-col h-[25rem] md:h-[32rem] lg:h-[37.5rem]',
+	'text-primary text-base rounded-none border-none p-[1.875rem]'
+);
+
+const CARD_OPTIONS = [
+	{
+		title: 'Product photography',
+		describtion: 'Cras commodo consequat orci, in convallis risus egestas non. Nulla efficitur auctor hendrerit. Etiam ut orci varius, faucibus libero ac, cursus quam.',
+		picture: 'service-picture_1'
+	},
+	{
+		title: 'Architecture photography',
+		describtion: 'Aenean porta neque eget consequat fringilla. Vestibulum ultrices, orci nec egestas pharetra, ligula est semper enim, nec auctor sapien leo nec purus. Fusce tincidunt aliquet sapien, sit amet rhoncus leo imperdiet nec.',
+		picture: 'service-picture_2'
+	},
+	{
+		title: 'Drone photography',
+		describtion: 'Mauris euismod elit et nisi ultrices, ut faucibus orci tincidunt. Duis tristique sed lorem a vestibulum. Cras commodo consequat orci, in convallis risus egestas non. Nulla efficitur auctor hendrerit. Etiam ut orci varius, faucibus libero ac, cursus quam.',
+		picture: 'service-picture_3'
+	},
+	{
+		title: 'Wildlife photography',
+		describtion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis.',
+		picture: 'service-picture_4'
+	}
+] as const;
+
 export default function Services() {
-	return (<></>);
+	return (
+		<div className="bg-black pt-28 pb-24">
+			<div className="container">
+				<h2 className="text-center text-primary text-[2.5rem] bottom-4">What we do.</h2>
+				<p className="text-center text-secondary text-2xl">The areas that we're specialized in.</p>
+				<div className="text-primary grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
+					{CARD_OPTIONS.map((card) => (
+						<Card
+							key={card.picture}
+							style={{ backgroundImage: `url(assets/images/${card.picture}.png)` }}
+							className={cardClass}
+						>
+							<CardHeader className="flex flex-col justify-end flex-auto p-0">
+								<CardTitle className="tracking-[0.125rem] uppercase">{card.title}</CardTitle>
+								<CardDescription className="text-primary">{card.describtion}</CardDescription>
+							</CardHeader>
+							<CardFooter className="p-0">
+								<Button className={buttonClass}>
+									<span className="z-10">Read more</span>
+								</Button>
+							</CardFooter>
+						</Card>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 }
