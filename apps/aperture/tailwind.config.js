@@ -15,8 +15,12 @@ module.exports = {
         sans: ['Poppins', 'sans-serif'],
       },
       fontSize: {
-        base: '0.75rem',
-        lg: '1.25rem',
+        base: ['0.875rem', {
+          lineHeight: '1.25rem',
+        }],
+        lg: ['1.25rem', {
+          lineHeight: '1.5rem',
+        }]
       },
       colors: {
         primary: 'hsl(var(--primary))',
