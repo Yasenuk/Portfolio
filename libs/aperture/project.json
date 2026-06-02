@@ -1,0 +1,8 @@
+{
+  "name": "aperture-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/aperture/src",
+  "projectType": "library",
+  "tags": ["scope:aperture", "type:ui"],
+  "targets": {}
+}

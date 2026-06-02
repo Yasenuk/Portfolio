@@ -79,6 +79,7 @@
   "workspaces": [
     "apps/*",
     "libs/*",
-    "libs/shared/*"
+    "libs/shared/*",
+    "libs/aperture/*"
   ]
 }
