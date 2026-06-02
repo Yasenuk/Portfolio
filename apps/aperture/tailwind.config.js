@@ -11,6 +11,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
+      fontSize: {
+        base: '0.75rem',
+        lg: '1.25rem',
+      },
       colors: {
         primary: 'hsl(var(--primary))',
         secondary: 'hsl(var(--secondary))',
@@ -27,6 +34,13 @@ module.exports = {
           xl: '2rem',
           '2xl': '2.25rem',
         },
+        screens: {
+          sm: '640px',
+          md: '768px',
+          lg: '1024px',
+          xl: '1280px',
+          '2xl': '1536px',
+        }
       },
     },
   },
