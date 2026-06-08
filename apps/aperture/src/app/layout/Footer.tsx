@@ -21,15 +21,15 @@ const PAGES_LINKS = [
 export default function Footer() {
 	return (
 		<footer className="bg-black text-secondary py-16 md:py-[6.25rem]">
-			<div className="container flex justify-between text-sm ">
-				<div className="basis-1/2">
+			<div className="container flex justify-between text-sm text-center md:text-left flex-wrap gap-y-14">
+				<div className="flex basis-full lg:basis-auto flex-col items-center lg:items-start">
 					<Link to="/">
 						<img src="/logo.svg" alt="Logo" width="128" height="31" />
 					</Link>
 					<p className="mt-5">Photographers &amp; videographers capturing the world around us.</p>
 				</div>
-				<div className="flex gap-x-10 basis-1/2 justify-center">
-					<nav className="" aria-label="Business areas">
+				<div className="flex flex-wrap lg:flex-nowrap gap-y-8 basis-full lg:basis-[28.675rem] gap-x-10 justify-center mdjustify-between lg:justify-center text-center lg:text-left">
+					<nav className="basis-80 md:basis-1/2" aria-label="Business areas">
 						<h2 className="uppercase tracking-[0.125rem]">Business areas</h2>
 						<ul>
 							{BUSINES_AREAS_LINKS.map(link => (
@@ -39,7 +39,7 @@ export default function Footer() {
 							))}
 						</ul>
 					</nav>
-					<nav className="" aria-label="Pages">
+					<nav className="basis-80 md:basis-1/2" aria-label="Pages">
 						<h2 className="uppercase tracking-[0.125rem]">Pages</h2>
 						<ul>
 							{PAGES_LINKS.map(link => (
@@ -51,14 +51,14 @@ export default function Footer() {
 					</nav>
 				</div>
 			</div>
-			<div className="container my-9 py-9 border-t border-b border-primary flex items-center justify-between">
+			<div className="container my-9 py-9 border-t-2 border-b-2 border-primary text-center md:text-left flex items-center justify-center lg:justify-between flex-wrap gap-y-12">
 				<section>
 					<h2 className="uppercase tracking-[0.125rem] text-primary">Subscribe to our newsletter</h2>
 					<p className="mt-5">Read about all the things we do.</p>
 				</section>
 				<InputMain />
 			</div>
-			<div className="container flex items-center justify-between">
+			<div className="container text-center md:text-left flex items-center justify-center lg:justify-between flex-wrap gap-y-12">
 				<p>&copy; Aperture Photography, Inc. All rights reserved. Licensing.</p>
 				<nav className="flex gap-x-5" aria-label="Social services">
 					<Link to="/"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="twitter" height={24} /></Link>
