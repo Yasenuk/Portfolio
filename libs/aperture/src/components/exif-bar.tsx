@@ -26,7 +26,7 @@ export function ExifBar({ shutterSpeed, aperture, iso, location }: ExifData) {
     )}>
       {EXIF_ICONS.map(({ name, width, height, key }) => (
         <li key={name} className="flex items-start gap-2 text-primary">
-          <Icon name={name} width={width} height={height} aria-label={`${name} icon`} />
+          <Icon name={name} width={width} height={height} />
           <span className="text-primary text-xs">{values[key]}</span>
         </li>
       ))}
