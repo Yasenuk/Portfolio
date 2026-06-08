@@ -1,6 +1,6 @@
-import { cva } from "class-variance-authority";
+import { cn } from "@portfolio/shared-utils";
 
-export const linkClass = cva(`
+export const linkClass = cn(`
 	relative py-1
 	after:absolute after:content-[''] after:h-0.5 
 	after:bottom-0 after:left-0
