@@ -1,7 +1,6 @@
-export type TIcon = {
+import { SVGAttributes } from 'react';
+
+export type TIcon = SVGAttributes<SVGSVGElement> & {
 	name: string;
-	width?: number;
-	height?: number;
-	className?: string;
 	dir?: string;
 };
