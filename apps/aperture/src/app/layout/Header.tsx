@@ -23,7 +23,7 @@ export default function Header() {
 					<BurgerMenuBody className="items-center justify-center h-dvh gap-10 md:h-auto md:gap-4 lg:gap-5 md:text-base text-lg">
 						<nav className={` flex flex-col items-center gap-10 md:gap-4 lg:gap-5 md:flex-row `}>
 							{navLinks.map((link) => (
-								<Link key={link.name} to={link.to} className={linkClass()}>
+								<Link key={link.name} to={link.to} className={linkClass}>
 									{link.name}
 								</Link>
 							))}

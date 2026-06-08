@@ -8,7 +8,7 @@ const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivE
 	const highlightRef = React.useRef<HTMLDivElement | null>(null);
 
 	return (
-		<highlightContext.Provider value={{ pictureSource }}>
+		<highlightContext.Provider value={{ }}>
 			<div
 				ref={(node) => {
 					highlightRef.current = node
@@ -53,7 +53,7 @@ const HighlightTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes
 	{ className, ...props },
 	ref) => {
 	return (
-		<h2
+		<h3
 			ref={ref}
 			className={cn("text-primary text-sm tracking-[0.125rem] uppercase mb-2", className)}
 			{...props}

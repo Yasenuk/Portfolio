@@ -34,7 +34,7 @@ export default function Footer() {
 						<ul>
 							{BUSINESS_AREAS_LINKS.map(link => (
 								<li key={link.name} className="mt-2.5 text-primary">
-									<Link to={link.href} className={linkClass()}>{link.name}</Link>
+									<Link to={link.href} className={linkClass}>{link.name}</Link>
 								</li>
 							))}
 						</ul>
@@ -44,7 +44,7 @@ export default function Footer() {
 						<ul>
 							{PAGES_LINKS.map(link => (
 								<li key={link.name} className="mt-2.5 text-primary">
-									<Link to={link.href} className={linkClass()}>{link.name}</Link>
+									<Link to={link.href} className={linkClass}>{link.name}</Link>
 								</li>
 							))}
 						</ul>
