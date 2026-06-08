@@ -1,24 +1,16 @@
 import * as React from "react";
-import { highlightContext, type highlightContextProps } from '@portfolio/aperture';
+import type { highlightContextProps } from '@portfolio/aperture';
 import { cn } from "@portfolio/shared-utils";
 
 const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & highlightContextProps>((
 	{ className, pictureSource, ...props },
 	ref) => {
-	const highlightRef = React.useRef<HTMLDivElement | null>(null);
-
 	return (
-		<highlightContext.Provider value={{ }}>
-			<div
-				ref={(node) => {
-					highlightRef.current = node
-					if (typeof ref === 'function') ref(node)
-					else if (ref) ref.current = node
-				}}
-				style={{ backgroundImage: `url(/assets/images/${pictureSource}.png)` }}
-				className={cn("h-[37.5rem] bg-cover bg-center", className)}
-				{...props} />
-		</highlightContext.Provider>
+		<div
+			ref={ref}
+			style={{ backgroundImage: `url(/assets/images/${pictureSource}.png)` }}
+			className={cn("h-[37.5rem] bg-cover bg-center", className)}
+			{...props} />
 	);
 });
 Highlight.displayName = "Highlight";

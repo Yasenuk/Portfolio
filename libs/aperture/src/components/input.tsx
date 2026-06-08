@@ -35,6 +35,6 @@ const InputPrimary = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-InputPrimary.displayName = 'InputMInputPrimaryain';
+InputPrimary.displayName = 'InputPrimary';
 
 export { InputPrimary };
