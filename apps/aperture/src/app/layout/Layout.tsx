@@ -8,10 +8,7 @@ const Footer = lazy(() => import('./Footer'));
 export default function Layout() {
 	return (
 		<>
-			<Header />
-			<main id="main-content">
-				<Outlet />
-			</main>
+			
 			<Footer />
 		</>
 	);

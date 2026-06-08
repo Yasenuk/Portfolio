@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { linkClass } from '@portfolio/aperture';
-import { cn } from "@portfolio/shared-utils";
+import { InputMain, linkClass } from '@portfolio/aperture';
 import { Icon } from "@portfolio/shared-ui";
 
 const BUSINES_AREAS_LINKS = [
@@ -52,12 +51,12 @@ export default function Footer() {
 					</nav>
 				</div>
 			</div>
-			<div className="container my-9 py-9 border-t border-b border-primary">
+			<div className="container my-9 py-9 border-t border-b border-primary flex items-center justify-between">
 				<section>
 					<h2 className="uppercase tracking-[0.125rem] text-primary">Subscribe to our newsletter</h2>
 					<p className="mt-5">Read about all the things we do.</p>
 				</section>
-
+				<InputMain />
 			</div>
 			<div className="container flex items-center justify-between">
 				<p>&copy; Aperture Photography, Inc. All rights reserved. Licensing.</p>
