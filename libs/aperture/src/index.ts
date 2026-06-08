@@ -1,3 +1,5 @@
+export * from './shared/index.js'
+
 export * from './components/exif-bar';
 export * from './components/button';
 
