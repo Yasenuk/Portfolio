@@ -1,22 +1,12 @@
+import { ButtonMain } from "@portfolio/aperture";
 import {
 	Card,
 	CardDescription,
 	CardFooter,
 	CardHeader,
-	CardTitle,
-	Button
+	CardTitle
 } from "@portfolio/shared-ui";
 import { cn } from '@portfolio/shared-utils';
-
-const buttonClass = cn(
-  'text-sm text-dark mt-4 rounded-[0.875rem] border-primary',
-  'p-2.5 pl-10 relative transition-all duration-300',
-  'after:absolute after:w-8 after:h-8 after:bg-dark after:rounded-[0.875rem]',
-  'after:left-1 after:top-1/2 after:-translate-y-1/2',
-  'hover:text-primary hover:bg-dark hover:px-[1.625rem]',
-  'hover:after:w-full hover:after:left-0 hover:after:h-full',
-  'after:transition-all',
-);
 
 const cardClass = cn(
 	'bg-cover bg-center flex flex-col h-[25rem] md:h-[32rem] xl:h-[37.5rem]',
@@ -64,9 +54,7 @@ export default function Services() {
 								<CardDescription className="text-primary">{card.describtion}</CardDescription>
 							</CardHeader>
 							<CardFooter className="p-0">
-								<Button className={buttonClass}>
-									<span className="z-10">Read more</span>
-								</Button>
+								<ButtonMain>Read more</ButtonMain>
 							</CardFooter>
 						</Card>
 					))}
