@@ -42,7 +42,7 @@ const HighlightContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
 	return (
 		<section
 			ref={ref}
-			className={cn("w-[18.75rem] text-center md:text-left", className)}
+			className={cn("md:w-[18.75rem] text-center md:text-left", className)}
 			{...props}
 		/>
 	);
@@ -55,7 +55,7 @@ const HighlightTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeading
 	return (
 		<h2
 			ref={ref}
-			className={cn("text-primary text-sm tracking-[0.125rem] uppercase", className)}
+			className={cn("text-primary text-sm tracking-[0.125rem] uppercase mb-2", className)}
 			{...props}
 		/>
 	);

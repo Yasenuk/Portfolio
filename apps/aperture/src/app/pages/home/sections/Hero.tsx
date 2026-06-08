@@ -6,7 +6,7 @@ export default function Hero() {
 			<div className="absolute translate-y-1 inset-0 bg-gradient-to-t from-[#000000] from-[18%] to-transparent to-100%"></div>
 			<section className="relative container h-full pb-20 flex flex-col items-center justify-end text-secondary text-base ">
 				<span className="tracking-[0.125rem] uppercase">Photographer & filmmaker</span>
-				<h1 className="text-primary text-[3.375rem] leading-none mb-4">Aperture studios</h1>
+				<h1 className="text-primary text-[3.375rem] leading-none mb-4 max-md:text-center">Aperture studios</h1>
 				<p className="max-w-[36.25rem] text-center">
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 					Suspendisse varius enim in eros elementum tristique.
