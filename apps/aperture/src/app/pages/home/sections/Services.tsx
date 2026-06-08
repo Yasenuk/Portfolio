@@ -47,7 +47,7 @@ export default function Services() {
 						<Card
 							key={card.picture}
 							style={{ backgroundImage: `url(assets/images/${card.picture}.png)` }}
-							className={cardClass}
+							className={cn("bg-no-repeat bg-cover", cardClass)}
 						>
 							<CardHeader className="flex flex-col justify-end flex-auto p-0">
 								<CardTitle className="tracking-[0.125rem] uppercase">{card.title}</CardTitle>
