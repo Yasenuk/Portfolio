@@ -39,7 +39,7 @@ const CARD_OPTIONS = [
 export default function Services() {
 	return (
 		<div className="bg-black pt-28 pb-24">
-			<div className="container">
+			<section className="container">
 				<h2 className="text-center text-primary text-[2.5rem] bottom-4">What we do.</h2>
 				<p className="text-center text-secondary text-2xl">The areas that we're specialized in.</p>
 				<div className="text-primary grid grid-cols-1 md:grid-cols-2 gap-4 mt-10">
@@ -59,7 +59,7 @@ export default function Services() {
 						</Card>
 					))}
 				</div>
-			</div>
+			</section>
 		</div>
 	);
 }

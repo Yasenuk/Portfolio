@@ -36,11 +36,11 @@ const HighlightContainer = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
 });
 HighlightContainer.displayName = "HighlightContainer";
 
-const HighlightContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
+const HighlightContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
 	{ className, ...props },
 	ref) => {
 	return (
-		<div
+		<section
 			ref={ref}
 			className={cn("w-[18.75rem] text-center md:text-left", className)}
 			{...props}
