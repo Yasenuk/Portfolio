@@ -27,7 +27,7 @@ const HighlightContainer = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
 	{ className, ...props },
 	ref) => {
 	return (
-		<h2
+		<div
 			ref={ref}
 			className={cn("container flex flex-col items-end justify-center relative h-full", className)}
 			{...props}
@@ -40,7 +40,7 @@ const HighlightContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
 	{ className, ...props },
 	ref) => {
 	return (
-		<h2
+		<div
 			ref={ref}
 			className={cn("w-[18.75rem]", className)}
 			{...props}
@@ -68,7 +68,7 @@ const HighlightDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<HTM
 	return (
 		<p
 			ref={ref}
-			className={cn("text-primary text-sm", className)}
+			className={cn("text-primary text-sm max-w-[18.5rem]", className)}
 			{...props}
 		/>
 	);
