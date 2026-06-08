@@ -42,7 +42,7 @@ const HighlightContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
 	return (
 		<div
 			ref={ref}
-			className={cn("w-[18.75rem]", className)}
+			className={cn("w-[18.75rem] text-center md:text-left", className)}
 			{...props}
 		/>
 	);
