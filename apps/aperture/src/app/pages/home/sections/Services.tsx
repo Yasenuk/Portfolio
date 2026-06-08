@@ -19,7 +19,7 @@ const buttonClass = cn(
 );
 
 const cardClass = cn(
-	'bg-cover bg-center flex flex-col h-[25rem] md:h-[32rem] lg:h-[37.5rem]',
+	'bg-cover bg-center flex flex-col h-[25rem] md:h-[32rem] xl:h-[37.5rem]',
 	'text-primary text-base rounded-none border-none p-[1.875rem]'
 );
 

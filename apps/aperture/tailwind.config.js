@@ -6,7 +6,10 @@ const preset = require('@portfolio/tailwind-config/preset');
 module.exports = {
   presets: [preset],
   content: [
-    join(__dirname, '{src,pages,components,app}/**/!(*.stories|*.spec).{ts,tsx,html}'),
+    join(
+      __dirname,
+      '{src,pages,components,app}/**/!(*.stories|*.spec).{ts,tsx,html}',
+    ),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
@@ -15,12 +18,18 @@ module.exports = {
         sans: ['Poppins', 'sans-serif'],
       },
       fontSize: {
-        base: ['0.875rem', {
-          lineHeight: '1.25rem',
-        }],
-        lg: ['1.25rem', {
-          lineHeight: '1.5rem',
-        }]
+        base: [
+          '0.875rem',
+          {
+            lineHeight: '1.25rem',
+          },
+        ],
+        lg: [
+          '1.25rem',
+          {
+            lineHeight: '1.5rem',
+          },
+        ],
       },
       colors: {
         primary: 'hsl(var(--primary))',
@@ -44,7 +53,7 @@ module.exports = {
           lg: '1024px',
           xl: '1280px',
           '2xl': '1536px',
-        }
+        },
       },
     },
   },

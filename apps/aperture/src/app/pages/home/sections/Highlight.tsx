@@ -1,5 +1,5 @@
 import React, { forwardRef, HTMLAttributes, ReactElement, useRef } from "react";
-import { highlightContext, highlightContextProps } from '@portfolio/aperture';
+import { highlightContext, highlightContextProps, useHighlight } from '@portfolio/aperture';
 import { cn } from "@portfolio/shared-utils";
 
 const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & highlightContextProps>((
@@ -16,7 +16,7 @@ const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivE
 					else if (ref) ref.current = node
 				}}
 				style={{ backgroundImage: `url(assets/images/${pictureSource}.png)` }}
-				className={cn("h-[37.5rem]", className)}
+				className={cn("h-[37.5rem] bg-cover bg-center", className)}
 				{...props} />
 		</highlightContext.Provider>
 	);

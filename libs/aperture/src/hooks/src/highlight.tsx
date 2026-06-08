@@ -3,7 +3,7 @@ import { highlightContextProps } from '@portfolio/aperture';
 
 export const highlightContext = React.createContext<highlightContextProps | null>(null);
 
-export const useHighlightContext = () => {
+export const useHighlight = () => {
 	const context = React.useContext(highlightContext);
 
 	if (!context) {
@@ -13,4 +13,4 @@ export const useHighlightContext = () => {
 	return context;
 };
 
-export default { highlightContext, useHighlightContext };
+export default { highlightContext, useHighlight };
