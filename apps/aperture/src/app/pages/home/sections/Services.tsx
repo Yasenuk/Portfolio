@@ -54,7 +54,7 @@ export default function Services() {
 								<CardDescription className="text-primary">{card.describtion}</CardDescription>
 							</CardHeader>
 							<CardFooter className="p-0">
-								<ButtonMain>Read more</ButtonMain>
+								<ButtonMain className="mt-4">Read more</ButtonMain>
 							</CardFooter>
 						</Card>
 					))}
