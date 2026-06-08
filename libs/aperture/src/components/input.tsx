@@ -21,7 +21,7 @@ const inputClass = cn(`
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const InputMain = React.forwardRef<HTMLInputElement, InputProps>(
+const InputPrimary = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, ...props }, ref) => {
     return (
       <div className={wrapperClass}>
@@ -35,6 +35,6 @@ const InputMain = React.forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-InputMain.displayName = 'InputMain';
+InputPrimary.displayName = 'InputMInputPrimaryain';
 
-export { InputMain };
+export { InputPrimary };

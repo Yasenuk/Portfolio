@@ -1,4 +1,4 @@
-import { ButtonMain, ExifBar } from "@portfolio/aperture";
+import { ButtonPrimary, ExifBar } from "@portfolio/aperture";
 
 export default function Native() {
 	return (
@@ -8,7 +8,7 @@ export default function Native() {
 					<span className="text-secondary text-base uppercase">The gear cage</span>
 					<h2 className="text-primary text-2xl mt-1.5 mb-3.5">The tools that we use.</h2>
 					<p className="text-primary text-base max-w-[32rem] max-md:mx-auto">The say that "no place is boring if you've had a good night's sleep and have a pocket full of unexposed film". While we don't shoot (a lot) of film these days — these are the tools that we actually use everyday to capture the amazing things around us.</p>
-					<ButtonMain className="mt-5">Check it out</ButtonMain>
+					<ButtonPrimary className="mt-5">Check it out</ButtonPrimary>
 				</section>
 				<div className="h-[33.75rem]">
 					<img className="max-w-full h-full md:w-auto md:h-full object-cover object-center" src="/assets/images/native-picture.png" alt="" />

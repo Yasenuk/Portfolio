@@ -13,7 +13,7 @@ const buttonClass = cn(`
 	after:transition-all
 `);
 
-const ButtonMain = ({ className, children, ...props }: React.ComponentProps<typeof Button>) => {
+const ButtonPrimary = ({ className, children, ...props }: React.ComponentProps<typeof Button>) => {
   return (
     <Button className={cn(buttonClass, className)} {...props}>
       <span className="z-10">{children}</span>
@@ -21,6 +21,6 @@ const ButtonMain = ({ className, children, ...props }: React.ComponentProps<type
   );
 };
 
-ButtonMain.displayName = "ButtonMain"
+ButtonPrimary.displayName = "ButtonPrimary"
 
-export { ButtonMain };
+export { ButtonPrimary };

@@ -1,4 +1,4 @@
-import { ButtonMain } from "@portfolio/aperture";
+import { ButtonPrimary } from "@portfolio/aperture";
 import {
 	Card,
 	CardDescription,
@@ -54,7 +54,7 @@ export default function Services() {
 								<CardDescription className="text-primary">{card.description}</CardDescription>
 							</CardHeader>
 							<CardFooter className="p-0">
-								<ButtonMain className="mt-4">Read more</ButtonMain>
+								<ButtonPrimary className="mt-4">Read more</ButtonPrimary>
 							</CardFooter>
 						</Card>
 					))}

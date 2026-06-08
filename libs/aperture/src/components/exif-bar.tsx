@@ -12,7 +12,7 @@ const EXIF_ICONS = [
   { name: 'shutter-speed', width: 16, height: 16, key: 'shutterSpeed' },
   { name: 'aperture',      width: 16, height: 16, key: 'aperture' },
   { name: 'iso',           width: 32, height: 16, key: 'iso' },
-  { name: 'place-mark',   width: 10, height: 16, key: 'location' },
+  { name: 'place-mark',    width: 10, height: 16, key: 'location' },
 ] as const;
 
 export function ExifBar({ shutterSpeed, aperture, iso, location }: ExifData) {
@@ -26,7 +26,7 @@ export function ExifBar({ shutterSpeed, aperture, iso, location }: ExifData) {
     )}>
       {EXIF_ICONS.map(({ name, width, height, key }) => (
         <li key={name} className="flex items-start gap-2 text-primary">
-          <Icon name={name} width={width} height={height} />
+          <Icon name={name} width={width} height={height} aria-label={`${name} icon`} />
           <span className="text-primary text-xs">{values[key]}</span>
         </li>
       ))}

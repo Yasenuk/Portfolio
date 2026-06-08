@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { InputMain, linkClass } from '@portfolio/aperture';
+import { InputPrimary, linkClass } from '@portfolio/aperture';
 import { Icon } from "@portfolio/shared-ui";
 
 const BUSINESS_AREAS_LINKS = [
@@ -56,7 +56,7 @@ export default function Footer() {
 					<h2 className="uppercase tracking-[0.125rem] text-primary">Subscribe to our newsletter</h2>
 					<p className="mt-5">Read about all the things we do.</p>
 				</section>
-				<InputMain />
+				<InputPrimary />
 			</div>
 			<div className="container text-center md:text-left flex items-center justify-center lg:justify-between flex-wrap gap-y-12">
 				<p>&copy; Aperture Photography, Inc. All rights reserved. Licensing.</p>
