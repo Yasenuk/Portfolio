@@ -1,11 +1,11 @@
-import React, { forwardRef, HTMLAttributes, ReactElement, useRef } from "react";
-import { highlightContext, highlightContextProps, useHighlight } from '@portfolio/aperture';
+import * as React from "react";
+import { highlightContext, type highlightContextProps } from '@portfolio/aperture';
 import { cn } from "@portfolio/shared-utils";
 
 const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & highlightContextProps>((
 	{ className, pictureSource, ...props },
 	ref) => {
-	const highlightRef = useRef<HTMLDivElement | null>(null);
+	const highlightRef = React.useRef<HTMLDivElement | null>(null);
 
 	return (
 		<highlightContext.Provider value={{ pictureSource }}>
@@ -15,7 +15,7 @@ const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivE
 					if (typeof ref === 'function') ref(node)
 					else if (ref) ref.current = node
 				}}
-				style={{ backgroundImage: `url(assets/images/${pictureSource}.png)` }}
+				style={{ backgroundImage: `url(/assets/images/${pictureSource}.png)` }}
 				className={cn("h-[37.5rem] bg-cover bg-center", className)}
 				{...props} />
 		</highlightContext.Provider>
@@ -23,7 +23,7 @@ const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivE
 });
 Highlight.displayName = "Highlight";
 
-const HighlightContainer = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
+const HighlightContainer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>((
 	{ className, ...props },
 	ref) => {
 	return (
@@ -36,7 +36,7 @@ const HighlightContainer = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElem
 });
 HighlightContainer.displayName = "HighlightContainer";
 
-const HighlightContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
+const HighlightContent = React.forwardRef<HTMLElement, React.HTMLAttributes<HTMLElement>>((
 	{ className, ...props },
 	ref) => {
 	return (
@@ -49,7 +49,7 @@ const HighlightContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
 });
 HighlightContent.displayName = "HighlightContent";
 
-const HighlightTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>((
+const HighlightTitle = React.forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTMLHeadingElement>>((
 	{ className, ...props },
 	ref) => {
 	return (
@@ -62,7 +62,7 @@ const HighlightTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeading
 });
 HighlightTitle.displayName = "HighlightTitle";
 
-const HighlightDescription = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>((
+const HighlightDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>((
 	{ className, ...props },
 	ref) => {
 	return (

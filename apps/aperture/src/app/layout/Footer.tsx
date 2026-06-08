@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { InputMain, linkClass } from '@portfolio/aperture';
 import { Icon } from "@portfolio/shared-ui";
 
-const BUSINES_AREAS_LINKS = [
+const BUSINESS_AREAS_LINKS = [
 	{ name: "Product photography", href: "/" },
 	{ name: "Architecture photography", href: "/" },
 	{ name: "Drone photography", href: "/" },
@@ -28,11 +28,11 @@ export default function Footer() {
 					</Link>
 					<p className="mt-5">Photographers &amp; videographers capturing the world around us.</p>
 				</div>
-				<div className="flex flex-wrap lg:flex-nowrap gap-y-8 basis-full lg:basis-[28.675rem] gap-x-10 justify-center mdjustify-between lg:justify-center text-center lg:text-left">
+				<div className="flex flex-wrap lg:flex-nowrap gap-y-8 basis-full lg:basis-[28.675rem] gap-x-10 justify-center lg:justify-center text-center lg:text-left">
 					<nav className="basis-80 md:basis-1/2" aria-label="Business areas">
 						<h2 className="uppercase tracking-[0.125rem]">Business areas</h2>
 						<ul>
-							{BUSINES_AREAS_LINKS.map(link => (
+							{BUSINESS_AREAS_LINKS.map(link => (
 								<li key={link.name} className="mt-2.5 text-primary">
 									<Link to={link.href} className={linkClass()}>{link.name}</Link>
 								</li>
@@ -61,9 +61,9 @@ export default function Footer() {
 			<div className="container text-center md:text-left flex items-center justify-center lg:justify-between flex-wrap gap-y-12">
 				<p>&copy; Aperture Photography, Inc. All rights reserved. Licensing.</p>
 				<nav className="flex gap-x-5" aria-label="Social services">
-					<Link to="/"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="twitter" height={24} /></Link>
-					<Link to="/"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="instagram" height={24} /></Link>
-					<Link to="/"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="facebook" height={24} /></Link>
+					<Link to="/" aria-label="Twitter"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="twitter" height={24} /></Link>
+					<Link to="/" aria-label="Instagram"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="instagram" height={24} /></Link>
+					<Link to="/" aria-label="Facebook"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="facebook" height={24} /></Link>
 				</nav>
 			</div>
 		</footer>

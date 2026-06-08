@@ -16,22 +16,22 @@ const cardClass = cn(
 const CARD_OPTIONS = [
 	{
 		title: 'Product photography',
-		describtion: 'Cras commodo consequat orci, in convallis risus egestas non. Nulla efficitur auctor hendrerit. Etiam ut orci varius, faucibus libero ac, cursus quam.',
+		description: 'Cras commodo consequat orci, in convallis risus egestas non. Nulla efficitur auctor hendrerit. Etiam ut orci varius, faucibus libero ac, cursus quam.',
 		picture: 'service-picture_1'
 	},
 	{
 		title: 'Architecture photography',
-		describtion: 'Aenean porta neque eget consequat fringilla. Vestibulum ultrices, orci nec egestas pharetra, ligula est semper enim, nec auctor sapien leo nec purus. Fusce tincidunt aliquet sapien, sit amet rhoncus leo imperdiet nec.',
+		description: 'Aenean porta neque eget consequat fringilla. Vestibulum ultrices, orci nec egestas pharetra, ligula est semper enim, nec auctor sapien leo nec purus. Fusce tincidunt aliquet sapien, sit amet rhoncus leo imperdiet nec.',
 		picture: 'service-picture_2'
 	},
 	{
 		title: 'Drone photography',
-		describtion: 'Mauris euismod elit et nisi ultrices, ut faucibus orci tincidunt. Duis tristique sed lorem a vestibulum. Cras commodo consequat orci, in convallis risus egestas non. Nulla efficitur auctor hendrerit. Etiam ut orci varius, faucibus libero ac, cursus quam.',
+		description: 'Mauris euismod elit et nisi ultrices, ut faucibus orci tincidunt. Duis tristique sed lorem a vestibulum. Cras commodo consequat orci, in convallis risus egestas non. Nulla efficitur auctor hendrerit. Etiam ut orci varius, faucibus libero ac, cursus quam.',
 		picture: 'service-picture_3'
 	},
 	{
 		title: 'Wildlife photography',
-		describtion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis.',
+		description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque aliquam odio et faucibus. Nulla rhoncus feugiat eros quis consectetur. Morbi neque ex, condimentum dapibus congue et, vulputate ut ligula. Vestibulum sit amet urna turpis.',
 		picture: 'service-picture_4'
 	}
 ] as const;
@@ -46,12 +46,12 @@ export default function Services() {
 					{CARD_OPTIONS.map((card) => (
 						<Card
 							key={card.picture}
-							style={{ backgroundImage: `url(assets/images/${card.picture}.png)` }}
+							style={{ backgroundImage: `url(/assets/images/${card.picture}.png)` }}
 							className={cn("bg-no-repeat bg-cover", cardClass)}
 						>
 							<CardHeader className="flex flex-col justify-end flex-auto p-0">
 								<CardTitle className="tracking-[0.125rem] uppercase">{card.title}</CardTitle>
-								<CardDescription className="text-primary">{card.describtion}</CardDescription>
+								<CardDescription className="text-primary">{card.description}</CardDescription>
 							</CardHeader>
 							<CardFooter className="p-0">
 								<ButtonMain className="mt-4">Read more</ButtonMain>

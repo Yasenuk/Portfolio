@@ -99,7 +99,6 @@ const BurgerMenu = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
           if (typeof ref === 'function') ref(node)
           else if (ref) ref.current = node
         }}
-        aria-label="Burger menu"
         className={cn(className)}
         {...props}>
         {children}

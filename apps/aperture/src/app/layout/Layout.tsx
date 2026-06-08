@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 
 const Header = lazy(() => import('./Header'));
 const Footer = lazy(() => import('./Footer'));
@@ -7,11 +7,11 @@ const Footer = lazy(() => import('./Footer'));
 export default function Layout() {
 	return (
 		<>
-			<Header />
+			<Suspense fallback={null}><Header /></Suspense>
 			<main id="main-content">
 				<Outlet />
 			</main>
-			<Footer />
+			<Suspense fallback={null}><Footer /></Suspense>
 		</>
 	);
 }
