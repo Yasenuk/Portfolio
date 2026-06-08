@@ -62,9 +62,9 @@ export default function Footer() {
 			<div className="container flex items-center justify-between">
 				<p>&copy; Aperture Photography, Inc. All rights reserved. Licensing.</p>
 				<nav className="flex gap-x-5" aria-label="Social services">
-					<Link to=""><Icon className=" hover:text-primary fill-black transition-colors duration-300" name="twitter" height={24} /></Link>
-					<Link to=""><Icon name="instagram" height={24} /></Link>
-					<Link to=""><Icon name="facebook" height={24} /></Link>
+					<Link to="/"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="twitter" height={24} /></Link>
+					<Link to="/"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="instagram" height={24} /></Link>
+					<Link to="/"><Icon className="text-secondary hover:text-primary transition-colors duration-300" name="facebook" height={24} /></Link>
 				</nav>
 			</div>
 		</footer>
