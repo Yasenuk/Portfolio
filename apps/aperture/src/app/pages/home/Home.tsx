@@ -1,6 +1,12 @@
 import { ExifBar } from '@portfolio/aperture';
 import { lazy } from 'react';
-import { Highlight, HighlightContainer, HighlightContent, HighlightDescription, HighlightTitle } from './sections/Highlight';
+import {
+	Highlight,
+	HighlightContainer,
+	HighlightContent,
+	HighlightDescription,
+	HighlightTitle
+} from '@portfolio/aperture';
 
 
 const Hero = lazy(() => import('./sections/Hero'));

@@ -1,6 +1,6 @@
 import { Icon } from '@portfolio/shared-ui';
 import { cn } from '@portfolio/shared-utils';
-import { ExifData } from '@portfolio/aperture';
+import { ExifData } from '@portfolio/aperture-types';
 
 const EXIF_ICONS = [
   { name: 'shutter-speed', width: 16, height: 16, key: 'shutterSpeed' },

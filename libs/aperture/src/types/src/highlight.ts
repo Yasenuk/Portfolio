@@ -1,3 +1,3 @@
-export type highlightContextProps = {
-	pictureSource?: string;
+export type highlightProps = {
+	pictureSource: string;
 };

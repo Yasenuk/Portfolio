@@ -1,8 +1,8 @@
 import * as React from "react";
-import type { highlightContextProps } from '@portfolio/aperture';
+import type { highlightProps } from '@portfolio/aperture';
 import { cn } from "@portfolio/shared-utils";
 
-const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & highlightContextProps>((
+const Highlight = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & highlightProps>((
 	{ className, pictureSource, ...props },
 	ref) => {
 	return (
