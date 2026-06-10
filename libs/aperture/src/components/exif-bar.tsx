@@ -10,7 +10,7 @@ const EXIF_ICONS = [
 ] as const;
 
 export function ExifBar({ shutterSpeed, aperture, iso, location }: ExifData) {
-  const values: Record<string, string> = { shutterSpeed, aperture, iso, location };
+  const values: Record<keyof ExifData, string> = { shutterSpeed, aperture, iso, location };
 
   return (
     <ul className={cn(
