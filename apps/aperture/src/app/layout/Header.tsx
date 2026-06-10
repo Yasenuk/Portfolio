@@ -17,7 +17,7 @@ export default function Header() {
 				<Link to="/">
 					<img src="/logo.svg" alt="Logo" width="128" height="31" />
 				</Link>
-				<BurgerMenu>
+				<BurgerMenu controlsID="burger-nav">
 					<Trigger className="bg-primary" />
 					<Backdrop className="bg-black/80" />
 					<BurgerMenuBody className="items-center justify-center h-dvh gap-10 md:h-auto md:gap-4 lg:gap-5 md:text-base text-lg">

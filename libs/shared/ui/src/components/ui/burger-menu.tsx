@@ -40,7 +40,9 @@ const triggerVariants = cva(
   }
 );
 
-type BurgerMenuProps = VariantProps<typeof contentVariants>;
+type BurgerMenuProps = VariantProps<typeof contentVariants> & {
+  controlsID?: string;
+};
 type BurgerMenuTriggerProps = VariantProps<typeof triggerVariants> & {
   iconClassName?: string;
 };
@@ -64,7 +66,7 @@ const useBurgerMenu = () => {
 }
 
 const BurgerMenu = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & BurgerMenuProps>((
-  { children, size, side, className, ...props },
+  { children, controlsID, size, side, className, ...props },
   ref) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const burgerMenuRef = React.useRef<HTMLDivElement | null>(null);
@@ -92,7 +94,7 @@ const BurgerMenu = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
   }, [isOpen])
 
   return (
-    <BurgerMenuContext.Provider value={{ isOpen, toggle, close, size, side }}>
+    <BurgerMenuContext.Provider value={{ isOpen, toggle, close, size, side, controlsID }}>
       <div
         ref={(node) => {
           burgerMenuRef.current = node
@@ -114,7 +116,7 @@ const Trigger = React.forwardRef<
   React.ComponentProps<typeof Button> &
   BurgerMenuTriggerProps
 >(({ className, iconClassName, t_variant, variant = "ghost", size = "icon", ...props }, ref) => {
-  const { isOpen, toggle } = useBurgerMenu();
+  const { isOpen, toggle, controlsID } = useBurgerMenu();
 
   const lineClass = cn('block h-0.5 w-5 transition-all duration-300 bg-foreground', iconClassName)
 
@@ -123,7 +125,7 @@ const Trigger = React.forwardRef<
       onClick={toggle}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
       aria-expanded={isOpen}
-      aria-controls="burger-nav"
+      aria-controls={controlsID}
       variant={variant}
       size={size}
       className={cn(
@@ -166,7 +168,7 @@ const BurgerMenuBody = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ children, className, ...props }, ref) => {
-  const { isOpen, side, size } = useBurgerMenu();
+  const { isOpen, side, size, controlsID } = useBurgerMenu();
 
   const translateClass = isOpen
     ? 'translate-x-0'
@@ -175,6 +177,7 @@ const BurgerMenuBody = React.forwardRef<
   return (
     <div
       ref={ref}
+      id={controlsID}
       className={cn(
         contentVariants({ size, side }),
         'md:translate-x-0',
