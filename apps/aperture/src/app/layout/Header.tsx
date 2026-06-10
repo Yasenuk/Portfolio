@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import { Backdrop, BurgerMenu, BurgerMenuBody, Trigger } from '@portfolio/shared-ui';
-import { linkClass } from '@portfolio/aperture';
+import { linkClass } from '@portfolio/aperture-shared';
 
 const navLinks = [
 	{ name: 'Business areas', to: '/' },

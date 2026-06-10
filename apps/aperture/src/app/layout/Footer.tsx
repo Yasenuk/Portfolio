@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { InputPrimary, linkClass } from '@portfolio/aperture';
+import { linkClass } from '@portfolio/aperture-shared';
 import { Icon } from "@portfolio/shared-ui";
+import { InputPrimary } from "@portfolio/aperture";
 
 const BUSINESS_AREAS_LINKS = [
 	{ name: "Product photography", href: "/" },

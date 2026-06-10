@@ -29,9 +29,10 @@
       "@/components/*": ["./libs/shared/ui/src/components/*"],
 
       "@portfolio/aperture": ["./libs/aperture/src/index.ts"],
-      "@portfolio/aperture-hooks": ["./libs/aperture/src/hooks/src/index.ts"],
-      "@portfolio/aperture-utils": ["./libs/aperture/src/utils/src/index.ts"],
-      "@portfolio/aperture-types": ["./libs/aperture/src/types/src/index.ts"]
+      "@portfolio/aperture-hooks": ["./libs/aperture/src/hooks/index.ts"],
+      "@portfolio/aperture-shared": ["./libs/aperture/src/shared/index.ts"],
+      "@portfolio/aperture-utils": ["./libs/aperture/src/utils/index.ts"],
+      "@portfolio/aperture-types": ["./libs/aperture/src/types/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
