@@ -1,11 +1,12 @@
 const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+const preset = require('@portfolio/tailwind-config/preset');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [preset],
   content: [
-    './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
+    './{src,pages,components,app}/**/!(*.stories|*.spec).{ts,tsx,js,jsx,html}',
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
@@ -21,7 +22,7 @@ module.exports = {
         h3: ['2.375rem',     { lineHeight: '1.2' }],
         h4: ['1.75rem',      { lineHeight: '1.4' }],
         h5: ['1.375rem',     { lineHeight: '1.6' }],
-        h6: ['rem',          { lineHeight: '1.4' }],
+        body: ['1rem',         { lineHeight: '1.4' }],
         caption: ['0.75rem', { lineHeight: '1.1' }],
       },
 
@@ -34,25 +35,27 @@ module.exports = {
       },
 
       backgroundImage: {
-        'action-fade': 'linear-gradient(to top, hsl(var(--action)), transparent 0%)',
+        'action-fade': 'linear-gradient(to top, hsl(var(--action)), transparent 50%)',
       },
 
       borderRadius: {
-        DEAFULT: '1.25rem'
+        DEFAULT: '1.25rem'
       },
 
-      backdropBlur: "1rem"
+      backdropBlur: {
+        DEFAULT: '1rem'
+      }
     },
   },
   plugins: [
-    plugin(({ addUtilities, theme }) => {
+    plugin(({ addUtilities }) => {
       addUtilities({
         '.font-display': {
-          fontFamily: theme('fontFamily.display').join(', '),
+          fontFamily: '"Space Mono", monospace',
           fontWeight: '700',
         },
         '.font-sans': {
-          fontFamily: theme('fontFamily.sans').join(', '),
+          fontFamily: '"Work Sans", sans-serif',
           fontWeight: '600',
         },
       });
