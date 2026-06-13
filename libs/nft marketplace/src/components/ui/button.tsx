@@ -11,7 +11,8 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				default: `bg-action text-text`,
-				outlined: "bg-transparent text-action"
+				outlined: "bg-transparent text-action",
+				wallet: "bg-bg-secondary h-[3.75rem] border"
 			},
 			size: {
 				default: "md:h-[4.5rem]",
@@ -20,19 +21,22 @@ const buttonVariants = cva(
 		},
 		defaultVariants: {
 			variant: "default",
+			size: "default"
 		}
 	}
 )
 
 export interface ButtonProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-	VariantProps<typeof buttonVariants> { };
+	VariantProps<typeof buttonVariants> {
+	icon?: string;
+	};
 
 const ButtonMain = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, children, variant = 'default', size = 'default', ...props }, ref) => {
+	({ className, children, variant, size, icon = '', ...props }, ref) => {
 		return (
 			<button ref={ref} className={cn(buttonVariants({ variant, size, className }))} {...props}>
-				<Icon name="rocketlaunch"/>
+				{icon && <Icon name={icon} />}
 				<span className="text-text">{children}</span>
 			</button>
 		)

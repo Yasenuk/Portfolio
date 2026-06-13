@@ -46,8 +46,9 @@ export default function App() {
 			<Icon sprite='icons-category' width={100} height={100} name="bookmarkssimple" />
 			<Icon sprite='icons-category' width={100} height={100} name="swatches" />
 
-			<ButtonMain size="md">Button</ButtonMain>
-			<ButtonMain variant="outlined">Button</ButtonMain>
+			<ButtonMain icon='rocketlaunch' size="md">Get Started</ButtonMain>
+			<ButtonMain icon='rocketlaunch' variant="outlined">Get Started</ButtonMain>
+			<ButtonMain icon='metamask' variant="wallet">Metamask</ButtonMain>
 
 			<div className='flex items-start gap-10 flex-wrap'>
 				<NFTCard className='w-[315px] sm:w-[330px] md:w-[510px]' variant='highlighted' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
