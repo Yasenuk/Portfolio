@@ -50,7 +50,7 @@ export default function App() {
 			<ButtonMain variant="outlined">Button</ButtonMain>
 
 			<div className='flex items-start gap-10 flex-wrap'>
-				<NFTCard className='w-[315px] sm:w-[330px] md:w-[510px]' variant='highlited' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
+				<NFTCard className='w-[315px] sm:w-[330px] md:w-[510px]' variant='highlighted' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
 				<NFTCard className='w-[402px] md:w-[468px]' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' price={1.63} bid={0.33} />
 				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />

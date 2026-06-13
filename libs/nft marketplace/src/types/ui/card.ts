@@ -13,7 +13,7 @@ export type NFTCardProps = {
 	title: string;
 	price?: number;
 	bid?: number;
-};
+} & TCardAuthor;
 
 export type CategoryCardProps = {
 	src: string;

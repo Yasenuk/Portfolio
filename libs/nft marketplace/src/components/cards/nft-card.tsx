@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Card, CardAuthor, CardContent, CardPicture } from '@portfolio/nft marketplace';
-import type { NFTCardProps, TCardAuthor } from '@portfolio/nft marketplace-types';
+import type { NFTCardProps } from '@portfolio/nft marketplace-types';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@portfolio/shared-utils';
 
@@ -11,7 +11,7 @@ const cardVariants = cva(
 		variants: {
 			variant: {
 				default: `max-h-[14.875rem] md:max-h-[18.438rem]`,
-				highlited: "h-[12.875rem] sm:h-[13.813rem] md:h-[25.063rem]"
+				highlighted : "h-[12.875rem] sm:h-[13.813rem] md:h-[25.063rem]"
 			}
 		},
 		defaultVariants: {
@@ -20,7 +20,7 @@ const cardVariants = cva(
 	}
 );
 
-export function NFTCard({ src, title, price, bid, authorSrc, authorName, className, variant }: NFTCardProps & TCardAuthor & React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>) {
+export function NFTCard({ src, title, price, bid, authorSrc, authorName, className, variant }: NFTCardProps & React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>) {
 	return (
 		<Card className={className}>
 			<CardPicture src={src} className={cn(cardVariants({ variant }))} />
