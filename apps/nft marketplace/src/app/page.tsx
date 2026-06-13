@@ -1,5 +1,5 @@
 import { Icon } from '@portfolio/shared-ui';
-import { ButtonMain, Card, CardBadge, CardContent, CardPicture, CardPictureWrapper } from '@portfolio/nft marketplace';
+import { ButtonMain, Card, CardBadge, CardContent, CardPicture, CardPictureWrapper, CategoryCard, NFTCard, RankingCard } from '@portfolio/nft marketplace';
 
 export default function App() {
 	return (<>
@@ -49,7 +49,7 @@ export default function App() {
 			<ButtonMain size="md">Button</ButtonMain>
 			<ButtonMain variant="outlined">Button</ButtonMain>
 
-			<div className='flex gap-10'>
+			<div className='flex gap-10 flex-wrap'>
 				<Card className='w-[510px]'>
 					<CardPictureWrapper>
 						<CardPicture className='max-h-[401px]' src='/assets/images/img.png' />
@@ -73,6 +73,11 @@ export default function App() {
 						<h2 className='text-h5 text-text font-semibold'>Space Walking</h2>
 					</CardContent>
 				</Card>
+			</div>
+			<div className='flex items-start gap-10 flex-wrap'>
+				<NFTCard src='/assets/images/img.png' title='Space Walking' authorName='NFT Artist' authorSrc='/assets/images/avatar.png' />
+				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
+				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
 			</div>
 		</div>
 	</>);

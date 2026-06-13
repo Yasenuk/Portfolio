@@ -1,8 +1,10 @@
+import * as React from 'react';
+
 import { Card, CardBadge, CardContent, CardPicture, CardPictureWrapper } from '@portfolio/nft marketplace';
 import type { CategoryCardProps } from '@portfolio/nft marketplace-types';
 import { Icon } from '@portfolio/shared-ui';
 
-export function CategoryCard({ src, icon, label, className }: CategoryCardProps & HTMLElement) {
+export function CategoryCard({ src, icon, label, className }: CategoryCardProps & React.HTMLAttributes<HTMLDivElement>) {
   return (
     <Card className={className}>
       <CardPictureWrapper>

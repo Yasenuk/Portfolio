@@ -4,8 +4,8 @@ export type TCardPicture = {
 };
 
 export type TCardAuthor = {
-	src: string;
-	name: string;
+	authorSrc?: string;
+	authorName?: string;
 };
 
 export type NFTCardProps = {

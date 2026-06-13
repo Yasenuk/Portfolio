@@ -61,10 +61,10 @@ const CardAuthor = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement> & TCardAuthor
 >(
-  ({ className, src, name, ...props }, ref) => (
-    <div ref={ref} className={cn("flex items-center gap-x-2", className)} {...props}>
-      <img src={src} alt="" className="size-7 rounded-full object-cover" />
-      <span className="text-body text-text">{name}</span>
+  ({ className, authorSrc, authorName, ...props }, ref) => (
+    <div ref={ref} className={cn("flex items-start gap-x-3", className)} {...props}>
+      <img src={authorSrc} alt="" className="size-6 rounded-full object-cover" />
+      <span className="text-body text-text font-display">{authorName}</span>
     </div>
   )
 );

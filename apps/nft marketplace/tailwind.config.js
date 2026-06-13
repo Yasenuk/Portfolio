@@ -31,7 +31,7 @@ module.exports = {
       colors: {
         bg: 'hsl(var(--bg) / <alpha-value>)',
         'bg-secondary': 'hsl(var(--bg-secondary) / <alpha-value>)',
-        cation: 'hsl(var(--cation) / <alpha-value>)',
+        label: 'hsl(var(--label) / <alpha-value>)',
         text: 'hsl(var(--text) / <alpha-value>)',
         action: 'hsl(var(--action) / <alpha-value>)'
       },
