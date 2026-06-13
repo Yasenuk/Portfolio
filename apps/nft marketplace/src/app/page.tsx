@@ -3,7 +3,7 @@ import { ButtonMain, Card, CardBadge, CardContent, CardPicture, CardPictureWrapp
 
 export default function App() {
 	return (<>
-		<div className="p-40 bg-bg flex items-start gap-5 flex-col">
+		<div className="p-10 bg-bg flex items-start gap-5 flex-col">
 			<Icon name="rocketlaunch" />
 			<Icon name="rocket" />
 			<Icon name="user" />
@@ -49,33 +49,9 @@ export default function App() {
 			<ButtonMain size="md">Button</ButtonMain>
 			<ButtonMain variant="outlined">Button</ButtonMain>
 
-			<div className='flex gap-10 flex-wrap'>
-				<Card className='w-[510px]'>
-					<CardPictureWrapper>
-						<CardPicture className='max-h-[401px]' src='/assets/images/img.png' />
-						<CardBadge>
-							<Icon sprite='icons-category' width={100} height={100} name="camera" />
-						</CardBadge>
-					</CardPictureWrapper>
-					<CardContent>
-						<h2 className='text-h5 text-text font-semibold'>Space Walking</h2>
-					</CardContent>
-				</Card>
-				<Card className='w-[510px]'>
-					<CardPicture className='max-h-[401px]' src='/assets/images/img.png' />
-					<CardContent>
-						<h2 className='text-h5 text-text font-semibold'>Space Walking</h2>
-					</CardContent>
-				</Card>
-				<Card>
-					<CardPicture src='/assets/images/avatar.png' />
-					<CardContent>
-						<h2 className='text-h5 text-text font-semibold'>Space Walking</h2>
-					</CardContent>
-				</Card>
-			</div>
 			<div className='flex items-start gap-10 flex-wrap'>
-				<NFTCard src='/assets/images/img.png' title='Space Walking' authorName='NFT Artist' authorSrc='/assets/images/avatar.png' />
+				<NFTCard className='w-[315px] sm:w-[330px] md:w-[510px]' variant='highlited' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
+				<NFTCard className='w-[402px] md:w-[468px]' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' price={1.63} bid={0.33} />
 				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
 			</div>

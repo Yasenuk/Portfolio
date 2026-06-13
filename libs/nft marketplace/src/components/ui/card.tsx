@@ -30,7 +30,7 @@ const CardPicture = React.forwardRef<
 	React.HTMLAttributes<HTMLImageElement> & TCardPicture
 >(({ className, src, alt = '', ...props }, ref) => (
 	<picture>
-		<img ref={ref} loading="lazy" src={src} alt={alt} className={cn("w-full max-h-full object-cover", className)} {...props} />
+		<img ref={ref} loading="lazy" src={src} alt={alt} className={cn("w-full h-auto object-cover object-center", className)} {...props} />
 	</picture>
 ))
 CardPicture.displayName = "CardPicture";
