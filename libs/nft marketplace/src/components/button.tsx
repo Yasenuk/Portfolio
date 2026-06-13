@@ -4,7 +4,7 @@ import { cn } from '@portfolio/shared-utils';
 import { Icon } from '@portfolio/shared-ui';
 
 const buttonVariants = cva(
-	`px-[3.125rem] border-action border-2 flex items-center gap-x-[0.75rem]`,
+	`px-[3.125rem] border-action border-2 flex items-center gap-x-[0.75rem] rounded`,
 	{
 		variants: {
 			variant: {

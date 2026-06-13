@@ -1,4 +1,5 @@
 const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+const { join } = require('path');
 const preset = require('@portfolio/tailwind-config/preset');
 const plugin = require('tailwindcss/plugin');
 
@@ -7,6 +8,7 @@ module.exports = {
   presets: [preset],
   content: [
     './{src,pages,components,app}/**/!(*.stories|*.spec).{ts,tsx,js,jsx,html}',
+    join(__dirname, '../../libs/**/src/**/!(*.stories|*.spec).{ts,tsx,js,jsx,html}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
