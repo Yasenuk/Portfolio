@@ -24,8 +24,8 @@ module.exports = {
         h3: ['2.375rem',     { lineHeight: '1.2' }],
         h4: ['1.75rem',      { lineHeight: '1.4' }],
         h5: ['1.375rem',     { lineHeight: '1.6' }],
-        body: ['1rem',         { lineHeight: '1.4' }],
-        caption: ['0.75rem', { lineHeight: '1.1' }],
+        body: ['1rem',       { fontWeight: '400', lineHeight: '1.4' }],
+        caption: ['0.75rem', { fontWeight: '400', lineHeight: '1.1' }],
       },
 
       colors: {
@@ -49,18 +49,5 @@ module.exports = {
       }
     },
   },
-  plugins: [
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        '.font-display': {
-          fontFamily: '"Space Mono", monospace',
-          fontWeight: '700',
-        },
-        '.font-sans': {
-          fontFamily: '"Work Sans", sans-serif',
-          fontWeight: '600',
-        },
-      });
-    }),
-  ],
+  plugins: [],
 };
