@@ -67,6 +67,12 @@ export default function App() {
 						<h2 className='text-h5 text-text font-semibold'>Space Walking</h2>
 					</CardContent>
 				</Card>
+				<Card>
+					<CardPicture src='/assets/images/avatar.png' />
+					<CardContent>
+						<h2 className='text-h5 text-text font-semibold'>Space Walking</h2>
+					</CardContent>
+				</Card>
 			</div>
 		</div>
 	</>);
