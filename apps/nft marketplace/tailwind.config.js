@@ -33,10 +33,15 @@ module.exports = {
         action: 'hsl(var(--action) / <alpha-value>)'
       },
 
+      backgroundImage: {
+        'action-fade': 'linear-gradient(to top, hsl(var(--action)), transparent 0%)',
+      },
+
       borderRadius: {
-        avatar: '50%',
-        button: '1.25rem'
-      }
+        DEAFULT: '1.25rem'
+      },
+
+      backdropBlur: "1rem"
     },
   },
   plugins: [
