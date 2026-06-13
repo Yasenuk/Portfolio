@@ -1,2 +1,2 @@
-export * from './exif.js';
-export * from './highlight.js';
+export * from './exif';
+export * from './highlight';
