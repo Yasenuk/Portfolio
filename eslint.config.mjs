@@ -30,6 +30,10 @@ export default [
               sourceTag: 'scope:aperture',
               onlyDependOnLibsWithTags: ['scope:shared', 'scope:aperture'],
             },
+            {
+              sourceTag: 'scope:nft marketplace',
+              onlyDependOnLibsWithTags: ['scope:shared', 'scope:nft marketplace'],
+            },
             // type:ui може залежати від utils, types, hooks
             {
               sourceTag: 'type:ui',
