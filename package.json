@@ -80,6 +80,7 @@
     "apps/*",
     "libs/*",
     "libs/shared/*",
-    "libs/aperture/*"
+    "libs/aperture/*",
+    "libs/nft marketplace/*"
   ]
 }
