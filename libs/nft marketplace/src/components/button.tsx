@@ -4,18 +4,22 @@ import { cn } from '@portfolio/shared-utils';
 import { Icon } from '@portfolio/shared-ui';
 
 const buttonVariants = cva(
-	`px-[3.125rem] border-action border-2 flex items-center gap-x-[0.75rem] rounded
-	h-[2.875rem] sm:h-[3.75rem] md:h-[4.5rem] text-body md:text-h5 md:font-semibold
+	`px-[3.125rem] border-action border-2 flex items-center justify-center gap-x-[0.75rem] rounded
+	h-[2.875rem] sm:h-[3.75rem] text-body md:text-h5 md:font-semibold
 	`,
 	{
 		variants: {
 			variant: {
 				default: `bg-action text-text`,
-				outlined: "bg-none text-action"
+				outlined: "bg-transparent text-action"
+			},
+			size: {
+				default: "md:h-[4.5rem]",
+				md: "",
 			}
 		},
 		defaultVariants: {
-			variant: "default"
+			variant: "default",
 		}
 	}
 )
@@ -25,9 +29,9 @@ export interface ButtonProps
 	VariantProps<typeof buttonVariants> { };
 
 const ButtonMain = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, children, variant = 'default', ...props }, ref) => {
+	({ className, children, variant = 'default', size = 'default', ...props }, ref) => {
 		return (
-			<button ref={ref} className={cn(buttonVariants({ variant, className }))} {...props}>
+			<button ref={ref} className={cn(buttonVariants({ variant, size, className }))} {...props}>
 				<Icon name="rocketlaunch"/>
 				<span className="text-text">{children}</span>
 			</button>
