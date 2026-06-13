@@ -1,0 +1,8 @@
+{
+  "name": "nft marketplace-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nft marketplace/src",
+  "projectType": "library",
+  "tags": ["scope:nft marketplace", "type:ui"],
+  "targets": {}
+}
