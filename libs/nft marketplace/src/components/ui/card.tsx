@@ -1,5 +1,5 @@
 import * as React from "react";
-import type { TCardPicture } from '@portfolio/nft marketplace-types';
+import type { TCardAuthor, TCardPicture } from '@portfolio/nft marketplace-types';
 import { cn } from "@portfolio/shared-utils";
 
 const Card = React.forwardRef<
@@ -57,5 +57,18 @@ const CardContent = React.forwardRef<
 ))
 CardContent.displayName = "CardContent";
 
+const CardAuthor = React.forwardRef<
+	HTMLDivElement,
+	React.HTMLAttributes<HTMLDivElement> & TCardAuthor
+>(
+  ({ className, src, name, ...props }, ref) => (
+    <div ref={ref} className={cn("flex items-center gap-x-2", className)} {...props}>
+      <img src={src} alt="" className="size-7 rounded-full object-cover" />
+      <span className="text-body text-text">{name}</span>
+    </div>
+  )
+);
+CardAuthor.displayName = "CardAuthor";
 
-export { Card, CardPictureWrapper, CardPicture, CardBadge, CardContent };
+
+export { Card, CardPictureWrapper, CardPicture, CardBadge, CardContent, CardAuthor };

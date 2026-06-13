@@ -3,6 +3,11 @@ export type TCardPicture = {
 	alt?: string;
 };
 
+export type TCardAuthor = {
+	src: string;
+	name: string;
+};
+
 export type NFTCardProps = {
 	src: string;
 	title: string;
