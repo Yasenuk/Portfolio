@@ -17,15 +17,37 @@ const Card = React.forwardRef<
 ))
 Card.displayName = "Card";
 
+const CardPictureWrapper = React.forwardRef<
+	HTMLDivElement,
+	React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+	<div ref={ref} className={cn("relative w-full", className)} {...props} />
+))
+CardPictureWrapper.displayName = "CardPictureWrapper";
+
 const CardPicture = React.forwardRef<
 	HTMLImageElement,
 	React.HTMLAttributes<HTMLImageElement> & TCardPicture
 >(({ className, src, alt = '', ...props }, ref) => (
 	<picture>
-		<img ref={ref} src={src} alt={alt} className={cn("w-full h-full object-cover", className)} {...props} />
+		<img ref={ref} loading="lazy" src={src} alt={alt} className={cn("w-full max-h-full object-cover", className)} {...props} />
 	</picture>
 ))
 CardPicture.displayName = "CardPicture";
+
+const CardBadge = React.forwardRef<
+	HTMLDivElement,
+	React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+	<div ref={ref}
+		className={cn(
+			"absolute inset-0 grid place-items-center bg-text/10 backdrop-blur text-text",
+			className
+		)}
+		{...props}
+	/>
+));
+CardBadge.displayName = "CardBadge";
 
 const CardContent = React.forwardRef<
 	HTMLDivElement,
@@ -36,4 +58,4 @@ const CardContent = React.forwardRef<
 CardContent.displayName = "CardContent";
 
 
-export { Card, CardPicture, CardContent };
+export { Card, CardPictureWrapper, CardPicture, CardBadge, CardContent };

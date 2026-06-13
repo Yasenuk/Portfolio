@@ -45,7 +45,7 @@ module.exports = {
       },
 
       backdropBlur: {
-        DEFAULT: '1rem'
+        DEFAULT: '0.938rem'
       }
     },
   },
