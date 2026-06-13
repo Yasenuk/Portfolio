@@ -34,21 +34,21 @@ export default function App() {
 			<Icon name="walletconnect" />
 			<Icon name="coinbase" />
 
-			<Icon sprite='icons-category' width={100} height={100} name="paintbrush" />
-			<Icon sprite='icons-category' width={100} height={100} name="musicnotes" />
-			<Icon sprite='icons-category' width={100} height={100} name="camera" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="paintbrush" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="musicnotes" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="camera" />
 
-			<Icon sprite='icons-category' width={100} height={100} name="videocamera" />
-			<Icon sprite='icons-category' width={100} height={100} name="basketball" />
-			<Icon sprite='icons-category' width={100} height={100} name="magicwand" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="videocamera" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="basketball" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="magicwand" />
 
-			<Icon sprite='icons-category' width={100} height={100} name="planet" />
-			<Icon sprite='icons-category' width={100} height={100} name="bookmarkssimple" />
-			<Icon sprite='icons-category' width={100} height={100} name="swatches" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="planet" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="bookmarkssimple" />
+			<Icon sprite='icons-category' className='size-[6.25rem]' name="swatches" />
 
 			<ButtonMain icon='rocketlaunch' size="md">Get Started</ButtonMain>
 			<ButtonMain icon='rocketlaunch' variant="outlined">Get Started</ButtonMain>
-			<ButtonMain icon='metamask' variant="wallet">Metamask</ButtonMain>
+			<ButtonMain className='w-80' icon='metamask' variant="wallet">Metamask</ButtonMain>
 
 			<div className='flex items-start gap-10 flex-wrap'>
 				<NFTCard className='w-[315px] sm:w-[330px] md:w-[510px]' variant='highlighted' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
