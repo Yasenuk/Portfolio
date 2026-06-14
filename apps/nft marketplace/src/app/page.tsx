@@ -8,10 +8,21 @@ import {
 
 	RankingList,
 	RankingListHeader,
-	RankingListItem
+	RankingListItem,
+	RankingListItems
 } from '@portfolio/nft marketplace';
+import { TRanckingItem } from '@portfolio/nft marketplace-types';
 
 export default function App() {
+	const author: TRanckingItem = {
+		rank: 1,
+		avatar: "/assets/images/avatar.png",
+		artist: "Dish Studio",
+		change: 1.41,
+		sold: 602,
+		volume: 12.4
+	};
+
 	return (<>
 		<div className="p-10 bg-bg flex items-start gap-5 flex-col">
 			<Icon name="rocketlaunch" />
@@ -66,6 +77,13 @@ export default function App() {
 				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
 			</div>
+
+			<RankingList>
+				<RankingListHeader />
+				<RankingListItems>
+					<RankingListItem {...author} />
+				</RankingListItems>
+			</RankingList>
 		</div>
 	</>);
 }
