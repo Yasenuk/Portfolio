@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cn } from '@portfolio/shared-utils';
-import { TRanckingItem } from '@portfolio/nft marketplace-types';
+import { TRRanckingItem } from '@portfolio/nft marketplace-types';
 
 const rankClass = cn("size-6 md:size-[1.875rem] text-label grid place-items-center text-body");
 const rankFilledClass = cn("md:text-text rounded-full md:bg-bg");
@@ -56,7 +56,7 @@ RankingListItems.displayName = 'RankingListItems';
 
 const RankingListItem = React.forwardRef<
   HTMLTableRowElement,
-  React.HTMLAttributes<HTMLTableRowElement> & TRanckingItem
+  React.HTMLAttributes<HTMLTableRowElement> & TRRanckingItem
 >(({ className, rank, avatar, artist, change, sold, volume, ...props }, ref) => (
   <tr
     ref={ref}

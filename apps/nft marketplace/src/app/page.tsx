@@ -11,10 +11,10 @@ import {
 	RankingListItem,
 	RankingListItems
 } from '@portfolio/nft marketplace';
-import { TRanckingItem } from '@portfolio/nft marketplace-types';
+import { TRRanckingItem } from '@portfolio/nft marketplace-types';
 
 export default function App() {
-	const author: TRanckingItem = {
+	const author: TRRanckingItem = {
 		rank: 1,
 		avatar: "/assets/images/avatar.png",
 		artist: "Dish Studio",

@@ -1,4 +1,4 @@
-export type TRanckingItem = {
+export type TRRanckingItem = {
 	rank: number;
 	avatar: string;
 	artist: string;
