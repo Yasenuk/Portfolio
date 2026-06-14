@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Card, CardContent, CardPicture, CardPictureWrapper } from '@portfolio/nft marketplace';
 import type { RankingCardProps } from "@portfolio/nft marketplace-types";
-import { cn } from '@portfolio/shared-utils';
+import { cn } from '@portfolio/nft marketplace-utils';
 
 export function RankingCard({ rank, src, title, sales, className }: RankingCardProps & React.HTMLAttributes<HTMLDivElement>) {
 	return (

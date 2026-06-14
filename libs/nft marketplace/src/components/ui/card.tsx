@@ -1,6 +1,6 @@
 import * as React from "react";
 import type { TCardAuthor, TCardPicture } from '@portfolio/nft marketplace-types';
-import { cn } from "@portfolio/shared-utils";
+import { cn } from "@portfolio/nft marketplace-utils";
 
 const Card = React.forwardRef<
 	HTMLDivElement,

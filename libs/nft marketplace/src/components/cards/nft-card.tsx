@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Card, CardAuthor, CardContent, CardPicture } from '@portfolio/nft marketplace';
 import type { NFTCardProps } from '@portfolio/nft marketplace-types';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@portfolio/shared-utils';
+import { cn } from '@portfolio/nft marketplace-utils';
 
 const cardVariants = cva(
 	"",

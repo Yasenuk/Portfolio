@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from '@portfolio/shared-utils';
+import { cn } from '@portfolio/nft marketplace-utils';
 import { Icon } from '@portfolio/shared-ui';
 
 const buttonVariants = cva(
