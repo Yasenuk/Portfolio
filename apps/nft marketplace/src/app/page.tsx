@@ -1,5 +1,15 @@
 import { Icon } from '@portfolio/shared-ui';
-import { ButtonMain, Card, CardBadge, CardContent, CardPicture, CardPictureWrapper, CategoryCard, NFTCard, RankingCard } from '@portfolio/nft marketplace';
+import {
+	ButtonMain,
+
+	CategoryCard,
+	NFTCard,
+	RankingCard,
+
+	RankingList,
+	RankingListHeader,
+	RankingListItem
+} from '@portfolio/nft marketplace';
 
 export default function App() {
 	return (<>
