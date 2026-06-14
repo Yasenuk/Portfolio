@@ -61,7 +61,7 @@ const RankingListItem = React.forwardRef<
   <tr
     ref={ref}
     className={cn(
-			"[&>*]:bg-bg-secondary [&>*]:font-display text-text [&>*]:py-3 [&>*:not(:first-child)]:pr-5",
+			"[&>*]:bg-bg-secondary [&>*]:font-display [&>*]:text-text [&>*]:py-3 [&>*:not(:first-child)]:pr-5",
 			"[&>*:first-child]:bg-bg-secondary [&>*:first-child]:rounded-l [&>*:last-child]:bg-bg-secondary [&>*:last-child]:rounded-r",
       className
     )}
