@@ -69,7 +69,7 @@ const RankingListItem = React.forwardRef<
   >
     <td className='pl-5 pr-4 size-6 md:size-[1.875rem]'><span className={cn('', rankClass, rankFilledClass, labelClass)}>{ rank }</span></td>
 		<td>
-			<div className='w-full flex items-center gap-x-3 md:gap-x-5'>
+			<div className='w-[10.438rem] sm:w-[15rem] md:w-[23.75rem] flex items-center gap-x-3 md:gap-x-5'>
 				<img loading='lazy' className={cn(avatarClass)} src={avatar} alt={artist} />
 				<span className={cn("w-full font-sans text-body sm:text-h5 block")}>{artist}</span>
 			</div>
