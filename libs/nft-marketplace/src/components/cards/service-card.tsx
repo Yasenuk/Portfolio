@@ -13,7 +13,7 @@ export function ServiceCard({ src, title, description, className }: ServiceCardP
 					alt={title}
 					width={250}
 					height={250}
-					className="md:mx-auto aspect-square min-w-20 w-[6.25rem] sm:w-[10rem] md:w-[15.625rem] rounded-full"
+					className="md:mx-auto aspect-square min-w-20 w-[6.25rem] sm:w-[10rem] md:w-[15.625rem]"
 				/>
 			</CardPictureWrapper>
 			<CardContent className="text-left sm:text-center p-0 text-text">

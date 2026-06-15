@@ -101,17 +101,17 @@ export default function App() {
 
 			<div className='flex flex-col sm:flex-row sm:justify-between gap-x-[1.875rem] gap-y-5'>
 				<ServiceCard
-					src='/assets/illustrations/wallet.png'
+					src='/assets/illustrations/wallet.svg'
 					title='Setup Your wallet'
 					description='Set up your wallet of choice. Connect it to the NFT market by clicking the wallet icon in the top right corner.'
 				/>
 				<ServiceCard
-					src='/assets/illustrations/wallet.png'
+					src='/assets/illustrations/wallet.svg'
 					title='Setup Your wallet'
 					description='Set up your wallet of choice. Connect it to the NFT market by clicking the wallet icon in the top right corner.'
 				/>
 				<ServiceCard
-					src='/assets/illustrations/wallet.png'
+					src='/assets/illustrations/wallet.svg'
 					title='Setup Your wallet'
 					description='Set up your wallet of choice. Connect it to the NFT market by clicking the wallet icon in the top right corner.'
 				/>
