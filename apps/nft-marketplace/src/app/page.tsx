@@ -97,8 +97,20 @@ export default function App() {
 				<NFTCard className='w-[402px] md:w-[468px]' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' price={1.63} bid={0.33} />
 				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
+			</div>
+
+			<div className='flex flex-col sm:flex-row sm:justify-between gap-x-[1.875rem] gap-y-5'>
 				<ServiceCard
-					className='max-w-[330px]'
+					src='/assets/illustrations/wallet.png'
+					title='Setup Your wallet'
+					description='Set up your wallet of choice. Connect it to the NFT market by clicking the wallet icon in the top right corner.'
+				/>
+				<ServiceCard
+					src='/assets/illustrations/wallet.png'
+					title='Setup Your wallet'
+					description='Set up your wallet of choice. Connect it to the NFT market by clicking the wallet icon in the top right corner.'
+				/>
+				<ServiceCard
 					src='/assets/illustrations/wallet.png'
 					title='Setup Your wallet'
 					description='Set up your wallet of choice. Connect it to the NFT market by clicking the wallet icon in the top right corner.'

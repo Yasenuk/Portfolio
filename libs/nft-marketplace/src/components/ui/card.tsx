@@ -23,7 +23,7 @@ const CardPictureWrapper = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-	<div ref={ref} className={cn("relative w-full", className)} {...props} />
+	<div ref={ref} className={cn("relative", className)} {...props} />
 ))
 CardPictureWrapper.displayName = "CardPictureWrapper";
 

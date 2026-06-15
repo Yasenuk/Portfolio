@@ -6,13 +6,14 @@ import { ServiceCardProps } from '@portfolio/nft-marketplace-types';
 
 export function ServiceCard({ src, title, description, className }: ServiceCardProps & React.HTMLAttributes<HTMLDivElement>) {
 	return (
-		<Card className={cn("p-5 sm:pt-2.5 sm:pb-[1.875rem] md:px-[1.875rem] flex sm:flex-col gap-5", className)}>
+		<Card className={cn("p-5 sm:pt-2.5 sm:pb-[1.875rem] md:px-[1.875rem] flex items-center sm:flex-col gap-5", className)}>
 			<CardPictureWrapper>
 				<CardPicture
 					src={src}
+					alt={title}
 					width={250}
 					height={250}
-					className="md:mx-auto aspect-square w-[6.25rem] sm:w-[10rem] md:w-[15.625rem] rounded-full"
+					className="md:mx-auto aspect-square min-w-20 w-[6.25rem] sm:w-[10rem] md:w-[15.625rem] rounded-full"
 				/>
 			</CardPictureWrapper>
 			<CardContent className="text-left sm:text-center p-0 text-text">
