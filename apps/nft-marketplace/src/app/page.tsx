@@ -11,8 +11,8 @@ import {
 	RankingListHeader,
 	RankingListItem,
 	RankingListItems
-} from '@portfolio/nft marketplace';
-import { TRRanckingItem } from '@portfolio/nft marketplace-types';
+} from '@portfolio/nft-marketplace';
+import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
 
 export default function App() {
 	const author: TRRanckingItem = {

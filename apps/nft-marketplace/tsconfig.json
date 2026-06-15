@@ -24,8 +24,8 @@
     "**/*.js",
     "**/*.jsx",
 
-    "../../apps/nft marketplace/.next/types/**/*.ts",
-    "../../dist/apps/nft marketplace/.next/types/**/*.ts",
+    "../../apps/nft-marketplace/.next/types/**/*.ts",
+    "../../dist/apps/nft-marketplace/.next/types/**/*.ts",
 
     "next-env.d.ts"
   ],

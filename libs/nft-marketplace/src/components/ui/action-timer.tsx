@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from "react";
-import  { padZero, secondsToClock } from '@portfolio/nft marketplace-utils';
+import  { padZero, secondsToClock } from '@portfolio/nft-marketplace-utils';
 
 export function ActionTimer({ total = 0 }: { total?: number }) {
 	const [remaining, setRemaining] = React.useState(total);
