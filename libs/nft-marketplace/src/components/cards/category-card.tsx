@@ -8,7 +8,12 @@ export function CategoryCard({ src, icon, label, className }: CategoryCardProps 
   return (
     <Card className={className}>
       <CardPictureWrapper>
-        <CardPicture src={src} className="max-h-[8.875rem] md:max-h-60" />
+        <CardPicture
+          src={src}
+          width={250}
+          height={250}
+          className="max-h-[8.875rem] md:max-h-60"
+        />
 				<CardBadge>
 					<Icon sprite="icons-category" name={icon} className='size-20 md:size-[6.25rem]' />
 				</CardBadge>

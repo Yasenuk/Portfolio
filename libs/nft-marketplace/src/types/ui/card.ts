@@ -1,6 +1,9 @@
 export type TCardPicture = {
 	src: string;
 	alt?: string;
+	width: number;
+	height: number;
+	sizes?: string;
 };
 
 export type TCardAuthor = {
@@ -26,4 +29,10 @@ export type RankingCardProps = {
 	src: string;
 	title: string;
 	sales: string;
+};
+
+export type ServiceCardProps = {
+	src: string;
+	title: string;
+	description: string;
 };

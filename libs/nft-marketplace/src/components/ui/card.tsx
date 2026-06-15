@@ -30,14 +30,14 @@ CardPictureWrapper.displayName = "CardPictureWrapper";
 const CardPicture = React.forwardRef<
 	HTMLImageElement,
 	React.HTMLAttributes<HTMLImageElement> & TCardPicture
->(({ className, src, alt = '', ...props }, ref) => (
+>(({ className, width, height, sizes, src, alt = '', ...props }, ref) => (
 	<Image
 		ref={ref}
 		src={src}
 		alt={alt}
-		width={510}
-		height={510}
-		sizes="(max-width: 768px) 100vw, 510px"
+		width={width}
+		height={height}
+		sizes={sizes}
 		className={cn("w-full h-auto object-cover object-center", className)}
 		{...props}
 	/>
@@ -77,7 +77,5 @@ const CardAuthor = React.forwardRef<
 		</div>
 	)
 );
-CardAuthor.displayName = "CardAuthor";
-
 
 export { Card, CardPictureWrapper, CardPicture, CardBadge, CardContent, CardAuthor };

@@ -17,6 +17,8 @@ export function RankingCard({ rank, src, title, sales, className }: RankingCardP
 				</span>
 				<CardPicture
 					src={src}
+					width={120}
+					height={120}
 					className="md:mx-auto aspect-square w-[3.75rem] md:w-[7.5rem] rounded-full"
 				/>
 			</CardPictureWrapper>

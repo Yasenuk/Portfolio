@@ -23,7 +23,12 @@ const cardVariants = cva(
 export function NFTCard({ src, title, price, bid, authorSrc, authorName, className, variant }: NFTCardProps & React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof cardVariants>) {
 	return (
 		<Card className={className}>
-			<CardPicture src={src} className={cn(cardVariants({ variant }))} />
+			<CardPicture
+				src={src}
+				width={510}
+				height={510}
+				className={cn(cardVariants({ variant }))}
+			/>
 			<CardContent>
 				<h3 className="text-h5 font-semibold text-text mb-2.5">{title}</h3>
 				<CardAuthor authorSrc={authorSrc} authorName={authorName} />
