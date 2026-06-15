@@ -4,6 +4,8 @@ import {
 	ButtonMain,
 
 	CategoryCard,
+	InputMain,
+	InputPassword,
 	NFTCard,
 	RankingCard,
 
@@ -77,6 +79,13 @@ export default function App() {
 				<ButtonMain icon='rocketlaunch' size="md">Get Started</ButtonMain>
 				<ButtonMain icon='rocketlaunch' variant="outlined">Get Started</ButtonMain>
 				<ButtonMain className='w-80' icon='metamask' variant="wallet">Metamask</ButtonMain>
+			</div>
+
+			<div className='flex flex-wrap gap-5'>
+				<InputMain />
+				<InputMain icon='user' />
+				<InputPassword />
+				<InputPassword icon='user' />
 			</div>
 
 			<div className='flex items-start gap-10 flex-wrap'>
