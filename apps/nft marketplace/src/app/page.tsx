@@ -1,5 +1,6 @@
 import { Icon } from '@portfolio/shared-ui';
 import {
+	ActionTimer,
 	ButtonMain,
 
 	CategoryCard,
@@ -67,6 +68,7 @@ export default function App() {
 			<Icon sprite='icons-category' className='size-[6.25rem]' name="bookmarkssimple" />
 			<Icon sprite='icons-category' className='size-[6.25rem]' name="swatches" />
 
+			<ButtonMain>Get Started</ButtonMain>
 			<ButtonMain icon='rocketlaunch' size="md">Get Started</ButtonMain>
 			<ButtonMain icon='rocketlaunch' variant="outlined">Get Started</ButtonMain>
 			<ButtonMain className='w-80' icon='metamask' variant="wallet">Metamask</ButtonMain>
@@ -77,6 +79,8 @@ export default function App() {
 				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
 			</div>
+
+			<ActionTimer total={215999} />
 
 			<RankingList>
 				<RankingListHeader />
