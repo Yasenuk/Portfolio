@@ -68,16 +68,18 @@ const RankingListItem = React.forwardRef<
     )}
     {...props}
   >
-    <td className='pl-5 pr-4 size-6 md:size-[1.875rem]'><span className={cn('', rankClass, rankFilledClass, labelClass)}>{ rank }</span></td>
+    <td className='pl-5 pr-4 size-6 md:size-[1.875rem]'>
+      <span className={cn('', rankClass, rankFilledClass, labelClass)}>{rank}</span>
+    </td>
 		<td>
-			<div className='w-[10.438rem] sm:w-[15rem] md:w-[23.75rem] flex items-center gap-x-3 md:gap-x-5'>
+			<div className='flex items-center gap-x-3 md:gap-x-5'>
 				<Image width={60} height={60} className={cn(avatarClass)} src={avatar} alt={artist} />
 				<span className={cn("w-full font-sans text-body sm:text-h5 block")}>{artist}</span>
 			</div>
 		</td>
-    <td className='hidden sm:table-cell'><span className={cn("w-20 sm:w-[6.25rem] md:w-[10rem] block text-success", labelClass)}>+{ change }%</span></td>
-    <td className='hidden md:table-cell'><span className={cn("w-20 sm:w-[6.25rem] md:w-[10rem] block", labelClass)}>{ sold }</span></td>
-    <td><span className={cn("w-20 sm:w-[6.25rem] md:w-[10rem] block", labelClass)}>{ volume } ETH</span></td>
+    <td className='hidden sm:table-cell'><span className={cn("flex text-success", labelClass)}>+{ change }%</span></td>
+    <td className='hidden md:table-cell'><span className={cn("flex", labelClass)}>{ sold }</span></td>
+    <td><span className={cn("flex", labelClass)}>{ volume } ETH</span></td>
   </tr>
 ));
 RankingListItem.displayName = 'RankingListItem';
