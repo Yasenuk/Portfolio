@@ -9,3 +9,6 @@ export * from './components/ui/ranking-list';
 export * from './components/cards/nft-card';
 export * from './components/cards/category-card';
 export * from './components/cards/ranking-card';
+
+// forms
+export * from './components/forms/subscribe-form';

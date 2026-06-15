@@ -12,7 +12,8 @@ import {
 	RankingList,
 	RankingListHeader,
 	RankingListItem,
-	RankingListItems
+	RankingListItems,
+	SubscribeForm
 } from '@portfolio/nft-marketplace';
 import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
 
@@ -87,6 +88,8 @@ export default function App() {
 				<InputPassword />
 				<InputPassword icon='user' />
 			</div>
+
+			<SubscribeForm icon='envelopesimple' />
 
 			<div className='flex items-start gap-10 flex-wrap'>
 				<NFTCard className='w-[315px] sm:w-[330px] md:w-[510px]' variant='highlighted' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
