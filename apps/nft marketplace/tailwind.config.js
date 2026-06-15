@@ -35,7 +35,8 @@ module.exports = {
         text: 'hsl(var(--text) / <alpha-value>)',
         action: 'hsl(var(--action) / <alpha-value>)',
         success: 'hsl(var(--success) / <alpha-value>)',
-        danger: 'hsl(var(--danger) / <alpha-value>)'
+        danger: 'hsl(var(--danger) / <alpha-value>)',
+        warning: 'hsl(var(--warning) / <alpha-value>)'
       },
 
       backgroundImage: {

@@ -82,6 +82,19 @@ export default function App() {
 				<RankingListHeader />
 				<RankingListItems>
 					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
+					<RankingListItem {...author} />
 				</RankingListItems>
 			</RankingList>
 		</div>
