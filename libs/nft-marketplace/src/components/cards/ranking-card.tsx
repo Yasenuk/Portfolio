@@ -20,7 +20,7 @@ export function RankingCard({ rank, src, title, sales, className }: RankingCardP
 					className="md:mx-auto aspect-square w-[3.75rem] md:w-[7.5rem] rounded-full"
 				/>
 			</CardPictureWrapper>
-			<CardContent className="text-center md:text-center p-0 text-nowrap">
+			<CardContent className="text-left md:text-center p-0 text-nowrap">
 				<h3 className="text-h5 font-semibold text-text mb-[0.313rem]">{title}</h3>
 				<p className="text-cation text-label">
 					Total Sales: <span className="text-text ml-2.5">{sales} ETH</span>
