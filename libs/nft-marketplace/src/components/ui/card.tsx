@@ -1,4 +1,6 @@
 import * as React from "react";
+import Image from "next/image";
+
 import type { TCardAuthor, TCardPicture } from '@portfolio/nft-marketplace-types';
 import { cn } from "@portfolio/nft-marketplace-utils";
 
@@ -29,9 +31,16 @@ const CardPicture = React.forwardRef<
 	HTMLImageElement,
 	React.HTMLAttributes<HTMLImageElement> & TCardPicture
 >(({ className, src, alt = '', ...props }, ref) => (
-	<picture>
-		<img ref={ref} loading="lazy" src={src} alt={alt} className={cn("w-full h-auto object-cover object-center", className)} {...props} />
-	</picture>
+	<Image
+		ref={ref}
+		src={src}
+		alt={alt}
+		width={510}
+		height={510}
+		sizes="(max-width: 768px) 100vw, 510px"
+		className={cn("w-full h-auto object-cover object-center", className)}
+		{...props}
+	/>
 ))
 CardPicture.displayName = "CardPicture";
 
@@ -61,12 +70,12 @@ const CardAuthor = React.forwardRef<
 	HTMLDivElement,
 	React.HTMLAttributes<HTMLDivElement> & TCardAuthor
 >(
-  ({ className, authorSrc, authorName, ...props }, ref) => (
-    <div ref={ref} className={cn("flex items-start gap-x-3", className)} {...props}>
-      <img src={authorSrc} alt="" className="size-6 rounded-full object-cover" />
-      <span className="text-body text-text font-display">{authorName}</span>
-    </div>
-  )
+	({ className, authorSrc, authorName, ...props }, ref) => (
+		<div ref={ref} className={cn("flex items-start gap-x-3", className)} {...props}>
+			<img src={authorSrc} alt="" className="size-6 rounded-full object-cover" />
+			<span className="text-body text-text font-display">{authorName}</span>
+		</div>
+	)
 );
 CardAuthor.displayName = "CardAuthor";
 
