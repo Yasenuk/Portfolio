@@ -36,7 +36,7 @@ export default function Hero() {
 				<Reveal className="max-w-[780px]">
 					<span className="mb-[30px] inline-flex items-center gap-[9px] rounded-full border border-line-gold bg-gold-dim px-4 py-[7px] text-[0.72rem] font-bold uppercase tracking-[0.1em] text-gold">
 						<span className="h-[7px] w-[7px] animate-pulse rounded-full bg-gold" />
-						Команда закупівель Performance Media 
+						Команда закупівель Performance Media
 					</span>
 
 					<h1 className="mb-[26px] font-head text-[clamp(2.7rem,5.5vw,5rem)] font-extrabold capitalize leading-[1.08] tracking-[-0.032em]">
@@ -49,7 +49,8 @@ export default function Hero() {
 						<strong className="font-medium text-text-1 capitalize">дейтинг, нутра, гемблінг, свіпстейки, iGaming</strong>{' '}
 						та інших — на всіх основних майданчиках, у всіх ключових ГЕО, у преміум-масштабах.
 					</p>
-
+				</Reveal>
+				<Reveal className="max-w-[780px]">
 					<div className="mb-14 flex flex-wrap gap-3">
 						<ButtonMain asChild>
 							<Link to="/contacts">Почати співпрацю <Icon name='arrow' className='size-[13px]' /></Link>
