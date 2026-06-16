@@ -14,6 +14,13 @@ module.exports = {
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
+    screens: {
+      sm: '540px',
+      md: '768px',
+      lg: '960px',
+      xl: '1100px',
+      '2xl': '1240px',
+    },
     extend: {
       colors: {
         bg: {
@@ -47,15 +54,44 @@ module.exports = {
       },
 
       backgroundImage: {
-				'g-gold': 'linear-gradient(90deg, hsl(var(--c-gold)) 0%, hsl(var(--c-gold-lt)) 100%)',
-				'g-blue': 'linear-gradient(90deg, hsl(var(--c-blue)) 0%, hsl(var(--c-blue-lt)) 100%)',
-				'g-card': 'linear-gradient(145deg, hsl(var(--c-white) / 0.03)} 0%, transparent 100%)',
-				'g-hero': 'radial-gradient(ellipse 80% 60% at 70% 40%, hsl(var(--c-blue) / 0.08)} 0%, transparent 70%)',
-			},
+        'g-gold':
+          'linear-gradient(90deg, hsl(var(--c-gold)) 0%, hsl(var(--c-gold-lt)) 100%)',
+        'g-blue':
+          'linear-gradient(90deg, hsl(var(--c-blue)) 0%, hsl(var(--c-blue-lt)) 100%)',
+        'g-card':
+          'linear-gradient(145deg, hsl(var(--c-white) / 0.03)} 0%, transparent 100%)',
+        'g-hero':
+          'radial-gradient(ellipse 80% 60% at 70% 40%, hsl(var(--c-blue) / 0.08)} 0%, transparent 70%)',
+      },
 
       boxShadow: {
         glow: '0 0 2.5rem -0.5rem hsl(var(--c-gold) / 0.25)',
-      }
+      },
+
+      maxWidth: {
+        container: '',
+      },
+
+      spacing: {
+        section: 'var(--sec-py)',
+        gutter: '1.5rem',
+      },
+
+      borderRadius: {
+        s: '0.5rem',
+        m: '0.875rem',
+        l: '1.25rem',
+        xl: '1.75rem',
+      },
+
+      transitionTimingFunction: {
+        DEFAULT: 'cubic-bezier(0.16, 1, 0.3, 1)',
+      },
+
+      transitionDuration: {
+        DEFAULT: '0.2s',
+        med: '0.45s',
+      },
     },
   },
   plugins: [],
