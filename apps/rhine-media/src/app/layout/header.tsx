@@ -60,7 +60,15 @@ export default function Header() {
 								<Link to="/">На головну</Link>
 							</ButtonMain>
 							<ButtonMain asChild className='max-sm:hidden'>
-								<a href="#contact-form">Надіслати повідомлення</a>
+								<a
+									href="#contact-form"
+									onClick={(e) => {
+										e.preventDefault();
+										document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+									}}
+								>
+									Надіслати повідомлення
+								</a>
 							</ButtonMain>
 						</>
 					) : (
