@@ -75,9 +75,11 @@ module.exports = {
         'g-blue':
           'linear-gradient(90deg, hsl(var(--c-blue)) 0%, hsl(var(--c-blue-lt)) 100%)',
         'g-card':
-          'linear-gradient(145deg, hsl(var(--c-white) / 0.03)} 0%, transparent 100%)',
+          'linear-gradient(145deg, hsl(var(--c-white) / 0.03) 0%, transparent 100%)',
         'g-hero':
-          'radial-gradient(ellipse 80% 60% at 70% 40%, hsl(var(--c-blue) / 0.08)} 0%, transparent 70%)',
+          'radial-gradient(ellipse 80% 60% at 70% 40%, hsl(var(--c-blue) / 0.08) 0%, transparent 70%)',
+        'g-grid':
+          'linear-gradient(hsl(var(--c-blue) / 0.05) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--c-blue) / 0.05) 1px, transparent 1px)'
       },
 
       boxShadow: {

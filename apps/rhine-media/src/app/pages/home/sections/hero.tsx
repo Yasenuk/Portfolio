@@ -8,10 +8,8 @@ export default function Hero() {
 	return (
 		<section className="relative flex min-h-screen items-center overflow-hidden pb-[60px] pt-[90px]">
 			<div
-				className="pointer-events-none absolute inset-0"
+				className="pointer-events-none absolute inset-0 bg-g-grid"
 				style={{
-					backgroundImage:
-						'linear-gradient(rgba(62,114,236,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(62,114,236,0.035) 1px, transparent 1px)',
 					backgroundSize: '64px 64px',
 				}}
 			/>

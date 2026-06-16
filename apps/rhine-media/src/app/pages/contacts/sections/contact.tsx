@@ -49,9 +49,10 @@ export default function Contact() {
 							})}
 						</div>
 
-						<div className="mt-9 flex h-[220px] flex-col items-center justify-center gap-2 rounded-[1.25rem] border border-line-soft bg-bg-card text-center text-[0.85rem] text-text-3">
-							<span className="text-[2rem]">🗺️</span>
-							Працюємо віддалено · обслуговуємо клієнтів глобально
+						<div className="relative mt-9 flex h-[220px] flex-col items-center justify-center gap-2 rounded-[1.25rem] border border-line-soft bg-bg-card text-center text-[0.85rem] text-text-3">
+							<div className="absolute inset-0 bg-g-grid bg-[length:28px_28px]" />
+							<div className="relative mb-1 grid place-items-center size-8 bg-gold-dim rounded-full rounded-ee-none border border-line-gold rotate-45 after:size-3 after:rounded-full after:bg-gold after:block" />
+							<span>Працюємо віддалено · обслуговуємо клієнтів глобально</span>
 						</div>
 					</Reveal>
 
