@@ -12,6 +12,13 @@ export default function Header() {
 	const location = useLocation();
 	const isContacts = location.pathname === '/contacts';
 
+	const scrollToForm = () => {
+		const el = document.getElementById('contact-form');
+		if (!el) return;
+		const y = el.getBoundingClientRect().top + window.scrollY - 100;
+		window.scrollTo({ top: y, behavior: 'smooth' });
+	};
+
 	useEffect(() => setOpen(false), [location]);
 
 	useEffect(() => {
@@ -64,7 +71,7 @@ export default function Header() {
 									href="#contact-form"
 									onClick={(e) => {
 										e.preventDefault();
-										document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+										scrollToForm();
 									}}
 								>
 									Надіслати повідомлення
@@ -135,8 +142,8 @@ export default function Header() {
 								href="#contact-form"
 								onClick={(e) => {
 									e.preventDefault();
-									document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
 									setOpen(false);
+									setTimeout(scrollToForm, 120);
 								}}
 							>
 								Надіслати повідомлення
