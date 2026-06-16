@@ -37,13 +37,13 @@ export function ContactForm() {
 		setSubmitted(true);
 	}
 
-	const field = cn(fieldClass, showErrors && 'invalid:border-[#E87060] invalid:focus:border-[#E87060]');
+	const field = cn(fieldClass, showErrors && 'invalid:border-red invalid:focus:border-red');
 
 	return (
 		<>
 			<form
 				noValidate
-					onSubmit={handleSubmit}
+				onSubmit={handleSubmit}
 				className="flex flex-col gap-5 rounded-[1.75rem] border border-line-soft bg-bg-card p-[44px_40px] max-sm:p-[28px_22px]"
 			>
 				<h3 className="mb-2 font-head text-[1.35rem] font-bold">Надішліть нам повідомлення</h3>
@@ -107,7 +107,7 @@ export function ContactForm() {
 								'peer size-[18px] cursor-pointer appearance-none rounded-[5px] border border-line bg-bg-2 transition-colors',
 								'checked:border-line-gold checked:bg-gold-dim',
 								'focus:border-gold focus:outline-none focus:ring-[3px] focus:ring-gold/10',
-								showErrors && 'invalid:border-[#E87060]'
+								showErrors && 'invalid:border-red'
 							)}
 						/>
 						<svg
@@ -131,10 +131,8 @@ export function ContactForm() {
 				</div>
 
 				{submitted ? (
-					<div className="rounded-[1.75rem] border border-line-gold bg-bg-card p-[44px_40px] text-center">
-						<div className="mb-4 text-[2.5rem]">✅</div>
-						<h3 className="mb-2 font-head text-[1.35rem] font-bold">Дякуємо!</h3>
-						<p className="text-text-2">Ваше повідомлення надіслано. Ми звʼяжемося з вами протягом 2–4 робочих годин.</p>
+					<div className="bg-green-lt/10 border border-green-lt/30 rounded-bm px-[1.375rem] py-[1.125rem] text-[0.93rem] text-center">
+						<p className="text-green">✅ Ваше повідомлення надіслано. Ми звʼяжемося з вами протягом 2–4 робочих годин.</p>
 					</div>
 				) : (
 					<ButtonMain type="submit" className="w-full">Надіслати повідомлення <Icon name='arrow' className='size-[13px]' /></ButtonMain>

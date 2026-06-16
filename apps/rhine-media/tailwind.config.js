@@ -57,6 +57,10 @@ module.exports = {
         red: {
           DEFAULT: 'hsl(var(--c-red) / <alpha-value>)',
         },
+        green: {
+          DEFAULT: 'hsl(var(--c-green) / <alpha-value>)',
+          lt: 'hsl(var(--c-green-lt) / <alpha-value>)',
+        },
         text: {
           1: 'hsl(var(--t-1) / <alpha-value>)',
           2: 'hsl(var(--t-2) / <alpha-value>)',
@@ -97,10 +101,10 @@ module.exports = {
       },
 
       borderRadius: {
-        'b-s': '0.5rem',
-        'b-m': '0.875rem',
-        'b-l': '1.25rem',
-        'b-xl': '1.75rem',
+        'bs': '0.5rem',
+        'bm': '0.875rem',
+        'bl': '1.25rem',
+        'bxl': '1.75rem',
       },
 
       transitionTimingFunction: {

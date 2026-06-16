@@ -54,7 +54,7 @@ export default function Footer() {
 										aria-label={s.label}
 										target={external ? '_blank' : undefined}
 										rel={external ? 'noreferrer' : undefined}
-										className="flex size-9 items-center justify-center rounded-b-s border border-line-soft bg-bg-card text-[0.85rem] text-text-2 transition-colors hover:border-line-gold hover:bg-gold-dim hover:text-gold"
+										className="flex size-9 items-center justify-center rounded-bs border border-line-soft bg-bg-card text-[0.85rem] text-text-2 transition-colors hover:border-line-gold hover:bg-gold-dim hover:text-gold"
 									>
 										{s.icon}
 									</a>
