@@ -13,10 +13,10 @@ function FaqRow({ q, a }: { q: string; a: string }) {
 			className="border-b border-line-soft"
 		>
 			<Collapsible.Trigger className="group flex w-full items-center justify-between gap-3 py-[18px] text-left">
-				<span className="font-head text-[0.97rem] font-semibold text-text-1 transition-colors duration-200 group-hover:text-gold-lt">{q}</span>
+				<span className="font-head text-[0.97rem] font-semibold text-text-1 transition-colors group-hover:text-gold-lt">{q}</span>
 				<span
 					className={cn(
-						'flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center rounded-[6px] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]',
+						'flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center rounded-[6px] transition-all',
 						open ? 'rotate-180 bg-gold-dim text-gold' : 'bg-bg-card text-text-2'
 					)}
 				>

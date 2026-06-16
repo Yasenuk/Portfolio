@@ -15,8 +15,26 @@ export default function Header() {
 	const scrollToForm = () => {
 		const el = document.getElementById('contact-form');
 		if (!el) return;
-		const y = el.getBoundingClientRect().top + window.scrollY - 100;
-		window.scrollTo({ top: y, behavior: 'smooth' });
+		const html = document.documentElement;
+		const prevBehavior = html.style.scrollBehavior;
+		html.style.scrollBehavior = 'auto';
+		const start = window.scrollY;
+		const target = el.getBoundingClientRect().top + start - 90;
+		const distance = target - start;
+		const duration = 600;
+		const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+		let startTime: number | null = null;
+		const step = (now: number) => {
+			if (startTime === null) startTime = now;
+			const progress = Math.min((now - startTime) / duration, 1);
+			window.scrollTo(0, start + distance * easeOutCubic(progress));
+			if (progress < 1) {
+				requestAnimationFrame(step);
+			} else {
+				html.style.scrollBehavior = prevBehavior;
+			}
+		};
+		requestAnimationFrame(step);
 	};
 
 	useEffect(() => setOpen(false), [location]);
