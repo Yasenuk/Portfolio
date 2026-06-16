@@ -1,9 +1,10 @@
 import type {
 	Vertical, TrafficSource, Partner, Feature, ChecklistItem,
-	Stat, StatCardData, FaqItem, ContactDetail
+	Stat, StatCardData, FaqItem, ContactDetail,
+	NavLink, SocialLink, FooterColumn
 } from '@portfolio/rhine-media-types';
 
-export const navLinks = [
+export const navLinks: NavLink[] = [
 	{ label: 'Вертикалі', href: '/#verticals' },
 	{ label: 'Джерела трафіку', href: '/#traffic' },
 	{ label: 'Партнери', href: '/#partners' },
@@ -178,4 +179,37 @@ export const contactDetails: ContactDetail[] = [
 	{ icon: '✉️', label: 'Email', value: 'hello@rhine-media.com' },
 	{ icon: '💼', label: 'Робочі години', value: 'Пн – Пт · 09:00 – 20:00 CET' },
 	{ icon: '⚡', label: 'Час відповіді', value: 'Зазвичай протягом 2–4 робочих годин' },
+];
+
+export const brandDescription =
+	'Перформанс-агенція медіабаїнгу. Закуповуємо трафік на масштабі у tier-1 та зростаючих GEO й ведемо повний цикл ваших кампаній — від креативів до атрибуції доходу.';
+
+export const socialLinks: SocialLink[] = [
+	{ label: 'Telegram', icon: '✈', href: 'https://t.me/rhinemedia' },
+	{ label: 'Email', icon: '✉', href: 'mailto:hello@rhine-media.com' },
+	{ label: 'LinkedIn', icon: 'in', href: '#' },
+];
+
+export const footerColumns: FooterColumn[] = [
+	{ title: 'Навігація', links: navLinks },
+	{
+		title: 'Компанія',
+		links: [
+			{ label: 'Чому ми', href: '/#why-us' },
+			{ label: 'Контакти', href: '/contacts' },
+			{ label: 'Поширені питання', href: '/contacts#faq' },
+		],
+	},
+	{
+		title: 'Звʼязок',
+		links: [
+			{ label: 'Telegram', href: 'https://t.me/rhinemedia' },
+			{ label: 'hello@rhine-media.com', href: 'mailto:hello@rhine-media.com' },
+		],
+	},
+];
+
+export const legalLinks: NavLink[] = [
+	{ label: 'Умови використання', href: '#' },
+	{ label: 'Політика конфіденційності', href: '#' },
 ];
