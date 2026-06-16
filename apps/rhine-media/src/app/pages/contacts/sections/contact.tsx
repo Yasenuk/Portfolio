@@ -21,11 +21,11 @@ export default function Contact() {
 				<div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.5fr] lg:items-start">
 					<Reveal>
 						<h3 className="mb-[14px] font-head text-[1.55rem] font-bold leading-[1.2]">
-							Поговорімо про ваш{' '}
-							<span className="bg-g-gold bg-clip-text text-transparent">трафік</span>
+							Збудуймо щось{' '}
+							<span className="bg-g-gold bg-clip-text text-transparent">прибуткове разом</span>
 						</h3>
 						<p className="mb-10 text-[0.93rem] leading-[1.75] text-text-2">
-							Незалежно від вертикалі чи GEO — підкажемо стратегію медіабаїнгу й орієнтовні показники ще до старту.
+							Незалежно від того, хто ви — рекламодавець, що прагне масштабувати свої офери, партнерська мережа в пошуку надійної баїнг-команди чи бренд, готовий до глобальної експансії, — ми хочемо почути вас.
 						</p>
 
 						<div className="flex flex-col gap-[22px]">
@@ -78,7 +78,7 @@ export default function Contact() {
 						<div className="relative mt-9 flex h-[220px] flex-col items-center justify-center gap-2 rounded-[1.25rem] border border-line-soft bg-bg-card text-center text-[0.85rem] text-text-3">
 							<div className="absolute inset-0 bg-g-grid bg-[length:28px_28px]" />
 							<div className="relative mb-1 grid place-items-center size-8 bg-gold-dim rounded-full rounded-ee-none border border-line-gold rotate-45 after:size-3 after:rounded-full after:bg-gold after:block" />
-							<span>Працюємо віддалено · обслуговуємо клієнтів глобально</span>
+							<span>Rhine Media · Глобальні операції</span>
 						</div>
 					</Reveal>
 

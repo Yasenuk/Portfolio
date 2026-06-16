@@ -38,7 +38,7 @@ export function ContactForm() {
 				onSubmit={handleSubmit}
 				className="flex flex-col gap-5 rounded-[1.75rem] border border-line-soft bg-bg-card p-[44px_40px] max-sm:p-[28px_22px]"
 			>
-				<h3 className="mb-2 font-head text-[1.35rem] font-bold">Залишити заявку</h3>
+				<h3 className="mb-2 font-head text-[1.35rem] font-bold">Надішліть нам повідомлення</h3>
 
 				<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 					<Field label="Ім'я*">
@@ -57,7 +57,7 @@ export function ContactForm() {
 					<input className={fieldClass} name="company" placeholder="Назва вашої компанії" />
 				</Field>
 
-				<Field label="Telegram / Skype ">
+				<Field label="Telegram / Skype нік">
 					<input className={fieldClass} name="social" placeholder="@вашеім'якористувача" />
 				</Field>
 
@@ -84,7 +84,7 @@ export function ContactForm() {
 						className={cn(fieldClass, 'min-h-[130px] resize-y max-h-[15rem]')}
 						name="message"
 						required
-						placeholder="Коротко про офер, GEO та цілі…"
+						placeholder="Розкажіть про ваш офер, цілі, GEO та інші деталі, які допоможуть нам зрозуміти ваші потреби…"
 					/>
 				</Field>
 
@@ -101,10 +101,10 @@ export function ContactForm() {
 					<div className="rounded-[1.75rem] border border-line-gold bg-bg-card p-[44px_40px] text-center">
 						<div className="mb-4 text-[2.5rem]">✅</div>
 						<h3 className="mb-2 font-head text-[1.35rem] font-bold">Дякуємо!</h3>
-						<p className="text-text-2">Вашу заявку отримано. Ми звʼяжемося з вами протягом 2–4 робочих годин.</p>
+						<p className="text-text-2">Ваше повідомлення надіслано. Ми звʼяжемося з вами протягом 2–4 робочих годин.</p>
 					</div>
 				) : (
-					<ButtonMain type="submit" className="w-full">Надіслати заявку <Icon name='arrow' className='size-[13px]' /></ButtonMain>
+					<ButtonMain type="submit" className="w-full">Надіслати повідомлення <Icon name='arrow' className='size-[13px]' /></ButtonMain>
 				)}
 			</form>
 		</>
