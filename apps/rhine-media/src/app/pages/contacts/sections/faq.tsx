@@ -12,8 +12,8 @@ function FaqRow({ q, a }: { q: string; a: string }) {
 			onOpenChange={setOpen}
 			className="border-b border-line-soft"
 		>
-			<Collapsible.Trigger className="group flex w-full items-center justify-between gap-3 py-[18px] text-left">
-				<span className="font-head text-[0.97rem] font-semibold text-text-1 transition-colors group-hover:text-gold-lt">{q}</span>
+			<Collapsible.Trigger className="group flex w-full items-center justify-between gap-3 py-[18px] text-left font-head font-semibold">
+				<span className="text-[0.97rem] text-text-1 transition-colors group-hover:text-gold-lt">{q}</span>
 				<span
 					className={cn(
 						'flex h-[22px] w-[22px] text-[0.7rem] flex-shrink-0 items-center justify-center rounded-[6px] transition-all',
