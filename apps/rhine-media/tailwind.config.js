@@ -105,6 +105,17 @@ module.exports = {
         DEFAULT: '0.2s',
         med: '0.45s',
       },
+
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
+
+      animation: {
+        marquee: 'marquee 32s linear infinite',
+      },
     },
   },
   plugins: [],
