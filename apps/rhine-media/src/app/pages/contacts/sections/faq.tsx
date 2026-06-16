@@ -16,20 +16,11 @@ function FaqRow({ q, a }: { q: string; a: string }) {
 				<span className="font-head text-[0.97rem] font-semibold text-text-1 transition-colors group-hover:text-gold-lt">{q}</span>
 				<span
 					className={cn(
-						'flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center rounded-[6px] transition-all',
+						'flex h-[22px] w-[22px] text-[0.7rem] flex-shrink-0 items-center justify-center rounded-[6px] transition-all',
 						open ? 'rotate-180 bg-gold-dim text-gold' : 'bg-bg-card text-text-2'
 					)}
 				>
-					<svg
-						className="h-3 w-3"
-						viewBox="0 0 16 16"
-						fill="none"
-						stroke="currentColor"
-						strokeWidth="2"
-						aria-hidden="true"
-					>
-						<path d="M4 6l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
-					</svg>
+					▾
 				</span>
 			</Collapsible.Trigger>
 			<Collapsible.Content className="overflow-hidden data-[state=open]:animate-collapsible-down data-[state=closed]:animate-collapsible-up">
@@ -41,9 +32,9 @@ function FaqRow({ q, a }: { q: string; a: string }) {
 
 export default function FAQ() {
 	return (
-		<section id="faq" className="bg-bg-1 py-section">
+		<section id="faq" className="bg-bg-0 py-section">
 			<div className="container">
-				<div className="mx-auto max-w-[780px]">
+				<div className="mx-auto max-w-[720px]">
 					<Reveal>
 						<SectionHeading
 							align="center"
