@@ -59,3 +59,19 @@ export type SectionHeadingProps = {
 	subtitle?: string;
 	align?: 'center' | 'left';
 };
+
+export type NavLink = {
+	label: string;
+	href: string;
+};
+
+export type SocialLink = {
+	label: string;
+	icon: string;
+	href: string;
+};
+
+export type FooterColumn = {
+	title: string;
+	links: NavLink[];
+};
