@@ -10,4 +10,4 @@ export const stagger: Variants = {
 	show:   { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
-export const viewport = { once: true, margin: '-5rem' } as const;
+export const viewport = { once: true, margin: '-80px' } as const;
