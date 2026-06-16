@@ -1,14 +1,16 @@
 import * as React from 'react';
 
-import { Link } from 'react-router-dom';
-import * as Collapsible from '@radix-ui/react-collapsible';
-
 import { ButtonMain, } from '@portfolio/rhine-media';
 import { verticalOptions, budgetOptions } from '@portfolio/rhine-media-shared';
 import { cn } from '@portfolio/shared-utils';
+import { Icon } from '@portfolio/shared-ui';
 
-const fieldClass =
-	'w-full rounded-[0.5rem] border border-line bg-bg-2 px-[15px] py-[13px] text-[0.91rem] text-text-1 outline-none transition-all placeholder:text-text-3 focus:border-gold focus:ring-[3px] focus:ring-gold/10';
+const fieldClass = cn(
+	'w-full rounded-[0.5rem] border border-line bg-bg-2',
+	'px-[15px] py-[13px] text-[0.91rem] text-text-1 outline-none',
+	'transition-all placeholder:text-text-3',
+	'focus:border-gold focus:ring-[3px] focus:ring-gold/10'
+);
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
 	return (
@@ -19,7 +21,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 	);
 }
 
-export default function ContactForm() {
+export function ContactForm() {
 	const [submitted, setSubmitted] = React.useState(false);
 
 	function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -31,11 +33,11 @@ export default function ContactForm() {
 		<>
 			<form
 				onSubmit={handleSubmit}
-				className="rounded-[1.75rem] border border-line-soft bg-bg-card p-[44px_40px] max-sm:p-[28px_22px]"
+				className="flex flex-col gap-5 rounded-[1.75rem] border border-line-soft bg-bg-card p-[44px_40px] max-sm:p-[28px_22px]"
 			>
-				<h3 className="mb-7 font-head text-[1.35rem] font-bold">Залишити заявку</h3>
+				<h3 className="mb-2 font-head text-[1.35rem] font-bold">Залишити заявку</h3>
 
-				<div className="mb-5 grid grid-cols-1 gap-4 sm:grid-cols-2">
+				<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 					<Field label="Ім'я*">
 						<input className={fieldClass} name="firstName" required placeholder="Іван" />
 					</Field>
@@ -49,15 +51,15 @@ export default function ContactForm() {
 				</Field>
 
 				<Field label="Компанія / бренд">
-					<input className={fieldClass} name="company" required placeholder="Назва вашої компанії" />
+					<input className={fieldClass} name="company" placeholder="Назва вашої компанії" />
 				</Field>
 
 				<Field label="Telegram / Skype ">
-					<input className={fieldClass} name="social" required placeholder="@вашеім'якористувача" />
+					<input className={fieldClass} name="social" placeholder="@вашеім'якористувача" />
 				</Field>
 
-				<Field label="Вертикаль / ніша">
-					<select className={fieldClass} name="vertical" defaultValue="">
+				<Field label="Вертикаль / ніша*">
+					<select className={fieldClass} name="vertical" required defaultValue="">
 						<option value="" disabled>Оберіть вертикаль</option>
 						{verticalOptions.map((opt) => (
 							<option key={opt} value={opt}>{opt}</option>
@@ -74,16 +76,14 @@ export default function ContactForm() {
 					</select>
 				</Field>
 
-				<div className="mb-6">
-					<Field label="Повідомлення">
-						<textarea
-							className={cn(fieldClass, 'min-h-[130px] resize-y')}
-							name="message"
-							required
-							placeholder="Коротко про офер, GEO та цілі…"
-						/>
-					</Field>
-				</div>
+				<Field label="Повідомлення*">
+					<textarea
+						className={cn(fieldClass, 'min-h-[130px] resize-y max-h-[15rem]')}
+						name="message"
+						required
+						placeholder="Коротко про офер, GEO та цілі…"
+					/>
+				</Field>
 
 				{submitted ? (
 					<div className="rounded-[1.75rem] border border-line-gold bg-bg-card p-[44px_40px] text-center">
@@ -92,7 +92,7 @@ export default function ContactForm() {
 						<p className="text-text-2">Вашу заявку отримано. Ми звʼяжемося з вами протягом 2–4 робочих годин.</p>
 					</div>
 				) : (
-					<ButtonMain type="submit" className="w-full">Надіслати заявку</ButtonMain>
+					<ButtonMain type="submit" className="w-full">Надіслати заявку <Icon name='arrow' className='size-[13px]' /></ButtonMain>
 				)}
 			</form>
 		</>

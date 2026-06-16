@@ -54,6 +54,9 @@ module.exports = {
         black: {
           DEFAULT: 'hsl(var(--c-black) / <alpha-value>)',
         },
+        red: {
+          DEFAULT: 'hsl(var(--c-red) / <alpha-value>)',
+        },
         text: {
           1: 'hsl(var(--t-1) / <alpha-value>)',
           2: 'hsl(var(--t-2) / <alpha-value>)',
