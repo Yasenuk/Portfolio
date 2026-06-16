@@ -1,4 +1,5 @@
 import Contact from "./sections/contact";
+import FAQ from "./sections/faq";
 import Hero from "./sections/hero";
 
 export default function Contacts() {
@@ -6,6 +7,7 @@ export default function Contacts() {
 		<>
 			<Hero />
 			<Contact />
+			<FAQ />
 		</>
 	);
 }

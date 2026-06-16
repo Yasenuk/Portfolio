@@ -50,7 +50,7 @@ export function ContactForm() {
 				</div>
 
 				<Field label="Електронна адреса*">
-					<input className={fieldClass} name="email" required placeholder="ivan@company.com" />
+					<input className={fieldClass} type="email" name="email" required placeholder="ivan@company.com" />
 				</Field>
 
 				<Field label="Компанія / бренд">
