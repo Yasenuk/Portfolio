@@ -22,6 +22,11 @@ module.exports = {
       '2xl': '1240px',
     },
     extend: {
+      fontFamily: {
+        head: ['"Manrope"', 'sans-serif'],
+        sans: ['"Inter"', 'sans-serif'],
+      },
+
       colors: {
         bg: {
           0: 'hsl(var(--bg-0) / <alpha-value>)',
@@ -69,7 +74,7 @@ module.exports = {
       },
 
       maxWidth: {
-        container: '',
+        container: '1240px',
       },
 
       spacing: {
