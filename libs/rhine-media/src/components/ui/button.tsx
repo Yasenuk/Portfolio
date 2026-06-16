@@ -6,7 +6,7 @@ import { cn } from '@portfolio/shared-utils';
 const buttonVariants = cva(
 	`inline-flex items-center justify-center gap-x-2
 	rounded-full font-semibold text-body
-	px-7 h-[3.25rem] transition-all duration-300
+	px-7 py-[0.875rem] transition-all duration-300
 	hover:-translate-y-[0.125rem]`,
 	{
 		variants: {

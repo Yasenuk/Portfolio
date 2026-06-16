@@ -35,7 +35,7 @@ export default function Header() {
 					<span className="flex h-9 w-9 items-center justify-center rounded-[9px] bg-g-gold text-[13px] font-black tracking-[-0.02em] text-black">
 						RM
 					</span>
-					<span>
+					<span className='hidden lg:inline'>
 						Rhine <span className="text-gold">Media</span>
 					</span>
 				</Link>
@@ -53,10 +53,10 @@ export default function Header() {
 				</nav>
 
 				<div className="flex items-center gap-2.5">
-					<ButtonMain asChild variant="outlined" className="hidden md:inline-flex">
+					<ButtonMain asChild variant="outlined" className="hidden lg:inline-flex">
 						<Link to="/contacts">Контакти</Link>
 					</ButtonMain>
-					<ButtonMain asChild>
+					<ButtonMain asChild className='max-sm:hidden'>
 						<Link to="/contacts">Почати співпрацю</Link>
 					</ButtonMain>
 
@@ -76,8 +76,9 @@ export default function Header() {
 
 			<div
 				className={cn(
-					'fixed inset-0 z-[850] flex-col items-center justify-center gap-[26px] bg-bg-0',
-					open ? 'flex' : 'hidden'
+					'fixed right-0 bottom-0 top-0 w-full z-[850] flex-col items-center justify-center gap-[26px] bg-bg-0 overflow-hidden',
+					'transition-all duration-med flex text-[1.6rem] font-bold',
+					open ? 'max-w-full opacity-100' : 'max-w-0 opacity-0'
 				)}
 			>
 				<button
@@ -95,14 +96,17 @@ export default function Header() {
 							key={link.href}
 							href={link.href}
 							onClick={() => setOpen(false)}
-							className="font-head text-[1.6rem] font-bold text-text-1 transition-colors hover:text-gold"
+							className="font-head hover:text-gold"
 						>
 							{link.label}
 						</a>
 					))}
 				</nav>
 
-				<ButtonMain asChild>
+				<ButtonMain asChild variant="outlined" className='w-[300px]'>
+					<Link to="/contacts">Контакти</Link>
+				</ButtonMain>
+				<ButtonMain asChild className='w-[300px] text-text-1'>
 					<Link to="/contacts" onClick={() => setOpen(false)}>
 						Почати співпрацю
 					</Link>
