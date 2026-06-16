@@ -123,7 +123,14 @@ export default function Header() {
 							<Link to="/" onClick={() => setOpen(false)}>На головну</Link>
 						</ButtonMain>
 						<ButtonMain asChild className='w-[300px] text-text-1'>
-							<a href="#contact-form" onClick={() => setOpen(false)}>
+							<a
+								href="#contact-form"
+								onClick={(e) => {
+									e.preventDefault();
+									document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+									setOpen(false);
+								}}
+							>
 								Надіслати повідомлення
 							</a>
 						</ButtonMain>
