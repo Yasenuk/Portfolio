@@ -83,6 +83,7 @@
     "libs/*",
     "libs/shared/*",
     "libs/aperture/*",
-    "libs/nft-marketplace/*"
+    "libs/nft-marketplace/*",
+    "libs/rhine-media/*"
   ]
 }

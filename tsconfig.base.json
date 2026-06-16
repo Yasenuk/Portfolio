@@ -38,7 +38,13 @@
       "@portfolio/nft-marketplace-hooks": ["./libs/nft-marketplace/src/hooks/index.ts"],
       "@portfolio/nft-marketplace-shared": ["./libs/nft-marketplace/src/shared/index.ts"],
       "@portfolio/nft-marketplace-utils": ["./libs/nft-marketplace/src/utils/index.ts"],
-      "@portfolio/nft-marketplace-types": ["./libs/nft-marketplace/src/types/index.ts"]
+      "@portfolio/nft-marketplace-types": ["./libs/nft-marketplace/src/types/index.ts"],
+
+      "@portfolio/rhine-media": ["./libs/rhine-media/src/index.ts"],
+      "@portfolio/rhine-media-hooks": ["./libs/rhine-media/src/hooks/index.ts"],
+      "@portfolio/rhine-media-shared": ["./libs/rhine-media/src/shared/index.ts"],
+      "@portfolio/rhine-media-utils": ["./libs/rhine-media/src/utils/index.ts"],
+      "@portfolio/rhine-media-types": ["./libs/rhine-media/src/types/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
