@@ -1,4 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* You can add global styles to this file, and also import other style files */
+
+@layer base {
+  :root {
+    --c-gold: 39 57% 51%;
+    --c-gold-lt: 40 73% 63%;
+    --c-blue: 222 82% 58%;
+    --c-blue-lt: 222 100% 69%;
+    --c-white: 0 0% 100%;
+
+    --bg-0: 227 47% 4%;
+    --bg-1: 225 50% 6%;
+    --bg-2: 225 45% 9%;
+    --bg-card: 218 41% 11%;
+    --bg-card-h: 216 41% 13%;
+
+    --t-1: 226 57% 95%;
+    --t-2: 224 19% 61%;
+    --t-3: 224 18% 37%;
+	}
+}
