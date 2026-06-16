@@ -54,6 +54,7 @@ export type ContactDetail = {
 export type SectionHeadingProps = {
 	eyebrow: string;
 	title: ReactNode;
+	titleEnd?: ReactNode;
 	highlight: string;
 	accent?: 'action' | 'azure';
 	subtitle?: string;

@@ -9,6 +9,7 @@ const accentClass = {
 export function SectionHeading({
 	eyebrow,
 	title,
+	titleEnd,
 	highlight,
 	accent = 'action',
 	subtitle,
@@ -27,7 +28,8 @@ export function SectionHeading({
 				{title}{' '}
 				<span className={cn('bg-clip-text text-transparent', accentClass[accent])}>
 					{highlight}
-				</span>
+				</span>{' '}
+				{titleEnd}
 			</h2>
 
 			{subtitle && (

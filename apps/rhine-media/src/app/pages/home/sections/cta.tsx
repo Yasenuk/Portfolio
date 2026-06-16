@@ -21,8 +21,9 @@ export default function Cta() {
 								<SectionHeading
 									align="center"
 									eyebrow="Масштабуймося разом"
-									title="Готові свій трафік?"
+									title="Готові"
 									highlight="масштабувати"
+									titleEnd="свій трафік?"
 									subtitle="Приєднуйтесь до брендів та партнерів-партнерів, які довіряють Rhine Media забезпечення масштабної продуктивності у кожному великому географічному регіоні."
 								/>
 							</Reveal>
