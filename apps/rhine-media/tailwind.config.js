@@ -46,6 +46,9 @@ module.exports = {
           lt: 'hsl(var(--c-blue-lt) / <alpha-value>)',
           dim: 'hsl(var(--c-blue) / 0.122)',
         },
+        black: {
+          DEFAULT: 'hsl(var(--c-black) / <alpha-value>)',
+        },
         text: {
           1: 'hsl(var(--t-1) / <alpha-value>)',
           2: 'hsl(var(--t-2) / <alpha-value>)',
