@@ -3,6 +3,7 @@ import Hero from './sections/hero';
 import Stats from './sections/stats';
 import Verticals from './sections/verticals';
 import Traffic from './sections/traffic';
+import Partners from './sections/partners';
 
 export default function Home() {
 	return (
@@ -11,6 +12,7 @@ export default function Home() {
 			<Stats />
 			<Verticals />
 			<Traffic />
+			<Partners />
 		</>
 	);
 }
