@@ -1,4 +1,4 @@
-import { Reveal } from "@portfolio/rhine-media";
+import { RevealLeft, RevealRight } from "@portfolio/rhine-media";
 import { ContactForm } from "@portfolio/rhine-media";
 import { contactDetails } from "@portfolio/rhine-media-shared";
 
@@ -19,7 +19,7 @@ export default function Contact() {
 		<section className="py-20">
 			<div className="container">
 				<div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.5fr] lg:items-start">
-					<Reveal>
+					<RevealLeft>
 						<h3 className="mb-[14px] font-head text-[1.55rem] font-bold leading-[1.2]">
 							Збудуймо щось{' '}
 							<span className="bg-g-gold bg-clip-text text-transparent">прибуткове разом</span>
@@ -45,7 +45,7 @@ export default function Contact() {
 													href={href}
 													target={href.startsWith('http') ? '_blank' : undefined}
 													rel={href.startsWith('http') ? 'noreferrer' : undefined}
-													className="text-[0.92rem] text-text-1 transition-colors hover:text-gold"
+													className="text-[0.92rem] text-text-1 transition-colors duration-200 hover:text-gold"
 												>
 													{c.value}
 												</a>
@@ -67,7 +67,7 @@ export default function Contact() {
 									<a
 										key={s.label}
 										href={s.href}
-										className="inline-flex rounded-full border border-line-soft px-[18px] py-[10px] text-[0.8rem] text-text-1 transition-colors hover:border-line-gold hover:text-gold"
+										className="inline-flex rounded-full border border-line-soft px-[18px] py-[10px] text-[0.8rem] text-text-1 transition-colors duration-200 hover:border-line-gold hover:text-gold"
 									>
 										{s.label}
 									</a>
@@ -80,11 +80,11 @@ export default function Contact() {
 							<div className="relative mb-1 grid place-items-center size-8 bg-gold-dim rounded-full rounded-ee-none border border-line-gold rotate-45 after:size-3 after:rounded-full after:bg-gold after:block" />
 							<span>Rhine Media · Глобальні операції</span>
 						</div>
-					</Reveal>
+					</RevealLeft>
 
-					<Reveal>
+					<RevealRight>
 						<ContactForm />
-					</Reveal>
+					</RevealRight>
 				</div>
 			</div>
 		</section>

@@ -12,11 +12,16 @@ function FaqRow({ q, a }: { q: string; a: string }) {
 			onOpenChange={setOpen}
 			className="border-b border-line-soft"
 		>
-			<Collapsible.Trigger className="flex w-full items-center justify-between gap-4 py-[18px] text-left">
-				<span className="font-head text-[0.97rem] font-semibold text-text-1">{q}</span>
-				<span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-md border border-line-soft bg-bg-card">
+			<Collapsible.Trigger className="group flex w-full items-center justify-between gap-3 py-[18px] text-left">
+				<span className="font-head text-[0.97rem] font-semibold text-text-1 transition-colors duration-200 group-hover:text-gold-lt">{q}</span>
+				<span
+					className={cn(
+						'flex h-[22px] w-[22px] flex-shrink-0 items-center justify-center rounded-[6px] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]',
+						open ? 'rotate-180 bg-gold-dim text-gold' : 'bg-bg-card text-text-2'
+					)}
+				>
 					<svg
-						className={cn('h-3.5 w-3.5 text-gold transition-transform', open && 'rotate-180')}
+						className="h-3 w-3"
 						viewBox="0 0 16 16"
 						fill="none"
 						stroke="currentColor"
