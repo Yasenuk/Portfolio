@@ -1,11 +1,14 @@
 const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
+const { join } = require('path');
+const preset = require('@portfolio/tailwind-config/preset');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [preset],
   content: [
-    './{src,pages,components,app}/**/*.{ts,tsx,js,jsx,html}',
-    '!./{src,pages,components,app}/**/*.{stories,spec}.{ts,tsx,js,jsx,html}',
+    './{src,pages,components,app}/**/!(*.stories|*.spec).{ts,tsx,js,jsx,html}',
+    join(__dirname, '../../libs/**/src/**/!(*.stories|*.spec).{ts,tsx,js,jsx,html}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
@@ -21,41 +24,33 @@ module.exports = {
         h3: ['2.375rem',     { lineHeight: '1.2' }],
         h4: ['1.75rem',      { lineHeight: '1.4' }],
         h5: ['1.375rem',     { lineHeight: '1.6' }],
-        h6: ['rem',          { lineHeight: '1.4' }],
-        caption: ['0.75rem', { lineHeight: '1.1' }],
+        body: ['1rem',       { fontWeight: '400', lineHeight: '1.4' }],
+        caption: ['0.75rem', { fontWeight: '400', lineHeight: '1.1' }],
       },
 
       colors: {
         bg: 'hsl(var(--bg) / <alpha-value>)',
         'bg-secondary': 'hsl(var(--bg-secondary) / <alpha-value>)',
-        cation: 'hsl(var(--cation) / <alpha-value>)',
+        label: 'hsl(var(--label) / <alpha-value>)',
         text: 'hsl(var(--text) / <alpha-value>)',
-        action: 'hsl(var(--action) / <alpha-value>)'
+        action: 'hsl(var(--action) / <alpha-value>)',
+        success: 'hsl(var(--success) / <alpha-value>)',
+        danger: 'hsl(var(--danger) / <alpha-value>)',
+        warning: 'hsl(var(--warning) / <alpha-value>)'
       },
 
       backgroundImage: {
-        'action-fade': 'linear-gradient(to top, hsl(var(--action)), transparent 0%)',
+        'action-fade': 'linear-gradient(to top, hsl(var(--action)), transparent 50%)',
       },
 
       borderRadius: {
-        DEAFULT: '1.25rem'
+        DEFAULT: '1.25rem'
       },
 
-      backdropBlur: "1rem"
+      backdropBlur: {
+        DEFAULT: '0.938rem'
+      }
     },
   },
-  plugins: [
-    plugin(({ addUtilities, theme }) => {
-      addUtilities({
-        '.font-display': {
-          fontFamily: theme('fontFamily.display').join(', '),
-          fontWeight: '700',
-        },
-        '.font-sans': {
-          fontFamily: theme('fontFamily.sans').join(', '),
-          fontWeight: '600',
-        },
-      });
-    }),
-  ],
+  plugins: [],
 };

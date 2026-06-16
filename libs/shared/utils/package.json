@@ -6,8 +6,8 @@
   "types": "./index.d.ts",
   "exports": {
     ".": {
-      "import": "./src/index.js",
-      "types": "./src/index.d.ts"
+      "import": "./index.js",
+      "types": "./index.d.ts"
     }
   }
 }

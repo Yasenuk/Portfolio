@@ -1,9 +1,0 @@
-{
-  "name": "nft marketplace",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/nft marketplace",
-  "projectType": "application",
-  "tags": ["scope:nft marketplace", "type:app"],
-  "// targets": "to see all targets run: nx show project nft marketplace --web",
-  "targets": {}
-}

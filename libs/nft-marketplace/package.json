@@ -1,0 +1,10 @@
+{
+  "name": "@portfolio/nft-marketplace",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import '../assets/styles/font.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 0 0% 17%;
+    --bg-secondary: 0 0% 23%;
+    --label: 60 0% 52%;
+    --text: 0 0% 100%;
+    --action: 266 100% 67%;
+    --success: 135 59% 49%;
+    --danger: 359 100% 61%;
+    --warning: 48 100% 50%;
+  }
+}
