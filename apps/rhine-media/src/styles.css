@@ -36,4 +36,8 @@
       --sec-py: 6.875rem;
     }
   }
+
+  body {
+    @apply bg-bg-0 font-sans text-text-1;
+  }
 }
