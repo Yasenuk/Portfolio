@@ -10,6 +10,7 @@ export default function Header() {
 	const scrolled = useScrolled(20);
 	const [open, setOpen] = useState(false);
 	const location = useLocation();
+	const isContacts = location.pathname === '/contacts';
 
 	useEffect(() => setOpen(false), [location]);
 
@@ -53,12 +54,25 @@ export default function Header() {
 				</nav>
 
 				<div className="flex items-center gap-2.5">
-					<ButtonMain asChild variant="outlined" className="hidden xl:inline-flex">
-						<Link to="/contacts">Зв'язок</Link>
-					</ButtonMain>
-					<ButtonMain asChild className='max-sm:hidden'>
-						<Link to="/contacts">Почати співпрацю</Link>
-					</ButtonMain>
+					{isContacts ? (
+						<>
+							<ButtonMain asChild variant="outlined" className="hidden xl:inline-flex">
+								<Link to="/">На головну</Link>
+							</ButtonMain>
+							<ButtonMain asChild className='max-sm:hidden'>
+								<a href="#contact-form">Надіслати повідомлення</a>
+							</ButtonMain>
+						</>
+					) : (
+						<>
+							<ButtonMain asChild variant="outlined" className="hidden xl:inline-flex">
+								<Link to="/contacts">Зв'язок</Link>
+							</ButtonMain>
+							<ButtonMain asChild className='max-sm:hidden'>
+								<Link to="/contacts">Почати співпрацю</Link>
+							</ButtonMain>
+						</>
+					)}
 
 					<button
 						type="button"
@@ -103,14 +117,29 @@ export default function Header() {
 					))}
 				</nav>
 
-				<ButtonMain asChild variant="outlined" className='w-[300px]'>
-					<Link to="/contacts">Зв'язок</Link>
-				</ButtonMain>
-				<ButtonMain asChild className='w-[300px] text-text-1'>
-					<Link to="/contacts" onClick={() => setOpen(false)}>
-						Почати співпрацю
-					</Link>
-				</ButtonMain>
+				{isContacts ? (
+					<>
+						<ButtonMain asChild variant="outlined" className='w-[300px]'>
+							<Link to="/" onClick={() => setOpen(false)}>На головну</Link>
+						</ButtonMain>
+						<ButtonMain asChild className='w-[300px] text-text-1'>
+							<a href="#contact-form" onClick={() => setOpen(false)}>
+								Надіслати повідомлення
+							</a>
+						</ButtonMain>
+					</>
+				) : (
+					<>
+						<ButtonMain asChild variant="outlined" className='w-[300px]'>
+							<Link to="/contacts" onClick={() => setOpen(false)}>Зв'язок</Link>
+						</ButtonMain>
+						<ButtonMain asChild className='w-[300px] text-text-1'>
+							<Link to="/contacts" onClick={() => setOpen(false)}>
+								Почати співпрацю
+							</Link>
+						</ButtonMain>
+					</>
+				)}
 			</div>
 		</header>
 	);

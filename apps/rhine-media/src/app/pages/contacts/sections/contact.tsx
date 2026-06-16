@@ -82,7 +82,7 @@ export default function Contact() {
 						</div>
 					</RevealLeft>
 
-					<RevealRight>
+					<RevealRight id="contact-form" className="scroll-mt-[100px]">
 						<ContactForm />
 					</RevealRight>
 				</div>
