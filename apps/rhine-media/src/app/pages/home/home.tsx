@@ -4,6 +4,7 @@ import Stats from './sections/stats';
 import Verticals from './sections/verticals';
 import Traffic from './sections/traffic';
 import Partners from './sections/partners';
+import WhyUs from './sections/why-us';
 
 export default function Home() {
 	return (
@@ -13,6 +14,7 @@ export default function Home() {
 			<Verticals />
 			<Traffic />
 			<Partners />
+			<WhyUs />
 		</>
 	);
 }
