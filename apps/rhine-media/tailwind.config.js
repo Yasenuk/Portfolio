@@ -78,7 +78,7 @@ module.exports = {
       },
 
       boxShadow: {
-        glow: '0 0 2.5rem -0.5rem hsl(var(--c-gold) / 0.25)',
+        glow: '0 0.875rem 2.375rem hsl(var(--c-gold) / 0.25)',
       },
 
       maxWidth: {
