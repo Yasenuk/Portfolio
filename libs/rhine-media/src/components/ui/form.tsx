@@ -4,6 +4,7 @@ import { ButtonMain, } from '@portfolio/rhine-media';
 import { verticalOptions, budgetOptions } from '@portfolio/rhine-media-shared';
 import { cn } from '@portfolio/shared-utils';
 import { Icon } from '@portfolio/shared-ui';
+import { Link } from 'react-router-dom';
 
 const fieldClass = cn(
 	'w-full rounded-[0.5rem] border border-line bg-bg-2',
@@ -11,6 +12,8 @@ const fieldClass = cn(
 	'transition-all placeholder:text-text-3',
 	'focus:border-gold focus:ring-[3px] focus:ring-gold/10'
 );
+
+const linkClass = "capitalize text-gold-lt";
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
 	return (
@@ -84,6 +87,15 @@ export function ContactForm() {
 						placeholder="Коротко про офер, GEO та цілі…"
 					/>
 				</Field>
+
+				<div className='flex gap-x-2.5 items-start mb-2'>
+					<input className={cn(fieldClass, "size-3 accent-gold")} type="checkbox" name="agree" id="user-agree" />
+					<label htmlFor='user-agree' className='text-text-2 text-[0.8rem] leading-[1.6] '>
+						<span>
+							Я погоджуюся з <Link className={linkClass} to={''}>Політикою конфіденційності</Link> та <Link className={linkClass} to={''}>Умовами використання</Link>. Я даю згоду на обробку моїх даних компанією Rhine Media для відповіді на цей запит.
+						</span>
+					</label>
+				</div>
 
 				{submitted ? (
 					<div className="rounded-[1.75rem] border border-line-gold bg-bg-card p-[44px_40px] text-center">
