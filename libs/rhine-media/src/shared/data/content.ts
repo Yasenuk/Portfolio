@@ -9,6 +9,7 @@ export const navLinks: NavLink[] = [
 	{ label: 'Джерела трафіку', href: '/#traffic' },
 	{ label: 'Партнери', href: '/#partners' },
 	{ label: 'Чому ми', href: '/#why-us' },
+	{ label: 'Контакти', href: '/contacts' },
 ];
 
 export const heroStats: Stat[] = [
@@ -185,31 +186,49 @@ export const brandDescription =
 	'Перформанс-агенція медіабаїнгу. Закуповуємо трафік на масштабі у tier-1 та зростаючих GEO й ведемо повний цикл ваших кампаній — від креативів до атрибуції доходу.';
 
 export const socialLinks: SocialLink[] = [
-	{ label: 'Telegram', icon: '✈', href: 'https://t.me/rhinemedia' },
-	{ label: 'Email', icon: '✉', href: 'mailto:hello@rhine-media.com' },
+	{ label: 'Telegram', icon: '✈', href: '#' },
 	{ label: 'LinkedIn', icon: 'in', href: '#' },
+	{ label: 'Teitter', icon: '𝕏', href: '#' },
+	{ label: 'Skype', icon: '☁', href: '#' },
 ];
 
 export const footerColumns: FooterColumn[] = [
-	{ title: 'Навігація', links: navLinks },
+	{
+		title: 'Вертикалі',
+		links: [
+			{ label: 'Трафік під дейтинг', href: '#' },
+			{ label: 'Нутра-кампанії', href: '#' },
+			{ label: 'Гемблінг / онлайн-ігри', href: '#' },
+			{ label: 'Конкурси з призами', href: '#' },
+			{ label: 'Крипто-офери', href: '#' },
+			{ label: 'Дорослий контент', href: '#' },
+		]
+	},
+	{
+		title: 'Джерела трафіку',
+		links: [
+			{ label: 'Реклама в Google', href: '#' },
+			{ label: 'Реклама в соцмережах', href: '#' },
+			{ label: 'Реклама в TikTok', href: '#' },
+			{ label: 'PropellerAds', href: '#' },
+			{ label: 'Нативна реклама', href: '#' },
+			{ label: 'Пуш- та поп-реклама', href: '#' },
+		]
+	},
 	{
 		title: 'Компанія',
 		links: [
-			{ label: 'Чому ми', href: '/#why-us' },
-			{ label: 'Контакти', href: '/contacts' },
-			{ label: 'Поширені питання', href: '/contacts#faq' },
-		],
-	},
-	{
-		title: 'Звʼязок',
-		links: [
-			{ label: 'Telegram', href: 'https://t.me/rhinemedia' },
-			{ label: 'hello@rhine-media.com', href: 'mailto:hello@rhine-media.com' },
+			{ label: 'Про компанію', href: '#' },
+			{ label: 'Контакти', href: '#' },
+			{ label: 'Партнери', href: '#' },
+			{ label: 'Умови використання', href: '#' },
+			{ label: 'Політика конфіденційності', href: '#' },
 		],
 	},
 ];
 
 export const legalLinks: NavLink[] = [
-	{ label: 'Умови використання', href: '#' },
-	{ label: 'Політика конфіденційності', href: '#' },
+	{ label: 'Умови', href: '#' },
+	{ label: 'Політика', href: '#' },
+	{ label: 'Контакти', href: '#' },
 ];

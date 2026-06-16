@@ -35,12 +35,12 @@ export default function Header() {
 					<span className="flex h-9 w-9 items-center justify-center rounded-[9px] bg-g-gold text-[13px] font-black tracking-[-0.02em] text-black">
 						RM
 					</span>
-					<span className='hidden lg:inline'>
+					<span className='inline sm:hidden lg:inline'>
 						Rhine <span className="text-gold">Media</span>
 					</span>
 				</Link>
 
-				<nav className="hidden items-center gap-[30px] md:flex" aria-label="Головне меню">
+				<nav className="hidden items-center gap-5 lg:gap-[30px] md:flex" aria-label="Головне меню">
 					{navLinks.map((link) => (
 						<a
 							key={link.href}
@@ -53,8 +53,8 @@ export default function Header() {
 				</nav>
 
 				<div className="flex items-center gap-2.5">
-					<ButtonMain asChild variant="outlined" className="hidden lg:inline-flex">
-						<Link to="/contacts">Контакти</Link>
+					<ButtonMain asChild variant="outlined" className="hidden xl:inline-flex">
+						<Link to="/contacts">Зв'язок</Link>
 					</ButtonMain>
 					<ButtonMain asChild className='max-sm:hidden'>
 						<Link to="/contacts">Почати співпрацю</Link>
@@ -104,7 +104,7 @@ export default function Header() {
 				</nav>
 
 				<ButtonMain asChild variant="outlined" className='w-[300px]'>
-					<Link to="/contacts">Контакти</Link>
+					<Link to="/contacts">Зв'язок</Link>
 				</ButtonMain>
 				<ButtonMain asChild className='w-[300px] text-text-1'>
 					<Link to="/contacts" onClick={() => setOpen(false)}>

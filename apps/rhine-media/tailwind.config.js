@@ -91,10 +91,10 @@ module.exports = {
       },
 
       borderRadius: {
-        s: '0.5rem',
-        m: '0.875rem',
-        l: '1.25rem',
-        xl: '1.75rem',
+        'b-s': '0.5rem',
+        'b-m': '0.875rem',
+        'b-l': '1.25rem',
+        'b-xl': '1.75rem',
       },
 
       transitionTimingFunction: {
