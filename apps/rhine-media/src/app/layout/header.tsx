@@ -36,7 +36,7 @@ export default function Header() {
 						RM
 					</span>
 					<span>
-						Rhine<span className="text-gold">Media</span>
+						Rhine <span className="text-gold">Media</span>
 					</span>
 				</Link>
 
@@ -53,12 +53,10 @@ export default function Header() {
 				</nav>
 
 				<div className="flex items-center gap-2.5">
-					<ButtonMain asChild variant="outlined" size="sm" className="hidden md:inline-flex">
-						<a href="https://t.me/rhinemedia" target="_blank" rel="noreferrer">
-							Telegram
-						</a>
+					<ButtonMain asChild variant="outlined" className="hidden md:inline-flex">
+						<Link to="/contacts">Контакти</Link>
 					</ButtonMain>
-					<ButtonMain asChild size="sm">
+					<ButtonMain asChild>
 						<Link to="/contacts">Почати співпрацю</Link>
 					</ButtonMain>
 
