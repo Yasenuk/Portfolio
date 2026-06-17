@@ -32,6 +32,17 @@ module.exports = {
         sans: ['"Inter"', 'sans-serif'],
       },
 
+      fontSize: {
+        hero: ["clamp(1.85rem, 3.5vw, 2.75rem)", { fontWeight: 800, letterSpacing: "-0.025rem" }],
+        logo: [["1.125rem", { fontWeight: 800, letterSpacing: "-0.02rem" }]],
+        "logo-mark": ["0.813rem", { fontWeight: 900, letterSpacing: "-0.02rem" }],
+        body: ["1rem", { lineHeight: 1.75 }],
+        link: ["0.85rem", { fontWeight: 500, letterSpacing: "0.01rem" }],
+        "link-mob": ["1.6rem", { fontWeight: 700 }],
+        eyebrow: ["0.75rem", { fontWeight: 700, letterSpacing: "0.14rem" }],
+        button: ["0.875rem", { fontWeight: 700, letterSpacing: "0.01rem" }]
+      },
+
       colors: {
         bg: {
           0: 'hsl(var(--bg-0) / <alpha-value>)',
