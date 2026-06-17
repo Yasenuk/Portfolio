@@ -1,8 +1,10 @@
 import { Reveal, SectionHeading } from '@portfolio/rhine-media';
 
+export type LegalBlock = string | { list: string[] };
+
 export interface LegalSection {
 	h: string;
-	body: string[];
+	body: LegalBlock[];
 }
 
 interface LegalPageProps {
@@ -23,8 +25,9 @@ export default function LegalPage({ title, highlight, updated, intro, sections }
 				/>
 				<div className="container relative">
 					<Reveal>
-						<SectionHeading align="left" eyebrow="Правова інформація" title={title} highlight={highlight} subtitle={intro} />
-						<p className="mt-6 text-[0.82rem] text-text-3">Останнє оновлення: {updated}</p>
+						<SectionHeading align="left" eyebrow="Правова інформація" title={title} highlight={highlight} />
+						<p className="mt-6 max-w-[680px] text-[0.95rem] leading-[1.75] text-text-2">{intro}</p>
+						<p className="mt-5 text-[0.82rem] text-text-3">Останнє оновлення: {updated}</p>
 					</Reveal>
 				</div>
 			</section>
@@ -36,9 +39,20 @@ export default function LegalPage({ title, highlight, updated, intro, sections }
 							<Reveal key={s.h}>
 								<h2 className="mb-3 font-head text-[1.25rem] font-bold text-text-1">{s.h}</h2>
 								<div className="flex flex-col gap-3 text-[0.93rem] leading-[1.75] text-text-2">
-									{s.body.map((p, i) => (
-										<p key={i}>{p}</p>
-									))}
+									{s.body.map((block, i) =>
+										typeof block === 'string' ? (
+											<p key={i}>{block}</p>
+										) : (
+											<ul key={i} className="flex flex-col gap-2">
+												{block.list.map((li, j) => (
+													<li key={j} className="flex gap-2.5">
+														<span className="mt-[9px] h-[5px] w-[5px] flex-shrink-0 rounded-full bg-gold" />
+														<span>{li}</span>
+													</li>
+												))}
+											</ul>
+										)
+									)}
 								</div>
 							</Reveal>
 						))}
