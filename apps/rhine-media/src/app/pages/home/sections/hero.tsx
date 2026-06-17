@@ -27,7 +27,7 @@ export default function Hero() {
 			/>
 
 			<div className='absolute right-0 top-0 bottom-0 opacity-[0.12] w-[46%] overflow-hidden'>
-				<img src="/assets/images/illustration.svg" alt="" />
+				<img src="/assets/images/illustration.svg" alt="Векторна ілюстрація" />
 			</div>
 
 			<div className="container relative max-w-[820px]">
