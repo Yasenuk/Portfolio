@@ -55,7 +55,7 @@ export type SectionHeadingProps = {
 	eyebrow: string;
 	title: ReactNode;
 	titleEnd?: ReactNode;
-	highlight: string;
+	highlight?: string;
 	accent?: 'action' | 'azure';
 	subtitle?: string;
 	align?: 'center' | 'left';
