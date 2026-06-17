@@ -125,7 +125,7 @@ export function ContactForm() {
 					</span>
 					<label htmlFor='user-agree' className='text-text-2 text-[0.8rem] leading-[1.6] '>
 						<span>
-							Я погоджуюся з <Link className={linkClass} to={''}>Політикою конфіденційності</Link> та <Link className={linkClass} to={''}>Умовами використання</Link>. Я даю згоду на обробку моїх даних компанією Rhine Media для відповіді на цей запит.
+							Я погоджуюся з <Link className={linkClass} to="/privacy-policy">Політикою конфіденційності</Link> та <Link className={linkClass} to="/terms">Умовами використання</Link>. Я даю згоду на обробку моїх даних компанією Rhine Media для відповіді на цей запит.
 						</span>
 					</label>
 				</div>

@@ -225,14 +225,14 @@ export const footerColumns: FooterColumn[] = [
 			{ label: 'Про компанію', href: '/#why-us' },
 			{ label: 'Контакти', href: '/contacts' },
 			{ label: 'Партнери', href: '/#partners' },
-			{ label: 'Умови використання', href: '#' },
-			{ label: 'Політика конфіденційності', href: '#' },
+			{ label: 'Умови використання', href: '/terms' },
+			{ label: 'Політика конфіденційності', href: '/privacy-policy' },
 		],
 	},
 ];
 
 export const legalLinks: NavLink[] = [
-	{ label: 'Умови', href: '#' },
-	{ label: 'Політика', href: '#' },
+	{ label: 'Умови', href: '/terms' },
+	{ label: 'Політика', href: '/privacy-policy' },
 	{ label: 'Контакти', href: '/contacts' },
 ];
