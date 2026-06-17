@@ -2,11 +2,11 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 import Layout from './layout/layout';
-import Contacts from './pages/contacts/contacts';
-import Terms from './pages/legal/terms';
-import Privacy from './pages/legal/privacy';
 
 const Home = lazy(() => import('./pages/home/home'));
+const Contacts = lazy(() => import('./pages/contacts/contacts'));
+const Terms = lazy(() => import('./pages/legal/terms'));
+const Privacy = lazy(() => import('./pages/legal/privacy'));
 
 const router = createBrowserRouter([
 	{

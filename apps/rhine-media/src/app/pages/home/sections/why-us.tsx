@@ -22,7 +22,7 @@ export default function WhyUs() {
 										✓
 									</span>
 									<div>
-										<h4 className="mb-[5px] font-head text-[0.97rem] font-bold text-text-1">{item.title}</h4>
+										<h3 className="mb-[5px] font-head text-[0.97rem] font-bold text-text-1">{item.title}</h3>
 										<p className="text-[0.845rem] leading-[1.65] text-text-2">{item.description}</p>
 									</div>
 								</div>
@@ -41,7 +41,7 @@ export default function WhyUs() {
 								)}
 							>
 								<div className="mb-[14px] text-[1.65rem]">{card.icon}</div>
-								<h4 className="mb-[9px] font-head text-[0.97rem] font-bold">{card.title}</h4>
+								<h3 className="mb-[9px] font-head text-[0.97rem] font-bold">{card.title}</h3>
 								<p className="text-[0.82rem] leading-[1.65] text-text-2">{card.description}</p>
 							</RevealItem>
 						))}
