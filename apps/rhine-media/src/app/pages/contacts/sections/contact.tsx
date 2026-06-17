@@ -67,7 +67,7 @@ export default function Contact() {
 									<a
 										key={s.label}
 										href={s.href}
-										className="inline-flex rounded-full border border-line-soft px-[18px] py-[10px] text-[0.8rem] text-text-1 transition-colors duration-200 hover:border-line-gold hover:text-gold"
+										className="inline-flex rounded-full border border-line-soft px-[18px] py-[10px] text-[0.8rem] text-text-1 transition-all duration-200 hover:-translate-y-0.5 hover:border-line-gold hover:text-gold"
 									>
 										{s.label}
 									</a>
