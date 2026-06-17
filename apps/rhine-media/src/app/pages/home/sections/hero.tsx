@@ -6,7 +6,7 @@ import { Icon } from '@portfolio/shared-ui';
 
 export default function Hero() {
 	return (
-		<section className="relative flex min-h-screen items-center overflow-hidden pb-[60px] pt-[90px]">
+		<section className="relative flex min-h-[700px] md:min-h-screen items-center overflow-hidden pb-[60px] pt-[90px]">
 			<div
 				className="pointer-events-none absolute inset-0 bg-g-grid"
 				style={{
@@ -14,22 +14,22 @@ export default function Hero() {
 				}}
 			/>
 			<div
-				className="pointer-events-none absolute -right-40 -top-56 h-[680px] w-[680px] rounded-full blur-[90px]"
+				className="pointer-events-none absolute -right-40 -top-56 h-[680px] w-[680px] rounded-full blur-[40px] md:blur-[90px]"
 				style={{ background: 'radial-gradient(circle, rgba(30,65,170,0.22) 0%, transparent 68%)' }}
 			/>
 			<div
-				className="pointer-events-none absolute bottom-20 left-[5%] h-[420px] w-[420px] rounded-full blur-[90px]"
+				className="pointer-events-none absolute bottom-20 left-[5%] h-[420px] w-[420px] rounded-full blur-[40px] md:blur-[90px]"
 				style={{ background: 'radial-gradient(circle, rgba(201,151,59,0.10) 0%, transparent 70%)' }}
 			/>
 			<div
-				className="pointer-events-none absolute left-[38%] top-1/2 h-[280px] w-[280px] rounded-full blur-[90px]"
+				className="pointer-events-none absolute left-[38%] top-1/2 h-[280px] w-[280px] rounded-full blur-[40px] md:blur-[90px]"
 				style={{ background: 'radial-gradient(circle, rgba(62,114,236,0.12) 0%, transparent 70%)' }}
 			/>
 
-			<div className='absolute right-0 top-0 bottom-0 opacity-[0.12] w-[46%] overflow-hidden'>
+			<div className='absolute right-0 top-0 bottom-0 opacity-[0.12] w-[46%] overflow-hidden hidden md:block'>
 				<img
-					fetchPriority="high"
-					loading="eager"
+					loading="lazy"
+					decoding="async"
 					width={600}
 					height={800}
 					src="/assets/images/illustration.svg"

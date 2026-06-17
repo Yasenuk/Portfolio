@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 
+import './assets/styles/font.css';
 import './styles.css';
 import App from './app/app';
 
