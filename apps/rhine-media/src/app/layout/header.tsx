@@ -74,7 +74,9 @@ export default function Header() {
 							className={
 								cn(
 									"text-[0.85rem] font-medium tracking-[0.01em] text-text-2 transition-colors hover:text-text-1",
-									isContacts? "[&:last-child]:text-gold": ""
+									location.pathname === link.href
+										? 'text-gold-lt'
+										: 'text-text-2'
 								)
 							}
 						>
