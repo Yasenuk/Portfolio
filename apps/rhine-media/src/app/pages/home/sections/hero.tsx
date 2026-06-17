@@ -8,7 +8,7 @@ export default function Hero() {
 	return (
 		<section className="relative flex min-h-[700px] md:min-h-screen items-center overflow-hidden pb-[60px] pt-[90px]">
 			<div
-				className="pointer-events-none absolute inset-0 bg-g-grid hidden sm:block"
+				className="pointer-events-none absolute inset-0 bg-g-grid"
 				style={{
 					backgroundSize: '64px 64px',
 				}}
