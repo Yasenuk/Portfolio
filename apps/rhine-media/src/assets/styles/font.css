@@ -73,8 +73,8 @@
 
 @font-face {
 	font-family: 'Manrope';
-	src: url('/assets/fonts/Manrope/Manrope-SemiBold.woff2') format('woff2'),
-		url('/assets/fonts/Manrope/Manrope-SemiBold.woff') format('woff');
+	src: url('/assets/fonts/Manrope/Manrope-Semibold.woff2') format('woff2'),
+		url('/assets/fonts/Manrope/Manrope-Semibold.woff') format('woff');
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
