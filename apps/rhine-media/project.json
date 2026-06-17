@@ -1,0 +1,9 @@
+{
+  "name": "rhine-media",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/rhine-media/src",
+  "projectType": "application",
+  "tags": ["scope:rhine-media", "type:app"],
+  "// targets": "to see all targets run: nx show project rhine-media --web",
+  "targets": {}
+}

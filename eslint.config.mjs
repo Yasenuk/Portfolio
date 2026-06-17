@@ -32,7 +32,17 @@ export default [
             },
             {
               sourceTag: 'scope:nft-marketplace',
-              onlyDependOnLibsWithTags: ['scope:shared', 'scope:nft-marketplace'],
+              onlyDependOnLibsWithTags: [
+                'scope:shared',
+                'scope:nft-marketplace',
+              ],
+            },
+            {
+              sourceTag: 'scope:rhine-media',
+              onlyDependOnLibsWithTags: [
+                'scope:shared',
+                'scope:rhine-media',
+              ],
             },
             // type:ui може залежати від utils, types, hooks
             {
@@ -47,7 +57,11 @@ export default [
             // type:hooks може залежати від utils і types
             {
               sourceTag: 'type:hooks',
-              onlyDependOnLibsWithTags: ['type:hooks', 'type:utils', 'type:types'],
+              onlyDependOnLibsWithTags: [
+                'type:hooks',
+                'type:utils',
+                'type:types',
+              ],
             },
             // type:utils — тільки від types (без React)
             {

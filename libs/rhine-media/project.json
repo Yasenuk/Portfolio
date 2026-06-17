@@ -1,0 +1,8 @@
+{
+  "name": "rhine-media-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/rhine-media/src",
+  "projectType": "library",
+  "tags": ["scope:rhine-media", "type:ui"],
+  "targets": {}
+}

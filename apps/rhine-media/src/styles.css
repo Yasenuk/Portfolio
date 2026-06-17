@@ -1,0 +1,56 @@
+@import './assets/styles/font.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Colors */
+    --c-gold: 39 57% 51%;
+    --c-gold-lt: 40 73% 63%;
+    --c-blue: 222 82% 58%;
+    --c-blue-lt: 222 100% 69%;
+    --c-white: 0 0% 100%;
+    --c-black: 40 100% 4%;
+    --c-red: 7 75% 64%;
+    --c-green: 142 72% 67%;
+    --c-green-lt: 150 50% 47%;
+
+    --bg-0: 227 47% 4%;
+    --bg-1: 225 50% 6%;
+    --bg-2: 225 45% 9%;
+    --bg-card: 218 41% 11%;
+    --bg-card-h: 216 41% 13%;
+
+    --t-1: 226 57% 95%;
+    --t-2: 224 19% 61%;
+    --t-3: 224 18% 37%;
+
+    /* Layout  */
+    --sec-py: 3.75rem;
+  }
+
+  @media (min-width: 540px) {
+    :root {
+      --sec-py: 4.5rem;
+    }
+  }
+
+  @media (min-width: 960px) {
+    :root {
+      --sec-py: 6.875rem;
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-bg-0 font-sans text-text-1 antialiased;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+}
