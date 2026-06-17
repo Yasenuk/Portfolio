@@ -53,7 +53,7 @@ export default function Header() {
 				scrolled && 'border-line-soft bg-bg-0/[0.88] py-[14px] backdrop-blur-[22px]'
 			)}
 		>
-			<div className="container flex items-center justify-between">
+			<div className="container flex items-center justify-between gap-3">
 				<Link
 					to="/"
 					className="flex flex-shrink-0 items-center gap-2.5 font-head text-[1.15rem] font-extrabold tracking-[-0.02em]"
@@ -61,12 +61,12 @@ export default function Header() {
 					<span className="flex h-9 w-9 items-center justify-center rounded-[9px] bg-g-gold text-[13px] font-black tracking-[-0.02em] text-black">
 						RM
 					</span>
-					<span className='inline sm:hidden lg:inline'>
+					<span className='inline sm:hidden xl:inline'>
 						Rhine <span className="text-gold">Media</span>
 					</span>
 				</Link>
 
-				<nav className="hidden items-center gap-5 lg:gap-[30px] md:flex" aria-label="Головне меню">
+				<nav className="hidden items-center gap-3 lg:gap-6 md:flex" aria-label="Головне меню">
 					{navLinks.map((link) => (
 						<a
 							key={link.href}
