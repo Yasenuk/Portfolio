@@ -26,10 +26,10 @@ export default function Hero() {
 				style={{ background: 'radial-gradient(circle, rgba(62,114,236,0.12) 0%, transparent 70%)' }}
 			/>
 
-			<div className='absolute right-0 top-0 bottom-0 opacity-[0.12] w-[46%] overflow-hidden'>
+			<div className='absolute right-0 top-0 bottom-0 opacity-[0.12] w-[46%] overflow-hidden hidden md:block'>
 				<img
-					fetchPriority="high"
-					loading="eager"
+					loading="lazy"
+					decoding="async"
 					width={600}
 					height={800}
 					src="/assets/images/illustration.svg"
