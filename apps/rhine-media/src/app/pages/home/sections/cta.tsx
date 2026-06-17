@@ -22,9 +22,9 @@ export default function Cta() {
 									align="center"
 									eyebrow="Масштабуймося разом"
 									title="Готові"
-									highlight="масштабувати"
-									titleEnd="свій трафік?"
-									subtitle="Приєднуйтесь до брендів та партнерів-партнерів, які довіряють Rhine Media забезпечення масштабної продуктивності у кожному великому географічному регіоні."
+									highlight="максимізувати"
+									titleEnd="свій ROI?"
+									subtitle="Приєднуйтесь до брендів і партнерів, які довіряють Rhine Media забезпечувати результат у масштабі в кожному ключовому ГЕО."
 								/>
 							</Reveal>
 							<div className="flex flex-wrap items-center justify-center gap-[14px] mt-10">
@@ -32,7 +32,7 @@ export default function Cta() {
 									<Link to="/contacts">Почати співпрацю <Icon name='arrow' className='size-[13px]' /></Link>
 								</ButtonMain>
 								<ButtonMain asChild variant="outlined" className='text-gold border-[1.5px] border-line-gold'>
-									<a href="#verticals">Зв'язок</a>
+									<Link to="/contacts">Зв'язок</Link>
 								</ButtonMain>
 							</div>
 						</div>

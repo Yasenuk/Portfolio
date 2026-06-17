@@ -187,12 +187,12 @@ export const contactDetails: ContactDetail[] = [
 ];
 
 export const brandDescription =
-	'Перформанс-агенція медіабаїнгу. Закуповуємо трафік на масштабі у tier-1 та зростаючих GEO й ведемо повний цикл ваших кампаній — від креативів до атрибуції доходу.';
+	'Преміальний performance-медіабаїнг для найамбітніших рекламодавців і партнерів світу. Створено для масштабу. Оптимізовано під ROI.';
 
 export const socialLinks: SocialLink[] = [
 	{ label: 'Telegram', icon: '✈', href: '#' },
 	{ label: 'LinkedIn', icon: 'in', href: '#' },
-	{ label: 'Teitter', icon: '𝕏', href: '#' },
+	{ label: 'Twitter', icon: '𝕏', href: '#' },
 	{ label: 'Skype', icon: '☁', href: '#' },
 ];
 
@@ -200,31 +200,31 @@ export const footerColumns: FooterColumn[] = [
 	{
 		title: 'Вертикалі',
 		links: [
-			{ label: 'Трафік під дейтинг', href: '#' },
-			{ label: 'Нутра-кампанії', href: '#' },
-			{ label: 'Гемблінг / онлайн-ігри', href: '#' },
-			{ label: 'Конкурси з призами', href: '#' },
-			{ label: 'Крипто-офери', href: '#' },
-			{ label: 'Дорослий контент', href: '#' },
+			{ label: 'Трафік під дейтинг', href: '/#verticals' },
+			{ label: 'Нутра-кампанії', href: '/#verticals' },
+			{ label: 'Гемблінг / онлайн-ігри', href: '/#verticals' },
+			{ label: 'Конкурси з призами', href: '/#verticals' },
+			{ label: 'Крипто-офери', href: '/#verticals' },
+			{ label: 'Дорослий контент', href: '/#verticals' },
 		]
 	},
 	{
 		title: 'Джерела трафіку',
 		links: [
-			{ label: 'Реклама в Google', href: '#' },
-			{ label: 'Реклама в соцмережах', href: '#' },
-			{ label: 'Реклама в TikTok', href: '#' },
-			{ label: 'PropellerAds', href: '#' },
-			{ label: 'Нативна реклама', href: '#' },
-			{ label: 'Пуш- та поп-реклама', href: '#' },
+			{ label: 'Реклама в Google', href: '/#traffic' },
+			{ label: 'Реклама в соцмережах', href: '/#traffic' },
+			{ label: 'Реклама в TikTok', href: '/#traffic' },
+			{ label: 'PropellerAds', href: '/#traffic' },
+			{ label: 'Нативна реклама', href: '/#traffic' },
+			{ label: 'Пуш- та поп-реклама', href: '/#traffic' },
 		]
 	},
 	{
 		title: 'Компанія',
 		links: [
-			{ label: 'Про компанію', href: '#' },
-			{ label: 'Контакти', href: '#' },
-			{ label: 'Партнери', href: '#' },
+			{ label: 'Про компанію', href: '/#why-us' },
+			{ label: 'Контакти', href: '/contacts' },
+			{ label: 'Партнери', href: '/#partners' },
 			{ label: 'Умови використання', href: '#' },
 			{ label: 'Політика конфіденційності', href: '#' },
 		],
@@ -234,5 +234,5 @@ export const footerColumns: FooterColumn[] = [
 export const legalLinks: NavLink[] = [
 	{ label: 'Умови', href: '#' },
 	{ label: 'Політика', href: '#' },
-	{ label: 'Контакти', href: '#' },
+	{ label: 'Контакти', href: '/contacts' },
 ];

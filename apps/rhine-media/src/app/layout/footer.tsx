@@ -82,11 +82,15 @@ export default function Footer() {
 				<div className="flex flex-col items-start gap-3 border-t border-line-soft pt-7 md:flex-row md:items-center md:justify-between">
 					<p className="text-[0.8rem] text-text-3">© {year} Rhine Media. Усі права захищено.</p>
 					<div className="flex gap-[22px]">
-						{legalLinks.map((link) => (
-							<a key={link.label} href={link.href} className="text-[0.8rem] text-text-3 transition-colors hover:text-text-2">
-								{link.label}
-							</a>
-						))}
+						{legalLinks.map((link) => {
+							const isRoute = link.href.startsWith('/') && !link.href.startsWith('/#');
+							const cls = 'text-[0.8rem] text-text-3 transition-colors hover:text-text-2';
+							return isRoute ? (
+								<Link key={link.label} to={link.href} className={cls}>{link.label}</Link>
+							) : (
+								<a key={link.label} href={link.href} className={cls}>{link.label}</a>
+							);
+						})}
 					</div>
 				</div>
 			</div>

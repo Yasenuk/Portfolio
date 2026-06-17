@@ -9,10 +9,10 @@ export default function WhyUs() {
 				<div className="grid items-center gap-[52px] xl:grid-cols-[1fr_1.15fr] xl:gap-20">
 					<Reveal>
 						<SectionHeading
-							eyebrow="Чому Rhine Media"
-							title="Партнерство, побудоване на"
-							highlight="результатах"
-							subtitle="Ми не женемося за показами — ми оптимізуємо під дохід, і робимо це прозоро."
+							eyebrow="Чому обирають Rhine Media"
+							title="Точність. Масштаб."
+							highlight="Результат."
+							subtitle="Ми не медіамережа — ми ваша власна баїнг-команда. Глибока експертиза, реальна відповідальність і прозора звітність за кожен витрачений долар."
 						/>
 
 						<div className="mt-10 flex flex-col gap-[22px]">

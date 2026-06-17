@@ -54,7 +54,7 @@ export default function Hero() {
 							<Link to="/contacts">Почати співпрацю <Icon name='arrow' className='size-[13px]' /></Link>
 						</ButtonMain>
 						<ButtonMain asChild variant="outlined">
-							<a href="#verticals">Зв'язок</a>
+							<Link to="/contacts">Зв'язок</Link>
 						</ButtonMain>
 					</div>
 				</Reveal>

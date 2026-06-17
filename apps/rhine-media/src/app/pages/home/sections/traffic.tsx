@@ -9,10 +9,10 @@ export default function Traffic() {
 					<SectionHeading
 						align="center"
 						accent="azure"
-						eyebrow="Джерела трафіку"
-						title="Закуповуємо з усіх ключових"
-						highlight="платформ"
-						subtitle="Прямі інтеграції та оптимізовані звʼязки на 8+ каналах — від tier-1 мереж до push і pop."
+						eyebrow="Джерела трафіку, якими ми володіємо"
+						title="Кожен ключовий"
+						highlight="канал"
+						subtitle="Повноцінна експертиза з трафіку — paid, native, push і programmatic канали по всьому світу."
 					/>
 				</Reveal>
 

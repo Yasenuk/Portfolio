@@ -9,9 +9,9 @@ export default function Verticals() {
 					<SectionHeading
 						align="center"
 						eyebrow="Наші вертикалі"
-						title="Експертиза в найприбутковіших"
-						highlight="нішах"
-						subtitle="Окремі баєри в кожній вертикалі — з перевіреними воронками, креативами та підходами до compliance."
+						title="Ніші, у яких ми"
+						highlight="домінуємо"
+						subtitle="Глибока експертиза в найрезультативніших вертикалях performance-маркетингу."
 					/>
 				</Reveal>
 
