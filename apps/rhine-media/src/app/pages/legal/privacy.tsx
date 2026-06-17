@@ -137,7 +137,7 @@ export default function Privacy() {
 	return (
 		<LegalPage
 			title="Політика конфіденційності"
-			updated="17 червня 2026 р."
+			updated="1 березня 2026 р."
 			sections={sections}
 			meta={
 				<LegalPageMeta>

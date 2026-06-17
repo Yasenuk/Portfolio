@@ -148,7 +148,7 @@ export default function Terms() {
 	return (
 		<LegalPage
 			title="Умови використання"
-			updated="17 червня 2026 р."
+			updated="1 березня 2026 р."
 			sections={sections}
 		/>
 	);
