@@ -52,6 +52,31 @@ export const footerColumns: FooterColumn[] = [
 	},
 ];
 
+export const legalFooterColumns: FooterColumn[] = [
+	{
+		title: 'Послуги',
+		links: [
+			{ label: 'Ніші', href: '/#verticals' },
+			{ label: 'Джерела трафіку', href: '/#traffic' },
+			{ label: 'Патерни', href: '/#partners' },
+		]
+	},
+	{
+		title: 'Компанія',
+		links: [
+			{ label: 'Про компанію', href: '/#why-us' },
+			{ label: 'Контакти', href: '/contacts' },
+		],
+	},
+	{
+		title: 'Правова інформація',
+		links: [
+			{ label: 'Умови використання', href: '/terms' },
+			{ label: 'Політика конфіденційності', href: '/privacy-policy' },
+		],
+	},
+];
+
 export const legalLinks: NavLink[] = [
 	{ label: 'Умови', href: '/terms' },
 	{ label: 'Політика', href: '/privacy-policy' },

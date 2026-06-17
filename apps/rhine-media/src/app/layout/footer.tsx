@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-import { brandDescription, footerColumns, socialLinks, legalLinks } from '@portfolio/rhine-media-shared';
+import { brandDescription, footerColumns, socialLinks, legalLinks, legalFooterColumns } from '@portfolio/rhine-media-shared';
 
 const linkClass = 'text-[0.865rem] text-text-2 transition-colors hover:text-gold-lt';
 
@@ -24,6 +24,8 @@ function FooterLink({ href, children }: { href: string; children: ReactNode }) {
 
 export default function Footer() {
 	const year = new Date().getFullYear();
+	const location = useLocation();
+	const isLegal = location.pathname === '/terms' || location.pathname === '/privacy-policy';
 
 	return (
 		<footer className="border-t border-line-soft bg-bg-0 pb-[34px] pt-[72px]">
@@ -63,7 +65,7 @@ export default function Footer() {
 						</div>
 					</div>
 
-					{footerColumns.map((col) => (
+					{(isLegal ? legalFooterColumns : footerColumns).map((col) => (
 						<nav key={col.title} aria-label={col.title}>
 							<h3 className="mb-5 font-head text-[0.78rem] font-bold uppercase tracking-[0.08em] text-text-1">
 								{col.title}

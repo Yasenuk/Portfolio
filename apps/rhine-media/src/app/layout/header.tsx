@@ -71,7 +71,12 @@ export default function Header() {
 						<a
 							key={link.href}
 							href={link.href}
-							className="text-[0.85rem] font-medium tracking-[0.01em] text-text-2 transition-colors hover:text-text-1"
+							className={
+								cn(
+									"text-[0.85rem] font-medium tracking-[0.01em] text-text-2 transition-colors hover:text-text-1",
+									isContacts? "[&:last-child]:text-gold": ""
+								)
+							}
 						>
 							{link.label}
 						</a>
