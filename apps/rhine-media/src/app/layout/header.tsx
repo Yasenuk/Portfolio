@@ -130,7 +130,7 @@ export default function Header() {
 
 			<div
 				className={cn(
-					'fixed right-0 bottom-0 top-0 w-full z-[850] flex-col items-center justify-center gap-[26px] bg-bg-0 overflow-hidden',
+					'fixed right-0 top-0 h-dvh w-full z-[850] flex-col items-center justify-center gap-[26px] bg-bg-0 overflow-hidden',
 					'transition-all duration-med flex text-[1.6rem] font-bold',
 					open ? 'max-w-full opacity-100' : 'max-w-0 opacity-0'
 				)}

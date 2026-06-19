@@ -18,5 +18,5 @@ export function RevealGroup(props: HTMLMotionProps<'div'>) {
 }
 
 export function RevealItem(props: HTMLMotionProps<'div'>) {
-	return <motion.div variants={fadeUp} {...props} />;
+	return <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={viewport} {...props} />;
 }
