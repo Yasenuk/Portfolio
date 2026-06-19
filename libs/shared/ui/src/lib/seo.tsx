@@ -1,3 +1,5 @@
+'use client'
+
 import { SeoProps } from '@portfolio/shared-types';
 import { Helmet } from 'react-helmet-async';
 
