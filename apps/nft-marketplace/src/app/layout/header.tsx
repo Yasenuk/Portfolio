@@ -12,7 +12,7 @@ export function Header() {
 					<BurgerMenuTrigger />
 					<BurgerMenuBody>
 						<NavMenu />
-						<ButtonMain icon="user" size="md" px="sm" asChild>
+						<ButtonMain icon="user" size="md" px="sm" asChild className="max-md:w-full max-md:max-w-60">
 							<Link href='/sing-up'>Sign up</Link>
 						</ButtonMain>
 					</BurgerMenuBody>

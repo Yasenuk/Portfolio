@@ -7,8 +7,8 @@ import { Icon } from '@portfolio/shared-ui';
 
 const buttonVariants = cva(
 	`border-action border-2 flex items-center justify-center gap-x-3 rounded
-	h-[2.875rem] md:h-[3.75rem] text-body lg:font-semibold capitalize
-	`,
+	h-[2.875rem] md:h-[3.75rem] text-body lg:font-semibold capitalize hover:scale-95
+	transition-transform duration-200`,
 	{
 		variants: {
 			variant: {

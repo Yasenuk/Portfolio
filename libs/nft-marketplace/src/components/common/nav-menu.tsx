@@ -15,11 +15,11 @@ const NavMenu = React.forwardRef<
 >(({ className, ...props }, ref) => (
 	<nav
 		ref={ref}
-		className={cn("flex gap-x-[3.125rem]", className)}
+		className={cn("flex flex-col lg:flex-row items-center gap-y-6 gap-x-[3.125rem]", className)}
 		{...props}
 	>
 		{links.map((link) => (
-			<NavLink key={link.href} href={link.href}>
+			<NavLink key={link.href} href={link.href} className='text-h4 lg:text-body'>
 				{link.label}
 			</NavLink>
 		))}
