@@ -1,7 +1,6 @@
 const { createGlobPatternsForDependencies } = require('@nx/next/tailwind');
 const { join } = require('path');
 const preset = require('@portfolio/tailwind-config/preset');
-const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
