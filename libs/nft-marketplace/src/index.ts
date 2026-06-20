@@ -5,6 +5,7 @@ export * from './components/ui/input';
 export * from './components/ui/form';
 export * from './components/ui/action-timer';
 export * from './components/ui/ranking-list';
+export * from './components/ui/burger-menu';
 
 // cards
 export * from './components/cards/nft-card';

@@ -122,13 +122,13 @@ export default function App() {
 			<SubscribeForm icon='envelopesimple' />
 
 			<div className='flex items-start gap-10 flex-wrap'>
-				<NFTCard className='w-[315px] sm:w-[330px] md:w-[510px]' variant='highlighted' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
-				<NFTCard className='w-[402px] md:w-[468px]' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' price={1.63} bid={0.33} />
+				<NFTCard className='w-[315px] md:w-[330px] lg:w-[510px]' variant='highlighted' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
+				<NFTCard className='w-[402px] lg:w-[468px]' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' price={1.63} bid={0.33} />
 				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
 			</div>
 
-			<div className='flex flex-col sm:flex-row sm:justify-between gap-x-[1.875rem] gap-y-5'>
+			<div className='flex flex-col md:flex-row md:justify-between gap-x-[1.875rem] gap-y-5'>
 				<ServiceCard
 					src='/assets/illustrations/wallet.svg'
 					title='Setup Your wallet'
