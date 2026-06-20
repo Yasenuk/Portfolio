@@ -1,9 +1,11 @@
 import { Icon } from '@portfolio/shared-ui';
 import {
 	ActionTimer,
+	AuthForm,
 	ButtonMain,
 
 	CategoryCard,
+	Form,
 	InputMain,
 	InputPassword,
 	NFTCard,
@@ -29,7 +31,34 @@ export default function App() {
 	};
 
 	return (<>
-		<div className="p-10 bg-bg flex items-start gap-5 flex-col">
+		<AuthForm
+			title='Connect wallet'
+			description='Choose a wallet you want to connect. There are several wallet providers.'
+			imageSrc='form_img.png'
+		>
+			<Form className='gap-y-5'>
+				<ButtonMain className='w-full' icon='metamask' variant="wallet">Metamask</ButtonMain>
+				<ButtonMain className='w-full' icon='metamask' variant="wallet">Metamask</ButtonMain>
+				<ButtonMain className='w-full' icon='metamask' variant="wallet">Metamask</ButtonMain>
+			</Form>
+		</AuthForm>
+
+		<AuthForm
+			title='Create account'
+			description='Welcome! enter your details and start creating, collecting and selling NFTs.'
+			imageSrc='form_img.png'
+		>
+			<Form className='gap-y-[15px]'>
+				<InputMain placeholder='Username' icon='user' />
+				<InputMain placeholder='Email address' icon='envelopesimple' />
+				<InputPassword placeholder='Password' icon='lockkey' />
+				<InputPassword placeholder='Confirm password' icon='lockkey' />
+				<ButtonMain size="xs" className='mt-[15px] w-full'>Create account</ButtonMain>
+			</Form>
+		</AuthForm>
+
+		<div className="p-10 flex items-start gap-5 flex-col">
+
 			<div className='flex flex-wrap gap-5'>
 				<Icon name="rocketlaunch" />
 				<Icon name="rocket" />

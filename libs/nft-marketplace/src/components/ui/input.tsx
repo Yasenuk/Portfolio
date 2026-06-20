@@ -7,7 +7,7 @@ import { cn } from '@portfolio/nft-marketplace-utils';
 import { Icon } from "@portfolio/shared-ui";
 
 const inputVariants = cva(
-	`flex justify-between items-center gap-x-3 px-5 py-3 bg-text border border-label rounded`,
+	`w-full flex justify-between items-center gap-x-3 px-5 py-3 bg-text border border-label rounded`,
 	{
 		variants: {
 			variant: {
@@ -29,7 +29,7 @@ interface InputProps
 }
 
 const InputMain = React.forwardRef<HTMLInputElement, InputProps>(
-	({ className, icon, variant, trailing, type = "text", ...props }, ref) => (
+	({ className, icon, variant, placeholder, trailing, type = "text", ...props }, ref) => (
 		<div className={cn(inputVariants({ variant }), className)}>
 			{icon && (
 				<Icon
@@ -47,6 +47,7 @@ const InputMain = React.forwardRef<HTMLInputElement, InputProps>(
 						className
 					)
 				}
+				placeholder={placeholder}
 				{...props}
 			/>
 			{trailing}

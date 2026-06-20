@@ -15,4 +15,8 @@
     --danger: 359 100% 61%;
     --warning: 48 100% 50%;
   }
+
+  body { 
+    @apply bg-bg; 
+  }
 }

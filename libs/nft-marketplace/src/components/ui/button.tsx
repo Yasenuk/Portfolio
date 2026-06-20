@@ -5,7 +5,7 @@ import { Icon } from '@portfolio/shared-ui';
 
 const buttonVariants = cva(
 	`px-[3.125rem] border-action border-2 flex items-center justify-center gap-x-3 rounded
-	h-[2.875rem] sm:h-[3.75rem] text-body md:text-h5 md:font-semibold
+	h-[2.875rem] sm:h-[3.75rem] text-body md:font-semibold
 	`,
 	{
 		variants: {
@@ -15,7 +15,8 @@ const buttonVariants = cva(
 				wallet: "bg-bg-secondary h-[3.75rem] border gap-x-5 px-10 py-[0.875rem] md:py-4 justify-start"
 			},
 			size: {
-				default: "md:h-[4.5rem]",
+				default: "md:h-[4.5rem] md:text-h5",
+				xs: "sm:h-[2.875rem] md:h-[2.875rem]",
 				sm: "sm:h-[2.875rem] md:h-[3.75rem]",
 				md: "",
 			}
