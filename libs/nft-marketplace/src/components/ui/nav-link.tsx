@@ -15,7 +15,7 @@ export function NavLink({ className, href, children, ...props }: ComponentProps<
 		<Link
 			href={href}
 			aria-current={isActive ? 'page' : undefined}
-			className={cn("text-body transition-colors duration-200", isActive ? 'text-action' : 'text-text hover:text-action', className)}
+			className={cn("text-body transition-colors duration-200 whitespace-nowrap", isActive ? 'text-action' : 'text-text hover:text-action', className)}
 			{...props}
 		>
 			{children}

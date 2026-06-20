@@ -1,4 +1,5 @@
 import './global.css';
+import { Footer } from './layout/footer';
 
 import { Header } from './layout/header';
 
@@ -17,6 +18,7 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );

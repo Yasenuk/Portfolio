@@ -9,17 +9,22 @@ const links = [
 	{ href: '/connect-wallet', label: 'Connect a wallet' },
 ];
 
+interface NavMenuProps
+	extends React.HTMLAttributes<HTMLDivElement> {
+	linkClassName?: string;
+}
+
 const NavMenu = React.forwardRef<
 	HTMLDivElement,
-	React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+	NavMenuProps
+>(({ className, linkClassName, ...props }, ref) => (
 	<nav
 		ref={ref}
-		className={cn("flex flex-col lg:flex-row items-center gap-y-6 gap-x-[3.125rem]", className)}
+		className={cn("flex flex-col gap-y-6 gap-x-[3.125rem]", className)}
 		{...props}
 	>
 		{links.map((link) => (
-			<NavLink key={link.href} href={link.href} className='text-h4 lg:text-body'>
+			<NavLink key={link.href} href={link.href} className={linkClassName}>
 				{link.label}
 			</NavLink>
 		))}

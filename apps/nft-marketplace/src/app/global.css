@@ -16,7 +16,7 @@
     --warning: 48 100% 50%;
   }
 
-  body { 
-    @apply bg-bg text-text; 
+  body {
+    @apply bg-bg text-text;
   }
 }

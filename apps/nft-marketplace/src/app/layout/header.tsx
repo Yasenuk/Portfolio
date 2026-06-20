@@ -11,7 +11,7 @@ export function Header() {
 					<BurgerMenuBackdrop />
 					<BurgerMenuTrigger />
 					<BurgerMenuBody>
-						<NavMenu />
+						<NavMenu className="lg:flex-row items-center" linkClassName="text-h4 lg:text-body" />
 						<ButtonMain icon="user" size="md" px="sm" asChild className="max-md:w-full max-md:max-w-60">
 							<Link href='/sing-up'>Sign up</Link>
 						</ButtonMain>
