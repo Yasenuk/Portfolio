@@ -15,3 +15,6 @@ export * from './components/cards/service-card';
 // forms
 export * from './components/forms/subscribe-form';
 export * from './components/forms/auth-form';
+
+// common
+export * from './components/common/logo';
