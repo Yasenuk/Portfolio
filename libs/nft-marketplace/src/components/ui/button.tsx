@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { Slot, Slottable } from '@radix-ui/react-slot';
+
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from '@portfolio/nft-marketplace-utils';
 import { Icon } from '@portfolio/shared-ui';
@@ -36,19 +38,26 @@ const buttonVariants = cva(
 export interface ButtonProps
 	extends React.ButtonHTMLAttributes<HTMLButtonElement>,
 	VariantProps<typeof buttonVariants> {
+	asChild?: boolean;
 	icon?: string;
-	};
+};
 
 const ButtonMain = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, children, variant, size, px, icon = '', ...props }, ref) => {
+	({ className, children, asChild = false, variant, size, px, icon = '', ...props }, ref) => {
+		const Comp = asChild ? Slot : 'button';
+
 		return (
-			<button ref={ref} className={cn(buttonVariants({ variant, size, px, className }))} {...props}>
-				{icon && <Icon name={icon} className={`${variant === "wallet" ? 'size-8 lg:size-10' : ''}`} />}
-				<span className="text-text">{children}</span>
-			</button>
+			<Comp 
+				ref={ref}
+				className={cn(buttonVariants({ variant, size, px, className }))}
+				{...props}
+			>
+				{icon && <Icon name={icon} className={cn(variant === 'wallet' && 'size-8 lg:size-10')} />}
+				<Slottable>{children}</Slottable>
+			</Comp>
 		)
 	}
 );
-ButtonMain.displayName = "ButtonMain"
+ButtonMain.displayName = "ButtonMain";
 
 export { ButtonMain };

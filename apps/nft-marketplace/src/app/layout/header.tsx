@@ -1,5 +1,6 @@
-import { BurgerMenuBackdrop, BurgerMenuTrigger, ButtonMain, Logo } from "@portfolio/nft-marketplace";
+import { BurgerMenuBackdrop, BurgerMenuTrigger, ButtonMain, Logo, NavMenu } from "@portfolio/nft-marketplace";
 import { BurgerMenu, BurgerMenuBody,  } from "@portfolio/nft-marketplace";
+import Link from "next/link";
 
 export function Header() {
 	return (
@@ -10,7 +11,10 @@ export function Header() {
 					<BurgerMenuBackdrop />
 					<BurgerMenuTrigger />
 					<BurgerMenuBody>
-						<ButtonMain icon="user" size="md" px="sm">Sign up</ButtonMain>
+						<NavMenu />
+						<ButtonMain icon="user" size="md" px="sm" asChild>
+							<Link href='/sing-up'>Sign up</Link>
+						</ButtonMain>
 					</BurgerMenuBody>
 				</BurgerMenu>
 			</div>
