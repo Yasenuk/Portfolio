@@ -17,13 +17,13 @@ const SubscribeForm = React.forwardRef<
 			ref={ref}
 			className={
 				cn(
-					"flex flex-col gap-y-4 lg:flex-row lg:bg-text lg:rounded lg:overflow-hidden",
+					"flex flex-col gap-y-4 md:flex-row md:bg-text md:rounded md:overflow-hidden",
 					className
 				)
 			}
 			{...props}
 		>
-			<InputMain placeholder="Enter your email address" variant="subscribe" />
+			<InputMain placeholder="Enter your email here" variant="subscribe" />
 			<ButtonMain icon={icon} size="sm">Subscribe</ButtonMain>
 		</form>
 	)

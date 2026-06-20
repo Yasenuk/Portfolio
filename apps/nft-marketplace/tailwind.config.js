@@ -57,6 +57,7 @@ module.exports = {
         bg: 'hsl(var(--bg) / <alpha-value>)',
         'bg-secondary': 'hsl(var(--bg-secondary) / <alpha-value>)',
         label: 'hsl(var(--label) / <alpha-value>)',
+        'label-grey': 'hsl(var(--label-grey) / <alpha-value>)',
         text: 'hsl(var(--text) / <alpha-value>)',
         action: 'hsl(var(--action) / <alpha-value>)',
         success: 'hsl(var(--success) / <alpha-value>)',
