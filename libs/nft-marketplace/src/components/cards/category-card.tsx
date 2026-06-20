@@ -12,10 +12,10 @@ export function CategoryCard({ src, icon, label, className }: CategoryCardProps 
           src={src}
           width={250}
           height={250}
-          className="max-h-[8.875rem] md:max-h-60"
+          className="max-h-[8.875rem] lg:max-h-60"
         />
 				<CardBadge>
-					<Icon sprite="icons-category" name={icon} className='size-20 md:size-[6.25rem]' />
+					<Icon sprite="icons-category" name={icon} className='size-20 lg:size-[6.25rem]' />
 				</CardBadge>
       </CardPictureWrapper>
 			<CardContent>

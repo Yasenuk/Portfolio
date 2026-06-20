@@ -17,7 +17,7 @@ const SubscribeForm = React.forwardRef<
 			ref={ref}
 			className={
 				cn(
-					"flex flex-col gap-y-4 md:flex-row md:bg-text md:rounded md:overflow-hidden",
+					"flex flex-col gap-y-4 lg:flex-row lg:bg-text lg:rounded lg:overflow-hidden",
 					className
 				)
 			}

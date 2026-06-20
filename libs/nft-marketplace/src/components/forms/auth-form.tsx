@@ -18,7 +18,7 @@ const AuthForm = React.forwardRef<
 		ref={ref}
 		className={
 			cn(
-				"grid grid-cols-1 sm:grid-cols-2 sm:flex-row gap-x-10 md:gap-x-[3.75rem]",
+				"max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 md:flex-row gap-x-10 lg:gap-x-[3.75rem]",
 				className
 			)
 		}
@@ -33,9 +33,9 @@ const AuthForm = React.forwardRef<
 				className="object-cover object-center h-full w-auto"
 			/>
 		</div>
-		<div className="px-[1.875rem] pt-[1.875rem] pb-10 sm:px-0 sm:py-20 md:py-[6.25rem] text-text">
-			<h1 className="text-h3 md:text-h2 mb-5 capitalize font-semibold md:max-w-[460px]">{title}</h1>
-			<p className="text-body md:text-h6 mb-[1.875rem] sm:mb-10 md:max-w-[460px]">{description}</p>
+		<div className="px-[1.875rem] pt-[1.875rem] pb-10 md:px-0 md:py-20 lg:py-[6.25rem] text-text">
+			<h1 className="text-h3 lg:text-h2 mb-5 capitalize font-semibold lg:max-w-[460px]">{title}</h1>
+			<p className="text-body lg:text-h6 mb-[1.875rem] md:mb-10 lg:max-w-[460px]">{description}</p>
 			{children}
 		</div>
 	</div>

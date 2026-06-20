@@ -57,7 +57,7 @@ export default function App() {
 			</Form>
 		</AuthForm>
 
-		<div className="p-10 flex items-start gap-5 flex-col">
+		<div className="container flex items-start gap-5 flex-col">
 
 			<div className='flex flex-wrap gap-5'>
 				<Icon name="rocketlaunch" />

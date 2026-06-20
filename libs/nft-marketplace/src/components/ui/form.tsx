@@ -11,7 +11,7 @@ const Form = React.forwardRef<
 			ref={ref}
 			className={
 				cn(
-					"flex flex-col items-start gap-y-[15px] md:max-w-[330px]",
+					"flex flex-col items-start gap-y-[15px] lg:max-w-[330px]",
 					className
 				)
 			}

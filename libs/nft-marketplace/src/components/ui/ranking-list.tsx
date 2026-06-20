@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { cn } from '@portfolio/nft-marketplace-utils';
 import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
 
-const rankClass = cn("size-6 md:size-[1.875rem] text-label grid place-items-center text-body");
-const rankFilledClass = cn("md:text-text rounded-full md:bg-bg");
-const labelClass = cn("text-caption sm:text-body");
-const avatarClass = cn("size-6 sm:size-[3.75rem] rounded-full object-cover object-center");
+const rankClass = cn("size-6 lg:size-[1.875rem] text-label grid place-items-center text-body");
+const rankFilledClass = cn("lg:text-text rounded-full lg:bg-bg");
+const labelClass = cn("text-caption md:text-body");
+const avatarClass = cn("size-6 md:size-[3.75rem] rounded-full object-cover object-center");
 
 const RankingList = React.forwardRef<
   HTMLTableElement,
@@ -34,9 +34,9 @@ const RankingListHeader = React.forwardRef<
 	>
     <tr className={cn("[&>*]:font-display text-label [&>*]:py-3 [&>*:not(:first-child)]:pr-5")}>
       <th className={cn('pl-5 pr-4')}><span className={cn(rankClass)}>#</span></th>
-      <th className={cn('pl-1.5 md:pl-0', labelClass)}>Artist</th>
-      <th className={cn('hidden sm:table-cell', labelClass)}>Change</th>
-      <th className={cn('hidden md:table-cell', labelClass)}>NFTs Sold</th>
+      <th className={cn('pl-1.5 lg:pl-0', labelClass)}>Artist</th>
+      <th className={cn('hidden md:table-cell', labelClass)}>Change</th>
+      <th className={cn('hidden lg:table-cell', labelClass)}>NFTs Sold</th>
       <th className={cn('', labelClass)}>Volume</th>
     </tr>
   </thead>
@@ -68,17 +68,17 @@ const RankingListItem = React.forwardRef<
     )}
     {...props}
   >
-    <td className='pl-5 pr-4 size-6 md:size-[1.875rem]'>
+    <td className='pl-5 pr-4 size-6 lg:size-[1.875rem]'>
       <span className={cn('', rankClass, rankFilledClass, labelClass)}>{rank}</span>
     </td>
 		<td>
-			<div className='flex items-center gap-x-3 md:gap-x-5'>
+			<div className='flex items-center gap-x-3 lg:gap-x-5'>
 				<Image width={60} height={60} className={cn(avatarClass)} src={avatar} alt={artist} />
-				<span className={cn("w-full font-sans text-body sm:text-h5 block")}>{artist}</span>
+				<span className={cn("w-full font-sans text-body md:text-h5 block")}>{artist}</span>
 			</div>
 		</td>
-    <td className='hidden sm:table-cell'><span className={cn("flex text-success", labelClass)}>+{ change }%</span></td>
-    <td className='hidden md:table-cell'><span className={cn("flex", labelClass)}>{ sold }</span></td>
+    <td className='hidden md:table-cell'><span className={cn("flex text-success", labelClass)}>+{ change }%</span></td>
+    <td className='hidden lg:table-cell'><span className={cn("flex", labelClass)}>{ sold }</span></td>
     <td><span className={cn("flex", labelClass)}>{ volume } ETH</span></td>
   </tr>
 ));
