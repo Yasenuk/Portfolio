@@ -19,6 +19,7 @@ import {
 	SubscribeForm
 } from '@portfolio/nft-marketplace';
 import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
+import Hero from './_sections/hero';
 
 export default function App() {
 	const author: TRRanckingItem = {
@@ -31,6 +32,8 @@ export default function App() {
 	};
 
 	return (<>
+		<Hero />
+
 		<AuthForm
 			title='Connect wallet'
 			description='Choose a wallet you want to connect. There are several wallet providers.'
@@ -123,7 +126,7 @@ export default function App() {
 
 			<div className='flex items-start gap-10 flex-wrap'>
 				<NFTCard className='w-[315px] md:w-[330px] lg:w-[510px]' variant='highlighted' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' />
-				<NFTCard className='w-[402px] lg:w-[468px]' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' price={1.63} bid={0.33} />
+				<NFTCard className='w-full lg:w-[468px]' src='/assets/images/img.png' title='Space Walking' authorName='Animakid' authorSrc='/assets/images/avatar.png' price={1.63} bid={0.33} />
 				<CategoryCard src='/assets/images/img.png' label='Art' icon='paintbrush' />
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
 			</div>

@@ -21,3 +21,4 @@ export * from './components/forms/auth-form';
 // common
 export * from './components/common/logo';
 export * from './components/common/nav-menu';
+export * from './components/common/heading';

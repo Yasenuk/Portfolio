@@ -11,8 +11,8 @@ const cardVariants = cva(
 		variants: {
 			variant: {
 				default: `max-h-[14.875rem] md:max-h-[18.438rem]`,
-				highlighted : "h-[12.875rem] md:h-[13.813rem] md:h-[25.063rem]"
-			}
+				highlighted : "h-[12.875rem] md:h-[13.813rem] lg:h-[25.063rem]"
+			},
 		},
 		defaultVariants: {
 			variant: "default",
