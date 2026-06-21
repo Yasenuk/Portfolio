@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../../../../shared/utils/src';
+import { cn } from '@portfolio/nft-marketplace-utils';
 
 const headingVariants = cva(
 	"flex flex-col",
@@ -56,7 +56,7 @@ const Heading = React.forwardRef<
 			{...props}
 		>
 			<Title className={cn(headingTitleVariants({ size, className }))}>{title}</Title>
-			<p className='text-body lg:text-h6'>{ description }</p>
+			<p className='text-body lg:text-h5'>{ description }</p>
 		</div>
 	)
 });

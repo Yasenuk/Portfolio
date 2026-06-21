@@ -1,3 +1,4 @@
+import '../assets/styles/font.css';
 import './global.css';
 import { Footer } from './layout/footer';
 

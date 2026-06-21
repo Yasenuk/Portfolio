@@ -22,3 +22,4 @@ export * from './components/forms/auth-form';
 export * from './components/common/logo';
 export * from './components/common/nav-menu';
 export * from './components/common/heading';
+export * from './components/common/stats-bar';

@@ -1,4 +1,4 @@
-import { ButtonMain, Heading, NFTCard } from "@portfolio/nft-marketplace";
+import { ButtonMain, Heading, NFTCard, StatsBar } from "@portfolio/nft-marketplace";
 import { cn } from "@portfolio/nft-marketplace-utils";
 
 export default function Hero() {
@@ -6,28 +6,27 @@ export default function Hero() {
 		<section>
 			<div className={
 				cn(
-					"container lg:max-w-[1050] px-[1.875rem] flex flex-col md:flex-row",
-					"items-start justify-between gap-y-5 gap-x-[1.875rem] py-10 md:py-20"
+					"container lg:max-w-[1050] md:px-[1.875rem] py-10 md:py-20",
+					"hero-grid gap-y-5 gap-x-[1.875rem]"
 				)
 			}>
-				<div className="flex-[50%] flex flex-col items-start gap-y-5">
-					<Heading
-						gap="md"
-						size="primary"
-						title="Discover digital art & Collect NFTs"
-						description="NFT marketplace UI created with Anima for Figma. Collect, buy and sell art from more than 20k NFT artists."
-					/>
-					<ButtonMain icon='rocketlaunch'>Get Started</ButtonMain>
-					
-				</div>
+				<Heading
+					className="[grid-area:heading]"
+					gap="md"
+					size="primary"
+					title="Discover digital art & Collect NFTs"
+					description="NFT marketplace UI created with Anima for Figma. Collect, buy and sell art from more than 20k NFT artists."
+				/>
 				<NFTCard
-					className="flex-[50%] w-full"
+					className="w-full [grid-area:card]"
 					variant='highlighted'
 					src='/assets/images/img.png'
 					title='Space Walking'
 					authorName='Animakid'
 					authorSrc='/assets/images/avatar.png'
 				/>
+				<ButtonMain icon='rocketlaunch' className="[grid-area:button]">Get Started</ButtonMain>
+				<StatsBar className="[grid-area:stats]" />
 			</div>
 		</section>
 	);

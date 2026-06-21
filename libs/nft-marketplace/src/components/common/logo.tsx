@@ -13,7 +13,7 @@ export function Logo({ responsibility = false } : { responsibility?: boolean }) 
 			} />
 			<span className={
 				cn("font-display font-bold text-body text-text hover:text-action transition-colors duration-200",
-					responsibility ? "lg:font-bold lg:text-h6" : "text-h6"
+					responsibility ? "lg:font-bold lg:text-h5" : "text-h5"
 				)
 			}>NFT Marketplace</span>
 		</Link>

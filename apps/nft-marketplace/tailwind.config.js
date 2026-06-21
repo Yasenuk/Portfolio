@@ -47,7 +47,6 @@ module.exports = {
         h3: ['2.375rem', { lineHeight: '1.2' }],
         h4: ['1.75rem', { lineHeight: '1.4' }],
         h5: ['1.375rem', { lineHeight: '1.6' }],
-        h6: ['1.375rem', { fontWeight: '400', lineHeight: '1.6' }],
         body: ['1rem', { fontWeight: '400', lineHeight: '1.4' }],
         caption: ['0.75rem', { fontWeight: '400', lineHeight: '1.1' }],
       },
