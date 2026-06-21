@@ -1,5 +1,6 @@
 import { ButtonMain, Heading, NFTCard, StatsBar } from "@portfolio/nft-marketplace";
 import { cn } from "@portfolio/nft-marketplace-utils";
+import Link from "next/link";
 
 export default function Hero() {
 	return (
@@ -25,7 +26,9 @@ export default function Hero() {
 					authorName='Animakid'
 					authorSrc='/assets/images/avatar.png'
 				/>
-				<ButtonMain icon='rocketlaunch' className="[grid-area:button]">Get Started</ButtonMain>
+				<ButtonMain icon='rocketlaunch' className="[grid-area:button]" asChild>
+					<Link href='/sing-up'>Get started</Link>
+				</ButtonMain>
 				<StatsBar className="[grid-area:stats]" />
 			</div>
 		</section>
