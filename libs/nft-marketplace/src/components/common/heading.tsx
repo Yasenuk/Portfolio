@@ -56,7 +56,7 @@ const Heading = React.forwardRef<
 			{...props}
 		>
 			<Title className={cn(headingTitleVariants({ size, className }))}>{title}</Title>
-			<p className='text-body lg:text-h5'>{ description }</p>
+			<p className={cn('text-body lg:text-h5', size !== 'primary' && "capitalize")}>{ description }</p>
 		</div>
 	)
 });

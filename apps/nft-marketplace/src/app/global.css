@@ -43,4 +43,13 @@
         'stats   card';
     }
   }
+
+  .collection-card-grid {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      'highlighted highlighted highlighted'
+      'sec-1 sec-2 sec-3';
+  }
 }

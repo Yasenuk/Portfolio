@@ -20,6 +20,13 @@ import {
 } from '@portfolio/nft-marketplace';
 import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
 import Hero from './_sections/hero';
+import Collections from './_sections/collections';
+import TopCreators from './_sections/top-creators';
+import Categories from './_sections/categories';
+import MoreNFTs from './_sections/more-nfts';
+import Highlight from './_sections/Highlight';
+import HowItWorks from './_sections/how-it-works';
+import Subscribe from './_sections/subscribe';
 
 export default function App() {
 	const author: TRRanckingItem = {
@@ -33,6 +40,13 @@ export default function App() {
 
 	return (<>
 		<Hero />
+		<Collections />
+		<TopCreators />
+		<Categories />
+		<MoreNFTs />
+		<Highlight />
+		<HowItWorks />
+		<Subscribe />
 
 		<AuthForm
 			title='Connect wallet'
@@ -60,7 +74,7 @@ export default function App() {
 			</Form>
 		</AuthForm>
 
-		<div className="container flex items-start gap-5 flex-col">
+		<div className="container items-start gap-5 flex-col hidden">
 
 			<div className='flex flex-wrap gap-5'>
 				<Icon name="rocketlaunch" />
