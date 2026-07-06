@@ -48,3 +48,8 @@ vite.config.*.timestamp*
 # Next.js
 .next
 out
+
+# env files
+.env
+.env.local
+.env.*.local
