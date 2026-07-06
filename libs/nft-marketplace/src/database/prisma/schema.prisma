@@ -1,11 +1,277 @@
-// url живе в prisma.config.ts, не тут (Prisma 7)
 datasource db {
-	provider = "postgresql"
+  provider = "postgresql"
 }
 
 generator client {
-	provider = "prisma-client"
-	output   = "../src/generated/prisma"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
-// додай моделі — без жодної моделі migrate dev нічого не створить
+// -- Enums --
+
+enum WalletNetwork {
+  ethereum
+  bitcoin
+  solana
+  polygon
+  bnb
+}
+
+enum WalletProvider {
+  metamask
+  coinbase
+  walletconnect
+}
+
+enum NftStatus {
+  draft
+  listed
+  sold
+  auction
+}
+
+enum BidStatus {
+  active
+  won
+  outbid
+  cancelled
+}
+
+enum EventStatus {
+  upcoming
+  active
+  ended
+}
+
+enum SocialPlatform {
+  twitter
+  instagram
+  discord
+  website
+  youtube
+}
+
+// -- Models --
+
+// - User -
+
+model User {
+  id               String   @id @default(cuid())
+  username         String   @unique
+  email            String   @unique
+  passwordhash     String
+  twoFactorEnabled Boolean  @default(false)
+  twoFactorSecret  String?
+  createdAt        DateTime @default(now())
+
+  profile           UserProfile?
+  socialLinks       UserSocialLink[]
+  wallets           Wallet[]
+  collections       Collection[]
+  createdNfts       Nft[]                 @relation("NftCreator")
+  ownedNfts         Nft[]                 @relation("NftOwner")
+  bids              Bid[]
+  salesTransactions Transaction[]         @relation("TransactionSeller")
+  buyTransactions   Transaction[]         @relation("TransactionBuyer")
+  likes             Like[]
+  events            Event[]
+  followers         Follow[]              @relation("Following")
+  following         Follow[]              @relation("Follower")
+  backupCode        TwoFactorBackupCode[]
+}
+
+// User Profile
+
+model UserProfile {
+  id            String  @id @default(cuid())
+  userId        String  @unique
+  avatarUrl     String?
+  backgroundUrl String?
+  bio           String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// User Social Link
+
+model UserSocialLink {
+  id       String         @id @default(cuid())
+  userId   String
+  platform SocialPlatform
+  url      String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, platform])
+}
+
+// Two Factor Authentication
+
+model TwoFactorBackupCode {
+  id     String    @id @default(cuid())
+  userId String
+  code   String
+  usedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// - Wallet -
+
+model Wallet {
+  id              String         @id @default(cuid())
+  userId          String
+  address         String
+  network         WalletNetwork
+  provider        WalletProvider
+  isPrimary       Boolean        @default(false)
+  balanceCache    Decimal        @db.Decimal(36, 18)
+  balanceUpdateAt DateTime?
+  connectedAt     DateTime       @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// - Follow -
+
+model Follow {
+  followerId  String
+  followingId String
+
+  follower  User @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
+  following User @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@id([followerId, followingId])
+}
+
+// - Category -
+
+model Category {
+  id          String  @id @default(cuid())
+  name        String  @unique
+  slug        String  @unique
+  coverUrl    String?
+  description String?
+
+  nfts Nft[]
+}
+
+// - NFT -
+
+model Nft {
+  id              String    @id @default(cuid())
+  creatorId       String
+  ownerId         String
+  categoryId      String
+  name            String
+  description     String?
+  imageUrl        String
+  price           Decimal   @db.Decimal(36, 18)
+  status          NftStatus @default(draft)
+  tokenId         String?
+  contractAddress String?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  creator      User            @relation("NftCreator", fields: [creatorId], references: [id], onDelete: Cascade)
+  owner        User            @relation("NftOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  category     Category        @relation(fields: [categoryId], references: [id])
+  collections  CollectionNft[]
+  bids         Bid[]
+  transactions Transaction[]
+  likes        Like[]
+
+  @@index([ownerId])
+  @@index([creatorId])
+  @@index([status])
+}
+
+// - Collection -
+
+model Collection {
+  id          String   @id @default(cuid())
+  authorId    String
+  name        String
+  description String?
+  coverUrl    String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  author User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  nfts   CollectionNft[]
+  events Event[]
+
+  @@unique([authorId, isDefault])
+}
+
+model CollectionNft {
+  collectionId String
+  nftId        String
+
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  nft        Nft        @relation(fields: [nftId], references: [id], onDelete: Cascade)
+
+  @@id([collectionId, nftId])
+}
+
+// BID
+
+model Bid {
+  id        String    @id @default(cuid())
+  nftId     String
+  bidderId  String
+  amount    Decimal   @db.Decimal(36, 18)
+  status    BidStatus @default(active)
+  createdAt DateTime  @default(now())
+  expiresAt DateTime?
+
+  nft    Nft  @relation(fields: [nftId], references: [id], onDelete: Cascade)
+  bidder User @relation(fields: [bidderId], references: [id])
+
+  @@index([nftId, status])
+}
+
+// - Transaction -
+
+model Transaction {
+  id        String   @id @default(cuid())
+  nftId     String
+  sellerId  String
+  buyerId   String
+  price     Decimal  @db.Decimal(36, 18)
+  txHash    String?  @unique
+  createdAt DateTime @default(now())
+
+  nft    Nft  @relation(fields: [nftId], references: [id])
+  seller User @relation("TransactionSeller", fields: [sellerId], references: [id])
+  buyer  User @relation("TransactionBuyer", fields: [buyerId], references: [id])
+}
+
+// - Event -
+
+model Event {
+  id           String      @id @default(cuid())
+  name         String
+  coverUrl     String?
+  collectionId String
+  authorId     String
+  startsAt     DateTime
+  endsAt       DateTime
+  status       EventStatus @default(upcoming)
+  createdAt    DateTime    @default(now())
+
+  collection Collection @relation(fields: [collectionId], references: [id])
+  author     User       @relation(fields: [authorId], references: [id])
+}
+
+// - Like -
+
+model Like {
+  userId String
+  nftId  String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  nft  Nft  @relation(fields: [nftId], references: [id], onDelete: Cascade)
+
+  @@id([userId, nftId])
+}

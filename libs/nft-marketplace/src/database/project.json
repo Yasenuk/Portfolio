@@ -13,6 +13,9 @@
     },
     "prisma-studio": {
       "command": "prisma studio --config libs/nft-marketplace/src/database/prisma.config.ts"
+    },
+    "prisma-db-push": {
+      "command": "prisma db push --config libs/nft-marketplace/src/database/prisma.config.ts"
     }
   }
 }
