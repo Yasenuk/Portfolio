@@ -17,13 +17,9 @@
       "@portfolio/shared-ui": ["./libs/shared/ui/src/index.ts"],
       "@portfolio/shared-ui/*": ["./libs/shared/ui/src/*"],
       "@portfolio/shared-ui/styles": ["./libs/shared/ui/src/styles/globals.css"],
-
       "@portfolio/shared-hooks": ["./libs/shared/hooks/src/index.ts"],
-
       "@portfolio/shared-types": ["./libs/shared/types/src/index.ts"],
-
       "@portfolio/shared-database": ["./libs/shared/database/src/index.ts"],
-
       "@portfolio/shared-utils": ["./libs/shared/utils/src/index.ts"],
       
       "@/components/*": ["./libs/shared/ui/src/components/*"],
@@ -39,6 +35,7 @@
       "@portfolio/nft-marketplace-shared": ["./libs/nft-marketplace/src/shared/index.ts"],
       "@portfolio/nft-marketplace-utils": ["./libs/nft-marketplace/src/utils/index.ts"],
       "@portfolio/nft-marketplace-types": ["./libs/nft-marketplace/src/types/index.ts"],
+      "@portfolio/nft-marketplace-database": ["./libs/nft-marketplace/src/database/src/db.ts"],
 
       "@portfolio/rhine-media": ["./libs/rhine-media/src/index.ts"],
       "@portfolio/rhine-media-hooks": ["./libs/rhine-media/src/hooks/index.ts"],

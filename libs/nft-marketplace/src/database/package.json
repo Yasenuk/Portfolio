@@ -1,0 +1,10 @@
+{
+  "name": "@portfolio/nft-marketplace-database",
+  "version": "0.0.1",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./src/db.ts"
+    }
+  }
+}

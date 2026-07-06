@@ -1,0 +1,11 @@
+// url живе в prisma.config.ts, не тут (Prisma 7)
+datasource db {
+	provider = "postgresql"
+}
+
+generator client {
+	provider = "prisma-client"
+	output   = "../src/generated/prisma"
+}
+
+// додай моделі — без жодної моделі migrate dev нічого не створить

@@ -53,3 +53,6 @@ out
 .env
 .env.local
 .env.*.local
+
+# prisma generated client
+libs/nft-marketplace/src/database/src/generated
