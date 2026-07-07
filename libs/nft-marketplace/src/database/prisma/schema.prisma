@@ -78,6 +78,7 @@ model User {
   followers         Follow[]              @relation("Following")
   following         Follow[]              @relation("Follower")
   backupCode        TwoFactorBackupCode[]
+  refreshToken      RefreshToken?
 }
 
 // User Profile
@@ -274,4 +275,21 @@ model Like {
   nft  Nft  @relation(fields: [nftId], references: [id], onDelete: Cascade)
 
   @@id([userId, nftId])
+}
+
+// -- Refresh Token --
+
+model RefreshToken {
+  id         String    @id @default(cuid())
+  userId     String    @unique
+  token      String    @unique
+  ip         String?
+  userAgent  String?
+  lastUsedAt DateTime?
+  expiresAt  DateTime
+  createdAt  DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
