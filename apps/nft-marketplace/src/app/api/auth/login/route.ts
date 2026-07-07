@@ -6,8 +6,15 @@ import { type NextRequest, NextResponse } from 'next/server';
 export async function POST(req: NextRequest) {
 	const { email, password } = await req.json();
 
+	if (typeof email !== 'string' || typeof password !== 'string') {
+		return NextResponse.json(
+			{ error: 'Email and password are required' },
+			{ status: 400 }
+		);
+	}
+
 	const user = await prisma.user.findUnique({ where: { email } });
-	if (!user || !await bcrypt.compare(password, user?.passwordhash)) {
+	if (!user || !await bcrypt.compare(password, user.passwordhash)) {
 		return NextResponse.json(
 			{ error: 'Invalid credentials', },
 			{ status: 401 }
@@ -26,12 +33,15 @@ export async function POST(req: NextRequest) {
 		{ expiresIn: '7d' }
 	);
 
-	await prisma.refreshToken.create({
-		data: {
-			token: refreshToken,
-			userId: user.id,
-			expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
-		}
+	const refreshTokenPayload = {
+		token: refreshToken,
+		expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
+	};
+
+	await prisma.refreshToken.upsert({
+		where: { userId: user.id },
+		update: refreshTokenPayload,
+		create: { ...refreshTokenPayload, userId: user.id },
 	});
 
 	const res = NextResponse.json({

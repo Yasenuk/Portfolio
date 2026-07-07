@@ -14,14 +14,11 @@ export async function POST(req: NextRequest) {
 	try {
 		const payload = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET!) as { userId: string };
 
-		const stored = await prisma.refreshToken.findUnique({
-			where: {
-				token: refreshToken,
-				userId: payload.userId,
-				expiresAt: { gt: new Date() },
-			},
-		});
-		if (!stored) throw new Error('Invalid token');
+		const newAccessToken = jwt.sign(
+			{ userId: payload.userId },
+			process.env.ACCESS_TOKEN_SECRET!,
+			{ expiresIn: '15m' }
+		);
 
 		const newRefreshToken = jwt.sign(
 			{ userId: payload.userId },
@@ -29,12 +26,30 @@ export async function POST(req: NextRequest) {
 			{ expiresIn: '7d' }
 		);
 
+		await prisma.refreshToken.update({
+			where: { token: refreshToken },
+			data: {
+				token: newRefreshToken,
+				expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+				lastUsedAt: new Date(),
+			}
+		});
+
 		const res = NextResponse.json({ ok: true });
+
+		res.cookies.set('access_token', newAccessToken, {
+			httpOnly: true,
+			secure: process.env.NODE_ENV === 'production',
+			sameSite: 'lax',
+			maxAge: 15 * 60,
+		});
+
 		res.cookies.set('refresh_token', newRefreshToken, {
 			httpOnly: true,
 			secure: process.env.NODE_ENV === 'production',
 			sameSite: 'lax',
 			maxAge: 7 * 24 * 60 * 60,
+			path: '/api/auth/refresh',
 		});
 
 		return res;
