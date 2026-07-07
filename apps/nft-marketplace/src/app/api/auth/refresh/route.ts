@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { prisma } from '@portfolio/nft-marketplace-database';
 
 export async function POST(req: NextRequest) {
