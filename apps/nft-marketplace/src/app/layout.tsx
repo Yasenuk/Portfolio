@@ -1,8 +1,8 @@
 import '../assets/styles/font.css';
 import './global.css';
-import { Footer } from './layout/footer';
 
-import { Header } from './layout/header';
+import { Footer } from './(main)/layout/footer';
+import { Header } from './(main)/layout/header';
 
 export const metadata = {
   title: 'NFT Marketplace',
