@@ -60,19 +60,7 @@ export default function App() {
 			</Form>
 		</AuthForm>
 
-		<AuthForm
-			title='Create account'
-			description='Welcome! enter your details and start creating, collecting and selling NFTs.'
-			imageSrc='form_img.png'
-		>
-			<Form className='gap-y-[15px]'>
-				<InputMain placeholder='Username' icon='user' />
-				<InputMain placeholder='Email address' icon='envelopesimple' />
-				<InputPassword placeholder='Password' icon='lockkey' />
-				<InputPassword placeholder='Confirm password' icon='lockkey' />
-				<ButtonMain size="xs" className='mt-[15px] w-full'>Create account</ButtonMain>
-			</Form>
-		</AuthForm>
+		
 
 		<div className="container items-start gap-5 flex-col hidden">
 

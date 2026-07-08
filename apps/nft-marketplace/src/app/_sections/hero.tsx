@@ -27,7 +27,7 @@ export default function Hero() {
 					authorSrc='/assets/images/avatar.png'
 				/>
 				<ButtonMain icon='rocketlaunch' className="[grid-area:button]" asChild>
-					<Link href='/sing-up'>Get started</Link>
+					<Link href='/register'>Get started</Link>
 				</ButtonMain>
 				<StatsBar className="[grid-area:stats]" />
 			</div>
