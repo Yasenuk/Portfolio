@@ -17,7 +17,7 @@ const StatsBar = React.forwardRef<
 		{...props}
 	>
 		{stats.map(stat => (
-			<section className="basis-1/3 flex-shrink">
+			<section key={stat.label} className="basis-1/3 flex-shrink">
 				<h3 className="text-h5 lg:text-h4 font-semibold">{stat.value}k+</h3>
 				<span className="text-body lg:text-body capitalize">{stat.label}</span>
 			</section>
