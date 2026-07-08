@@ -19,14 +19,14 @@ import {
 	SubscribeForm
 } from '@portfolio/nft-marketplace';
 import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
-import Hero from './_sections/hero';
-import Collections from './_sections/collections';
-import TopCreators from './_sections/top-creators';
-import Categories from './_sections/categories';
-import MoreNFTs from './_sections/more-nfts';
-import Highlight from './_sections/Highlight';
-import HowItWorks from './_sections/how-it-works';
-import Subscribe from './_sections/subscribe';
+import Hero from './(main)/_sections/hero';
+import Collections from './(main)/_sections/collections';
+import TopCreators from './(main)/_sections/top-creators';
+import Categories from './(main)/_sections/categories';
+import MoreNFTs from './(main)/_sections/more-nfts';
+import Highlight from './(main)/_sections/highlight';
+import HowItWorks from './(main)/_sections/how-it-works';
+import Subscribe from './(main)/_sections/subscribe';
 
 export default function App() {
 	const author: TRRanckingItem = {
