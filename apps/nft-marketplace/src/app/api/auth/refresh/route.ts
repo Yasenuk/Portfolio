@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { type NextRequest, NextResponse } from "next/server";
 import { prisma } from '@portfolio/nft-marketplace-database';
+import { setAuthCookies } from '../../../../lib/auth';
 
 export async function POST(req: NextRequest) {
 	const refreshToken = req.cookies.get('refresh_token')?.value;
@@ -37,20 +38,7 @@ export async function POST(req: NextRequest) {
 
 		const res = NextResponse.json({ ok: true });
 
-		res.cookies.set('access_token', newAccessToken, {
-			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
-			sameSite: 'lax',
-			maxAge: 15 * 60,
-		});
-
-		res.cookies.set('refresh_token', newRefreshToken, {
-			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
-			sameSite: 'lax',
-			maxAge: 7 * 24 * 60 * 60,
-			path: '/api/auth/refresh',
-		});
+		await setAuthCookies(res, { accessToken: newAccessToken, refreshToken: newRefreshToken });
 
 		return res;
 	} catch {

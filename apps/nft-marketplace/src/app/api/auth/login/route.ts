@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import { prisma } from "@portfolio/nft-marketplace-database";
 import { type NextRequest, NextResponse } from 'next/server';
+import { createSession, setAuthCookies } from '../../../../lib/auth';
 
 export async function POST(req: NextRequest) {
 	const { email, password } = await req.json();
@@ -21,28 +21,7 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
-	const accessToken = jwt.sign(
-		{ userId: user.id },
-		process.env.ACCESS_TOKEN_SECRET!,
-		{ expiresIn: '15m' }
-	);
-
-	const refreshToken = jwt.sign(
-		{ userId: user.id },
-		process.env.REFRESH_TOKEN_SECRET!,
-		{ expiresIn: '7d' }
-	);
-
-	const refreshTokenPayload = {
-		token: refreshToken,
-		expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
-	};
-
-	await prisma.refreshToken.upsert({
-		where: { userId: user.id },
-		update: refreshTokenPayload,
-		create: { ...refreshTokenPayload, userId: user.id },
-	});
+	const { accessToken, refreshToken } = await createSession(user.id);
 
 	const res = NextResponse.json({
 		user: {
@@ -51,20 +30,7 @@ export async function POST(req: NextRequest) {
 		},
 	});
 
-	res.cookies.set('access_token', accessToken, {
-		httpOnly: true,
-		secure: process.env.NODE_ENV === 'production',
-		sameSite: 'lax',
-		maxAge: 15 * 60,
-	});
-
-	res.cookies.set('refresh_token', refreshToken, {
-		httpOnly: true,
-		secure: process.env.NODE_ENV === 'production',
-		sameSite: 'lax',
-		maxAge: 7 * 24 * 60 * 60,
-		path: '/api/auth/refresh',
-	});
+	setAuthCookies(res, { accessToken, refreshToken });
 
 	return res;
 }
