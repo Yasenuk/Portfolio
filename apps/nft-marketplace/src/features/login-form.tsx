@@ -41,7 +41,7 @@ export default function LoginForm() {
 
 	return (
 		<AuthForm
-			title='Login account'
+			title='Create account'
 			description='Welcome! enter your details and start creating, collecting and selling NFTs.'
 			imageSrc='form_img.png'
 		>
@@ -60,7 +60,7 @@ export default function LoginForm() {
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 				/>
-				<ButtonMain size="xs" className='mt-[15px] w-full'>Login account</ButtonMain>
+				<ButtonMain disabled={pending} size="xs" className='mt-[15px] w-full'>Create account</ButtonMain>
 			</Form>
 		</AuthForm>
 	);

@@ -81,7 +81,7 @@ export default function RegisterForm() {
 					value={passwordConfirm}
 					onChange={(e) => setPasswordConfirm(e.target.value)}
 				/>
-				<ButtonMain size="xs" className='mt-[15px] w-full'>Create account</ButtonMain>
+				<ButtonMain disabled={pending} size="xs" className='mt-[15px] w-full'>Create account</ButtonMain>
 			</Form>
 		</AuthForm>
 	);
