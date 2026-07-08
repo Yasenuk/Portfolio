@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 	if (typeof email !== 'string' || typeof password !== 'string') {
 		return NextResponse.json(
 			{ error: 'Email and password are required' },
-			{ status: 400 }
+			{ status: 409 }
 		);
 	}
 
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
 	if (!user || !await bcrypt.compare(password, user.passwordhash)) {
 		return NextResponse.json(
 			{ error: 'Invalid credentials', },
-			{ status: 401 }
+			{ status: 409 }
 		);
 	}
 

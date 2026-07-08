@@ -2,6 +2,10 @@ import jwt from 'jsonwebtoken';
 import { prisma } from "@portfolio/nft-marketplace-database";
 import { NextRequest, NextResponse } from 'next/server';
 
+if (!process.env.ACCESS_TOKEN_SECRET || !process.env.REFRESH_TOKEN_SECRET) {
+	throw new Error('ACCESS_TOKEN_SECRET and REFRESH_TOKEN_SECRET must be set');
+}
+
 export function getClientMeta(req: NextRequest) {
 	const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim()
 		?? req.headers.get('x-real-ip') ?? null;
