@@ -5,15 +5,23 @@ import { createSession, getClientMeta, setAuthCookies } from '../../../../lib/au
 
 export async function POST(req: NextRequest) {
 	const { username, email, password } = await req.json();
-	const hashedPassword = await bcrypt.hash(password, 12);
 
-	if (password.length < 8) {
+	if (typeof username !== 'string' || typeof email !== 'string' || typeof password !== 'string') {
 		return NextResponse.json(
-			{ error: 'Passwort is to short', },
+			{ error: 'Username, email and password are required' },
 			{ status: 400 }
 		);
 	}
-	
+
+	if (password.length < 8) {
+		return NextResponse.json(
+			{ error: 'Password is too short' },
+			{ status: 400 }
+		);
+	}
+
+	const hashedPassword = await bcrypt.hash(password, 12);
+
 	try {
 		const user = await prisma.user.create({
 			data: { username, email, passwordhash: hashedPassword },
