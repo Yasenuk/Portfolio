@@ -47,21 +47,7 @@ export default function App() {
 		<Highlight />
 		<HowItWorks />
 		<Subscribe />
-
-		<AuthForm
-			title='Connect wallet'
-			description='Choose a wallet you want to connect. There are several wallet providers.'
-			imageSrc='form_img.png'
-		>
-			<Form className='gap-y-5'>
-				<ButtonMain className='w-full' icon='metamask' variant="wallet">Metamask</ButtonMain>
-				<ButtonMain className='w-full' icon='metamask' variant="wallet">Metamask</ButtonMain>
-				<ButtonMain className='w-full' icon='metamask' variant="wallet">Metamask</ButtonMain>
-			</Form>
-		</AuthForm>
-
 		
-
 		<div className="container items-start gap-5 flex-col hidden">
 
 			<div className='flex flex-wrap gap-5'>

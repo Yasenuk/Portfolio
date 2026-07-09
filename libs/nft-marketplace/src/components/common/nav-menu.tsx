@@ -6,7 +6,7 @@ import { cn } from '@portfolio/nft-marketplace-utils';
 const links = [
 	{ href: '/marketplace', label: 'Marketplace' },
 	{ href: '/rankings', label: 'Rankings' },
-	{ href: '/connect-wallet', label: 'Connect a wallet' },
+	{ href: '/wallet/connect', label: 'Connect a wallet' },
 ];
 
 interface NavMenuProps
