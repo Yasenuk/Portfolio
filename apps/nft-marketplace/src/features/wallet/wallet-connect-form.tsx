@@ -1,7 +1,7 @@
 'use client';
 
 import { useConnect, useAccount, useDisconnect } from 'wagmi';
-import { AuthForm, ButtonMain, Form } from "@portfolio/nft-marketplace";
+import { AuthForm, ButtonMain } from "@portfolio/nft-marketplace";
 
 export default function WalletConnectForm() {
 	const { connectors, connect, isPending } = useConnect();
@@ -14,17 +14,27 @@ export default function WalletConnectForm() {
 			description='Choose a wallet you want to connect. There are several wallet providers.'
 			imageSrc='form_img.png'
 		>
-			<Form className='gap-y-5'>
-				{connectors.map((connector) => (
-					<ButtonMain
-						key={connector.uid}
-						disabled={isPending}
-						onClick={() => connect({ connector })}
-						className='w-full'
-						icon='metamask'
-						variant="wallet">{connector.name}</ButtonMain>
-				))}
-			</Form>
+			<div className='gap-y-5 flex flex-col items-start lg:max-w-[350px]'>
+				{isConnected ? (
+					<>
+						<p>{address?.slice(0, 6)}…{address?.slice(-4)}</p>
+						<ButtonMain type="button" onClick={() => disconnect()}>Disconnect</ButtonMain>
+					</>
+				) : (
+					<>
+						{connectors.map((connector) => (
+							<ButtonMain
+								type="button"
+								key={connector.uid}
+								disabled={isPending}
+								onClick={() => connect({ connector })}
+								className='w-full'
+								icon={connector?.name?.toLocaleLowerCase()?.replace(" ", "-")}
+								variant="wallet">{connector.name}</ButtonMain>
+						))}
+					</>
+				)}
+			</div>
 		</AuthForm>
 	);
 }

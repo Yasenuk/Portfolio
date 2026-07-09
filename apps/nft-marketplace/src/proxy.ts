@@ -23,5 +23,5 @@ export async function proxy(req: NextRequest) {
 }
 
 export const config = {
-	matcher: ['/api/nft/:path*', '/api/collection/:path*', '/api/wallet/:path*'],
+	matcher: ['/wallet/:path*', '/profile/:path*', '/api/nft/:path*', '/api/collection/:path*', '/api/wallet/:path*'],
 };

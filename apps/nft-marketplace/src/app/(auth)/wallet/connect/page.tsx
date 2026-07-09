@@ -1,5 +1,5 @@
-import ConnectWalletForm from "../../../features/wallet/wallet-connect-form";
-import { Web3Provider } from "../../../features/wallet/web3-provider";
+import ConnectWalletForm from "../../../../features/wallet/wallet-connect-form";
+import { Web3Provider } from "../../../../features/wallet/web3-provider";
 
 export const metadata = { title: "Connect wallet" };
 
