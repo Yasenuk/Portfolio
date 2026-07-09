@@ -18,7 +18,11 @@ export function Header() {
 					<BurgerMenuTrigger />
 					<BurgerMenuBody>
 						<NavMenu className="lg:flex-row items-center" linkClassName="text-h4 lg:text-body" />
-						{user ? <span>{user.username}</span> : !loading &&
+						{user ? (
+							<ButtonMain icon="user" size="xs" px="sm" asChild className="max-md:w-full max-md:max-w-60">
+								<Link href='/profile'>{ user?.username }</Link>
+							</ButtonMain>
+						) : !loading &&
 							<ButtonMain icon="user" size="md" px="sm" asChild className="max-md:w-full max-md:max-w-60">
 								<Link href='/register'>Sign up</Link>
 							</ButtonMain>
