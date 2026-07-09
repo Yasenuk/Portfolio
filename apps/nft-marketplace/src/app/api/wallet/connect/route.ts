@@ -2,10 +2,7 @@ import jwt from 'jsonwebtoken';
 import { prisma, WalletNetwork, WalletProvider } from "@portfolio/nft-marketplace-database";
 import { NextRequest, NextResponse } from "next/server";
 import { verifyMessage } from "viem";
-
-export function buildWalletMessage(address: string, nonce: string) {
-	return `Lint wallet ${address} to NFT Marketplace.\nNonce: ${nonce}`;
-}
+import { buildWalletMessage } from '../../../../lib/wallet';
 
 export async function POST(req: NextRequest) {
 	const { address, signature, network, provider } = await req.json();

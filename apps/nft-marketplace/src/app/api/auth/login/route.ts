@@ -9,15 +9,16 @@ export async function POST(req: NextRequest) {
 	if (typeof email !== 'string' || typeof password !== 'string') {
 		return NextResponse.json(
 			{ error: 'Email and password are required' },
-			{ status: 409 }
+			{ status: 400 }
 		);
 	}
 
 	const user = await prisma.user.findUnique({ where: { email } });
+
 	if (!user || !await bcrypt.compare(password, user.passwordhash)) {
 		return NextResponse.json(
-			{ error: 'Invalid credentials', },
-			{ status: 409 }
+			{ error: 'Invalid credentials' },
+			{ status: 401 }
 		);
 	}
 
