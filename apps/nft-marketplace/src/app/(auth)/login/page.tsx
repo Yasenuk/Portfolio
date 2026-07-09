@@ -1,4 +1,4 @@
-import LoginForm from "../../../features/login-form";
+import LoginForm from "../../../features/auth/login-form";
 
 export const metadata = { title: "Login account" };
 

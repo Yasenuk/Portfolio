@@ -1,4 +1,4 @@
-import RegisterForm from "../../../features/register-form";
+import RegisterForm from "../../../features/auth/register-form";
 
 export const metadata = { title: "Create account" };
 
