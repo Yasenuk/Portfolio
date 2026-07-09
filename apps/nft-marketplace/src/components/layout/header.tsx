@@ -13,7 +13,6 @@ export function Header() {
 		<header>
 			<div className="container relative flex items-center justify-between py-[15px] lg:py-5">
 				<Logo responsibility />
-				<h2>{user?.username}</h2>
 				<BurgerMenu>
 					<BurgerMenuBackdrop />
 					<BurgerMenuTrigger />
