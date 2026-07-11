@@ -32,7 +32,7 @@ const ProfileNav = React.forwardRef<
 	return (
 		<nav
 			ref={ref}
-			className={cn("flex gap-2 lg:flex-col", className)}
+			className={cn("sticky top-2.5 flex gap-2 lg:flex-col", className)}
 			{...props}
 		>
 			{TABS.map(({ icon, href, label }) => {

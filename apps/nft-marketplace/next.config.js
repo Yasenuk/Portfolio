@@ -12,6 +12,7 @@ const nextConfig = {
   nx: {},
   experimental: {
 		optimizePackageImports: ['@portfolio/nft-marketplace', '@portfolio/shared-ui'],
+		turbopackFileSystemCacheForDev: false,
 	},
 };
 

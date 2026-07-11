@@ -8,10 +8,10 @@ export default async function ProfileLayout({ children }: { children: React.Reac
 
 	return (
 		<div className="container flex flex-col gap-8 py-5 lg:flex-row">
-			<aside className="lg:w-60 shrink-0">
+			<aside className="lg:w-60 shrink-0 relative">
 				<ProfileNav />
 			</aside>
-			<main className="flex-1 min-w-0">
+			<main className="flex-1">
 				{children}
 			</main>
 		</div>

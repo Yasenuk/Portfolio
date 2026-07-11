@@ -13,10 +13,12 @@ export default async function ProfilePage() {
 	]);
 
 	return (
-		<section>
-			<div className="relative bg-action-fade bg-cover h-[15.625rem] md:h-[17.5rem] lg:h-[20rem] w-full">
-				<div className="size-[7.5rem] border-bg border-2"></div>
-			</div>
-		</section>
+		<div className="h-full relative">
+			<div className="bg-action-fade h-[15.625rem] md:h-[17.5rem] lg:h-[20rem] w-full"></div>
+			<div className="absolute size-[7.5rem] rounded border-bg border-2 -translate-y-[4.375rem]"></div>
+			<section className="pt-[5.625rem] pb-10">
+				<h1 className="text-h4 md:text-h3 lg:text-h2">{ user?.username }</h1>
+			</section>
+		</div>
 	)
 }
