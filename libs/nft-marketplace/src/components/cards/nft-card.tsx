@@ -10,8 +10,8 @@ const cardVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: `max-h-[238px] md:max-h-[295px]`,
-				highlighted : "h-[206px] md:h-[221px] lg:h-[401px]"
+				default: `max-h-60 md:max-h-74`,
+				highlighted : "h-51.5 md:h-55 lg:h-100"
 			},
 		},
 		defaultVariants: {
