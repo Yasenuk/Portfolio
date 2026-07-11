@@ -41,6 +41,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 		refetch();
 	}, [refetch]);
 
+	React.useEffect(() => {
+		if (!user) return;
+
+		const refresh = () => fetch('/api/auth/refresh', { method: 'POST' });
+
+		const intervalId = setInterval(refresh, 10 * 60 * 1000);
+		const onVisibilityChange = () => {
+			if (document.visibilityState === 'visible') refresh();
+		};
+		document.addEventListener('visibilitychange', onVisibilityChange);
+
+		return () => {
+			clearInterval(intervalId);
+			document.removeEventListener('visibilitychange', onVisibilityChange);
+		};
+	}, [user]);
+
 	return (
 		<AuthContext.Provider value={{ user, loading, setUser, refetch }}>
 			{children}
