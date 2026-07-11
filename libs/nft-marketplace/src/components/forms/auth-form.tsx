@@ -33,7 +33,7 @@ const AuthForm = React.forwardRef<
 				className="object-cover object-center h-full w-auto"
 			/>
 		</div>
-		<div className="px-7.5 pt-7.5 pb-10 md:px-0 md:py-20 lg:py-[6.25rem] text-text">
+		<div className="px-7.5 pt-7.5 pb-10 md:px-0 md:py-20 lg:py-25 text-text">
 			<h1 className="text-h3 lg:text-h2 mb-5 capitalize font-semibold lg:max-w-[460px]">{title}</h1>
 			<p className="text-body lg:text-h5 mb-7.5 md:mb-10 lg:max-w-[460px]">{description}</p>
 			{children}

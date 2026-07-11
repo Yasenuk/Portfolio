@@ -7,23 +7,23 @@ import { Icon } from '@portfolio/shared-ui';
 
 const buttonVariants = cva(
 	`border-action border-2 flex items-center justify-center gap-x-3 rounded
-	h-[2.875rem] md:h-15 text-body lg:font-semibold capitalize hover:scale-95
+	h-11.5 md:h-15 text-body lg:font-semibold capitalize hover:scale-95
 	transition-transform duration-200 cursor-pointer`,
 	{
 		variants: {
 			variant: {
 				default: "bg-action text-text",
 				outlined: "bg-transparent text-action",
-				wallet: "bg-bg-secondary h-15 border gap-x-5 px-10 py-[0.875rem] lg:py-4 justify-start"
+				wallet: "bg-bg-secondary h-15 border gap-x-5 px-10 py-3.5 lg:py-4 justify-start"
 			},
 			size: {
-				default: "lg:h-[4.5rem] lg:text-h5",
-				xs: "md:h-[2.875rem] lg:h-[2.875rem]",
-				sm: "md:h-[2.875rem] lg:h-15",
+				default: "lg:h-18 lg:text-h5",
+				xs: "md:h-11.5 lg:h-11.5",
+				sm: "md:h-11.5 lg:h-15",
 				md: "h-15",
 			},
 			px: {
-				default: "px-[3.125rem]",
+				default: "px-12.5",
 				sm: "px-7.5"
 			}
 		},

@@ -10,8 +10,8 @@ const cardVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: `max-h-[14.875rem] md:max-h-[18.438rem]`,
-				highlighted : "h-[12.875rem] md:h-[13.813rem] lg:h-[25.063rem]"
+				default: `max-h-[238px] md:max-h-[295px]`,
+				highlighted : "h-[206px] md:h-[221px] lg:h-[401px]"
 			},
 		},
 		defaultVariants: {
@@ -34,7 +34,7 @@ export function NFTCard({ src, title, price, bid, authorSrc, authorName, classNa
 				<CardAuthor authorSrc={authorSrc} authorName={authorName} />
 
 				{(price && bid) && (
-					<div className='mt-[1.563rem] flex items-start justify-between'>
+					<div className='mt-6.25 flex items-start justify-between'>
 						<div className='flex flex-col gap-y-2'>
 							<span className='text-caption text-label'>Price</span>
 							<span className="text-body text-text font-display">{price} ETH</span>

@@ -83,17 +83,17 @@ export default function App() {
 			</div>
 
 			<div className='flex flex-wrap gap-5'>
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="paintbrush" />
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="musicnotes" />
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="camera" />
+				<Icon sprite='icons-category' className='size-25' name="paintbrush" />
+				<Icon sprite='icons-category' className='size-25' name="musicnotes" />
+				<Icon sprite='icons-category' className='size-25' name="camera" />
 
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="videocamera" />
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="basketball" />
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="magicwand" />
+				<Icon sprite='icons-category' className='size-25' name="videocamera" />
+				<Icon sprite='icons-category' className='size-25' name="basketball" />
+				<Icon sprite='icons-category' className='size-25' name="magicwand" />
 
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="planet" />
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="bookmarkssimple" />
-				<Icon sprite='icons-category' className='size-[6.25rem]' name="swatches" />
+				<Icon sprite='icons-category' className='size-25' name="planet" />
+				<Icon sprite='icons-category' className='size-25' name="bookmarkssimple" />
+				<Icon sprite='icons-category' className='size-25' name="swatches" />
 			</div>
 
 			<div className='flex flex-wrap gap-5'>

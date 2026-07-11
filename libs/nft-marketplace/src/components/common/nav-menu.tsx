@@ -20,7 +20,7 @@ const NavMenu = React.forwardRef<
 >(({ className, linkClassName, ...props }, ref) => (
 	<nav
 		ref={ref}
-		className={cn("flex flex-col gap-y-6 gap-x-[3.125rem]", className)}
+		className={cn("flex flex-col gap-y-6 gap-x-12.5", className)}
 		{...props}
 	>
 		{links.map((link) => (

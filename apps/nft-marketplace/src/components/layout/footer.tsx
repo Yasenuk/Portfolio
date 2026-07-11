@@ -25,7 +25,7 @@ export function Footer() {
 					<h2 className={cn("", headingClass)}>Explore</h2>
 					<NavMenu className="gap-y-5" linkClassName="text-label-grey" />
 				</div>
-				<div className="md:min-w-[26.25rem] max-w-[26.25rem]">
+				<div className="md:min-w-105 max-w-105">
 					<h2 className={cn("", headingClass)}>Join our weekly digest</h2>
 					<p className="mb-5 lg:max-w-[330px]">Get exclusive promotions & updates straight to your inbox.</p>
 					<SubscribeForm />
