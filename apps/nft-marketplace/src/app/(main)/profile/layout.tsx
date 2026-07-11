@@ -7,7 +7,7 @@ export default async function ProfileLayout({ children }: { children: React.Reac
 	if (!user) redirect('/login');
 
 	return (
-		<div className="container flex flex-col gap-8 py-5 lg:flex-row">
+		<div className="container md:px-0 flex flex-col gap-8 py-5 lg:flex-row">
 			<aside className="lg:w-60 shrink-0 relative">
 				<ProfileNav />
 			</aside>
