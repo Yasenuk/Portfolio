@@ -31,7 +31,7 @@ export default async function ProfilePage() {
 			<div className="absolute size-30 rounded border-bg border-2 -translate-y-17.5"></div>
 			<section className="pt-22.5 pb-10 flex flex-col gap-y-7.5">
 				<div className="flex flex-wrap gap-5 items-center lg:justify-between">
-					<h1 className="basis-[100%] lg:flex-1 text-h4 md:text-h3 lg:text-h2 pb-2.5 lg:pb-0">{user?.username}</h1>
+					<h1 className="basis-[100%] lg:flex-1 text-h4 md:text-h3 lg:text-h2 font-semibold pb-2.5 lg:pb-0">{user?.username}</h1>
 					<CopyAddressButton className="basis-[100%] md:basis-auto" address={wallet_address!.address} />
 					<ButtonMain className="basis-[100%] md:basis-auto" variant='outlined' size='md' px='sm' icon="plus">Follow</ButtonMain>
 				</div>
