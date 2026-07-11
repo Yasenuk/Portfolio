@@ -24,3 +24,6 @@ export * from './components/common/logo';
 export * from './components/common/nav-menu';
 export * from './components/common/heading';
 export * from './components/common/stats-bar';
+
+// profile
+export * from './components/profile/profile-nav';
