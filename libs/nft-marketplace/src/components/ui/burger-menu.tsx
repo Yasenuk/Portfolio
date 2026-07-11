@@ -143,7 +143,7 @@ const BurgerMenuBody = React.forwardRef<
 			id={controlsID}
 			className={cn(
 				'fixed w-full lg:static top-0 right-0 z-40 flex flex-col lg:flex-row lg:translate-x-0',
-				'transition-transform duration-200 justify-center items-center gap-x-[1.875rem] gap-y-10',
+				'transition-transform duration-200 justify-center items-center gap-x-7.5 gap-y-10',
 				'h-dvh lg:h-auto px-10 lg:px-0',
 				translateClass,
 				className

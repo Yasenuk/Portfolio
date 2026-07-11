@@ -7,8 +7,8 @@ export default function Hero() {
 		<section>
 			<div className={
 				cn(
-					"container lg:max-w-[1050] md:px-[1.875rem] py-10 md:py-20",
-					"hero-grid gap-y-5 gap-x-[1.875rem]"
+					"container lg:max-w-[1050] md:px-7.5 py-10 md:py-20",
+					"hero-grid gap-y-5 gap-x-7.5"
 				)
 			}>
 				<Heading

@@ -119,7 +119,7 @@ export default function App() {
 				<RankingCard rank={1} src='/assets/images/avatar.png' title='Dish Studio' sales='34.53' />
 			</div>
 
-			<div className='flex flex-col md:flex-row md:justify-between gap-x-[1.875rem] gap-y-5'>
+			<div className='flex flex-col md:flex-row md:justify-between gap-x-7.5 gap-y-5'>
 				<ServiceCard
 					src='/assets/illustrations/wallet.svg'
 					title='Setup Your wallet'

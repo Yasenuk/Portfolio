@@ -9,10 +9,10 @@ export function Footer() {
 
 	return (
 		<footer className="bg-bg-secondary">
-			<div className="container max-w-[1050px] lg:px-[1.875rem] relative flex flex-col lg:flex-row items-start justify-between py-[1.875rem] md:py-10 text-label-grey text-body gap-[1.875rem]">
+			<div className="container max-w-[1050px] lg:px-7.5 relative flex flex-col lg:flex-row items-start justify-between py-7.5 md:py-10 text-label-grey text-body gap-7.5">
 				<div>
 					<Logo  />
-					<p className="my-5 lg:mt-[1.875rem] lg:max-w-60">NFT marketplace UI created with Anima for Figma.</p>
+					<p className="my-5 lg:mt-7.5 lg:max-w-60">NFT marketplace UI created with Anima for Figma.</p>
 					<span className="block mb-[15px]">Join our community</span>
 					<nav className="flex items-center gap-x-2.5 text-label">
 						<Link href="/"><Icon className={socialLinkClass} name="discordlogo"/></Link>

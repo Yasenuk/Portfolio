@@ -11,7 +11,7 @@ export function RankingCard({ rank, src, title, sales, className }: RankingCardP
 				<span className="absolute bg-bg 
 				-top-[0.438rem] -left-2
 				lg:-top-[0.125rem] lg:left-0 z-10 grid
-				size-[1.875rem] place-items-center
+				size-7.5 place-items-center
         rounded text-text">
 					{rank}
 				</span>
@@ -19,7 +19,7 @@ export function RankingCard({ rank, src, title, sales, className }: RankingCardP
 					src={src}
 					width={120}
 					height={120}
-					className="lg:mx-auto aspect-square w-[3.75rem] lg:w-[7.5rem] rounded-full"
+					className="lg:mx-auto aspect-square w-15 lg:w-[7.5rem] rounded-full"
 				/>
 			</CardPictureWrapper>
 			<CardContent className="text-left lg:text-center p-0 text-nowrap">

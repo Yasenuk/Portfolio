@@ -3,10 +3,10 @@ import Image from 'next/image';
 import { cn } from '@portfolio/nft-marketplace-utils';
 import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
 
-const rankClass = cn("size-6 lg:size-[1.875rem] text-label grid place-items-center text-body");
+const rankClass = cn("size-6 lg:size-7.5 text-label grid place-items-center text-body");
 const rankFilledClass = cn("lg:text-text rounded-full lg:bg-bg");
 const labelClass = cn("text-caption md:text-body");
-const avatarClass = cn("size-6 md:size-[3.75rem] rounded-full object-cover object-center");
+const avatarClass = cn("size-6 md:size-15 rounded-full object-cover object-center");
 
 const RankingList = React.forwardRef<
   HTMLTableElement,
@@ -68,7 +68,7 @@ const RankingListItem = React.forwardRef<
     )}
     {...props}
   >
-    <td className='pl-5 pr-4 size-6 lg:size-[1.875rem]'>
+    <td className='pl-5 pr-4 size-6 lg:size-7.5'>
       <span className={cn('', rankClass, rankFilledClass, labelClass)}>{rank}</span>
     </td>
 		<td>

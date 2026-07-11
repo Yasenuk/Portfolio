@@ -6,7 +6,7 @@ import { ServiceCardProps } from '@portfolio/nft-marketplace-types';
 
 export function ServiceCard({ src, title, description, className }: ServiceCardProps & React.HTMLAttributes<HTMLDivElement>) {
 	return (
-		<Card className={cn("p-5 md:pt-2.5 md:pb-[1.875rem] lg:px-[1.875rem] flex items-center md:flex-col gap-5", className)}>
+		<Card className={cn("p-5 md:pt-2.5 md:pb-7.5 lg:px-7.5 flex items-center md:flex-col gap-5", className)}>
 			<CardPictureWrapper>
 				<CardPicture
 					src={src}

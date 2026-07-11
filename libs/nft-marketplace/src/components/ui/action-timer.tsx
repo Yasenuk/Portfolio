@@ -19,7 +19,7 @@ export function ActionTimer({ total = 0 }: { total?: number }) {
   const time = secondsToClock(remaining);
 
   return (
-    <div className="inline-flex flex-col gap-2.5 p-[1.875rem] rounded bg-bg-secondary/50 text-text">
+    <div className="inline-flex flex-col gap-2.5 p-7.5 rounded bg-bg-secondary/50 text-text">
       <span className="text-caption">Auction ends in:</span>
 
       <div className="flex items-start gap-2.5 text-h3 font-display">
