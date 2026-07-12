@@ -1,7 +1,7 @@
 import { prisma } from "@portfolio/nft-marketplace-database";
 import { getSessionUser } from "../../../lib/session";
 import { Icon } from "@portfolio/shared-ui";
-import { ButtonMain, StatsBar } from "@portfolio/nft-marketplace";
+import { ButtonMain, ProfileHeader, StatsBar } from "@portfolio/nft-marketplace";
 import { CopyAddressButton } from "../../../features/wallet/copy-address-button";
 
 export const metadata = { title: 'My profile' };
@@ -27,8 +27,10 @@ export default async function ProfilePage() {
 
 	return (
 		<div className="h-full relative">
-			<div className="bg-action-fade h-62.5 md:h-70 lg:h-80 w-full"></div>
-			<div className="absolute size-30 rounded border-bg border-2 -translate-y-17.5"></div>
+			<ProfileHeader
+				backgroundUrl={ (user!.profile!.backgroundUrl!) }
+				avatarUrl={ user!.profile!.avatarUrl! }
+			/>
 			<section className="pt-22.5 pb-10 flex flex-col gap-y-7.5">
 				<div className="flex flex-wrap gap-5 items-center lg:justify-between">
 					<h1 className="basis-[100%] lg:flex-1 text-h4 md:text-h3 lg:text-h2 font-semibold pb-2.5 lg:pb-0">{user?.username}</h1>

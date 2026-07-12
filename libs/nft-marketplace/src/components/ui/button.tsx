@@ -21,10 +21,12 @@ const buttonVariants = cva(
 				xs: "md:h-11.5 lg:h-11.5",
 				sm: "md:h-11.5 lg:h-15",
 				md: "h-15",
+				none: 'h-auto md:h-auto'
 			},
 			px: {
 				default: "px-12.5",
-				sm: "px-7.5"
+				sm: "px-7.5",
+				none: ""
 			},
 			accentColor: {
 				default: "border-action text-body",

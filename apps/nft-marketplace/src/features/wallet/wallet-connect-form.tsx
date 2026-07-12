@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useConnect, useAccount, useDisconnect, useSignMessage } from 'wagmi';
-import { AuthForm, ButtonMain } from "@portfolio/nft-marketplace";
+import { AuthForm, ButtonMain, NavLink } from "@portfolio/nft-marketplace";
 import { apiFetch } from '../../lib/api';
 import { buildWalletMessage } from '../../lib/wallet';
 import { useRouter } from 'next/navigation';
@@ -86,6 +86,7 @@ export default function WalletConnectForm() {
 								icon={connector?.name?.toLocaleLowerCase()?.replace(" ", "-")}
 								variant="wallet">{connector.name}</ButtonMain>
 						))}
+						<NavLink href='/profile/create'></NavLink>
 					</>
 				)}
 			</div>
