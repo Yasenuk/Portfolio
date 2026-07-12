@@ -24,7 +24,7 @@ export default function ProfileCreateForm() {
 
 	async function onFileChange(e: React.ChangeEvent<HTMLInputElement>, field: ProfileField) {
 		const file = e.target.files?.[0];
-		e.target.value = ''; // дозволяє вибрати той самий файл повторно
+		e.target.value = '';
 		if (!file) return;
 
 		setError(null);
@@ -32,7 +32,6 @@ export default function ProfileCreateForm() {
 		if (!file.type.startsWith('image/')) return setError('Only images are allowed');
 		if (file.size > MAX_SIZE) return setError('Max file size is 10 MB');
 
-		// миттєве локальне прев'ю, поки файл вантажиться
 		const localPreview = URL.createObjectURL(file);
 		setImages((prev) => ({ ...prev, [field]: localPreview }));
 		setStatus('uploading');
