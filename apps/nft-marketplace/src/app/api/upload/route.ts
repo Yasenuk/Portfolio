@@ -6,7 +6,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 
-import { R2_BUCKET } from './../../../lib/r2';
+import { r2, R2_BUCKET } from '../../../lib/r2';
 
 const ALLOWED_TYPES: Record<string, string> = {
 	'image/jpeg': 'jpg',
