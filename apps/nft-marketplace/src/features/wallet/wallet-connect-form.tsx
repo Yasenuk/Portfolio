@@ -53,7 +53,7 @@ export default function WalletConnectForm() {
 				return;
 			}
 
-			router.push('/profile/wallets');
+			router.push('/profile/create');
 		} catch (err) {
 			setError('Signature rejected');
 		} finally {

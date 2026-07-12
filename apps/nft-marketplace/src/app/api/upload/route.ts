@@ -15,7 +15,7 @@ const ALLOWED_TYPES: Record<string, string> = {
 	'image/avif': 'avif',
 	'image/gif': 'gif',
 };
-const ALLOWED_FLODERS = ['users', 'nfts'];
+const ALLOWED_FOLDERS = ['users', 'nfts'];
 const MAX_SIZE = 10 * 1024 * 1024;
 
 export async function POST(req: NextRequest) {
@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
 		return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 	}
 
-	const { contentType, size, floder } = await req.json();
+	const { contentType, size, folder } = await req.json();
 
 	const ext = ALLOWED_TYPES[contentType];
 	if (!ext) return NextResponse.json(
@@ -42,12 +42,12 @@ export async function POST(req: NextRequest) {
 		{ error: 'File is too large (max 10 MB)' },
 		{ status: 400 }
 	);
-	if (!ALLOWED_FLODERS.includes(floder)) return NextResponse.json(
-		{ error: 'Unknown upload floader' },
+	if (!ALLOWED_FOLDERS.includes(folder)) return NextResponse.json(
+		{ error: 'Unknown upload folder' },
 		{ status: 400 }
 	);
-	
-	const key = `${floder}/${userId}/${randomBytes(16).toString('hex')}.${ext}`;
+
+	const key = `${folder}/${userId}/${randomBytes(16).toString('hex')}.${ext}`;
 	const uploadUrl = await getSignedUrl(
 		r2,
 		new PutObjectCommand({

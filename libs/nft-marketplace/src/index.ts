@@ -27,4 +27,4 @@ export * from './components/common/stats-bar';
 
 // profile
 export * from './components/profile/profile-nav';
-export * from './components/profile/prolile-header';
+export * from './components/profile/profile-header';

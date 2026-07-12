@@ -41,11 +41,13 @@ export async function PATCH(req: NextRequest) {
 		: typeof body.bio === 'string' && body.bio.length <= 500
 			? body.bio
 			: false;
-	
-	if (!bio) return NextResponse.json(
-		{ error: 'Bio must be a string up to 500 chars' },
-		{ status: 400 }
-	);
+
+	if (bio === false) {
+		return NextResponse.json(
+			{ error: 'Bio must be a string up to 500 chars' },
+			{ status: 400 }
+		);
+	}
 
 	const data = { avatarUrl, backgroundUrl, bio };
 	const profile = await prisma.userProfile.upsert({
