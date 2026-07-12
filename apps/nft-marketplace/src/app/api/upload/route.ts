@@ -15,7 +15,7 @@ const ALLOWED_TYPES: Record<string, string> = {
 	'image/avif': 'avif',
 	'image/gif': 'gif',
 };
-const ALLOWED_FLOADERS = ['users', 'NFTs'];
+const ALLOWED_FLODERS = ['users', 'nfts'];
 const MAX_SIZE = 10 * 1024 * 1024;
 
 export async function POST(req: NextRequest) {
@@ -38,11 +38,11 @@ export async function POST(req: NextRequest) {
 		{ error: 'Unsuported file type' },
 		{ status: 400 }
 	);
-	if (typeof size !== 'number' || size <= 0 || size >= MAX_SIZE) return NextResponse.json(
+	if (typeof size !== 'number' || size <= 0 || size > MAX_SIZE) return NextResponse.json(
 		{ error: 'File is too large (max 10 MB)' },
 		{ status: 400 }
 	);
-	if (!ALLOWED_FLOADERS.includes(floder)) return NextResponse.json(
+	if (!ALLOWED_FLODERS.includes(floder)) return NextResponse.json(
 		{ error: 'Unknown upload floader' },
 		{ status: 400 }
 	);
