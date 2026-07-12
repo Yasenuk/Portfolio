@@ -11,7 +11,7 @@ interface SubscribeFormProps
 const SubscribeForm = React.forwardRef<
 	HTMLFormElement,
 	SubscribeFormProps
->(({ className, icon, ...props }, ref) => {
+>(({ className, children, icon, ...props }, ref) => {
 	return (
 		<form
 			ref={ref}
@@ -23,8 +23,13 @@ const SubscribeForm = React.forwardRef<
 			}
 			{...props}
 		>
-			<InputMain placeholder="Enter your email here" variant="subscribe" />
-			<ButtonMain icon={icon} size="sm">Subscribe</ButtonMain>
+			{
+				(children) ?? (
+					<>
+						<InputMain placeholder="Enter your email here" variant="subscribe" />
+						<ButtonMain icon={icon} size="sm">Subscribe</ButtonMain>
+					</>
+				)}
 		</form>
 	)
 });

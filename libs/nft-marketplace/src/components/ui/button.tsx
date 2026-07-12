@@ -6,8 +6,8 @@ import { cn } from '@portfolio/nft-marketplace-utils';
 import { Icon } from '@portfolio/shared-ui';
 
 const buttonVariants = cva(
-	`border-action border-2 flex items-center justify-center gap-x-3 rounded
-	h-11.5 md:h-15 text-body lg:font-semibold capitalize hover:scale-95
+	`border-2 flex items-center justify-center gap-x-3 rounded
+	h-11.5 md:h-15 lg:font-semibold capitalize hover:scale-95
 	transition-transform duration-200 cursor-pointer`,
 	{
 		variants: {
@@ -25,12 +25,17 @@ const buttonVariants = cva(
 			px: {
 				default: "px-12.5",
 				sm: "px-7.5"
+			},
+			accentColor: {
+				default: "border-action text-body",
+				danger: "border-danger text-danger"
 			}
 		},
 		defaultVariants: {
 			variant: "default",
 			size: "default",
-			px: "default"
+			px: "default",
+			accentColor: 'default'
 		}
 	}
 )
@@ -43,13 +48,13 @@ export interface ButtonProps
 };
 
 const ButtonMain = React.forwardRef<HTMLButtonElement, ButtonProps>(
-	({ className, children, asChild = false, variant, size, px, icon = '', ...props }, ref) => {
+	({ className, children, asChild = false, variant, size, px, icon = '', accentColor, ...props }, ref) => {
 		const Comp = asChild ? Slot : 'button';
 
 		return (
 			<Comp 
 				ref={ref}
-				className={cn(buttonVariants({ variant, size, px, className }))}
+				className={cn(buttonVariants({ variant, size, px, className, accentColor }))}
 				{...props}
 			>
 				{icon && <Icon name={icon} className={cn(variant === 'wallet' && 'size-8 lg:size-10')} />}
