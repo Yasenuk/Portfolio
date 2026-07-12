@@ -44,7 +44,7 @@ export default function RegisterForm() {
 
 			const data = await res.json();
 			setUser(data.user);
-			router.push('/');
+			router.push('/wallet/connect');
 		} catch {
 			setError('Network error, try again');
 		} finally {
