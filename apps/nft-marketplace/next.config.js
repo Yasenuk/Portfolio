@@ -12,7 +12,10 @@ const nextConfig = {
   nx: {},
   experimental: {
 		optimizePackageImports: ['@portfolio/nft-marketplace', '@portfolio/shared-ui'],
-	},
+  },
+  images: {
+    remotePatterns: [{ protocol: 'https', hostname: '*.r2.dev' }],
+  }
 };
 
 const plugins = [
