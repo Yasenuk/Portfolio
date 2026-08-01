@@ -18,7 +18,9 @@ import {
 	ServiceCard,
 	SubscribeForm
 } from '@portfolio/nft-marketplace';
+
 import { TRRanckingItem } from '@portfolio/nft-marketplace-types';
+
 import Hero from './_sections/hero';
 import Collections from './_sections/collections';
 import TopCreators from './_sections/top-creators';

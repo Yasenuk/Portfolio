@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import { type NextRequest, NextResponse } from "next/server";
 import { prisma } from '@portfolio/nft-marketplace-database';
-import { setAuthCookies } from "@portfolio/nft-marketplace-utils";
+import { setAuthCookies } from '../../../../lib/auth';
 
 export async function POST(req: NextRequest) {
 	const refreshToken = req.cookies.get('refresh_token')?.value;

@@ -1,13 +1,20 @@
+'use client';
+
 import { prisma } from "@portfolio/nft-marketplace-database";
-import { getSessionUser } from "../../../lib/session";
 import { Icon } from "@portfolio/shared-ui";
 import { ButtonMain, ProfileHeader, StatsBar } from "@portfolio/nft-marketplace";
+import { useProfileImages } from '@portfolio/nft-marketplace-hooks';
+
+import { getSessionUser } from "../../../lib/session";
+import { useSession } from '../../../features/auth/auth-provider';
 import { CopyAddressButton } from "../../../features/wallet/copy-address-button";
 
 export const metadata = { title: 'My profile' };
 
 export default async function ProfilePage() {
 	const user = (await getSessionUser())!;
+	const { refetch } = useSession();
+	const { images, status, error, isBusy, onFileChange } = useProfileImages({ onSaved: refetch });
 
 	const [createdNFTs, ownedNFTs, collections, wallet_address, followers] = await Promise.all([
 		prisma.nft.count({ where: { creatorId: user?.id } }),
@@ -28,8 +35,10 @@ export default async function ProfilePage() {
 	return (
 		<div className="h-full relative">
 			<ProfileHeader
+				onFileChange={onFileChange}
 				backgroundUrl={ (user!.profile!.backgroundUrl!) }
 				avatarUrl={user!.profile!.avatarUrl!}
+				disabled={isBusy}
 				tooltip
 			/>
 			<section className="pb-10 flex flex-col gap-y-7.5">

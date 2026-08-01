@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-
 import { apiFetch } from "@portfolio/nft-marketplace-utils";
+
 import type {
 	ProfileField,
 	UploadStatus,
@@ -10,7 +10,7 @@ import type {
 } from '@portfolio/nft-marketplace-types';
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
-const IDLE: Record<ProfileField, ProfileImages> = {
+const IDLE: Record<ProfileField, UploadStatus> = {
 	avatarUrl: 'idle',
 	backgroundUrl: 'idle',
 };
@@ -40,7 +40,7 @@ export function useProfileImages({
 	const [error, setError] = React.useState<string | null>(null);
 
 	const imagesRef = React.useRef(images);
-	React.useEffect(() => imagesRef.current = images, [images]);
+	React.useEffect(() => { imagesRef.current = images, [images] });
 
 	const tokensRef = React.useRef<Record<ProfileField, number>>({
 		avatarUrl: 0,
@@ -59,7 +59,7 @@ export function useProfileImages({
 	}, [images]);
 
 	React.useEffect(() => {
-		previewsRef.current.forEach(URL.revokeObjectURL);
+		previewsRef.current.forEach(url => URL.revokeObjectURL(url));
 		previewsRef.current.clear();
 	}, []);
 

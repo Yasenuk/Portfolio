@@ -1,8 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { apiFetch } from '../../lib/api';
 import { SessionUser } from '@portfolio/nft-marketplace-types';
+import { apiFetch } from '@portfolio/nft-marketplace-utils';
 
 type AuthContextValue = {
 	user: SessionUser | null;

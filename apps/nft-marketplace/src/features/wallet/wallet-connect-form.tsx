@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { useConnect, useAccount, useDisconnect, useSignMessage } from 'wagmi';
 import { AuthForm, ButtonMain, NavLink } from "@portfolio/nft-marketplace";
-import { apiFetch } from '../../lib/api';
+import { apiFetch } from '@portfolio/nft-marketplace-utils';
 import { buildWalletMessage } from '../../lib/wallet';
 import { useRouter } from 'next/navigation';
 

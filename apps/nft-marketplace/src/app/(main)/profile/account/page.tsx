@@ -1,5 +1,5 @@
 import { ButtonMain, Heading, InputMain, SubscribeForm } from "@portfolio/nft-marketplace";
-import { getSessionUser } from "@portfolio/nft-marketplace-utils";
+import { getSessionUser } from '../../../../lib/session';
 import { prisma } from "@portfolio/nft-marketplace-database";
 import { LogoutButton } from "../../../../features/auth/logout-button";
 
