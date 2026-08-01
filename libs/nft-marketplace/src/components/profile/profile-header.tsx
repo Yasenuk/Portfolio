@@ -42,7 +42,7 @@ const ProfileHeader = React.forwardRef<
 	return (
 		<div
 			ref={ref}
-			className={cn("", className)}
+			className={cn("flex flex-col items-center md:items-start", className)}
 			{...props}
 		>
 			<div className="relative border-2 border-bg-secondary rounded h-62.5 md:h-70 lg:h-80 w-full grid place-content-center after:absolute after:bg-action-fade after:rounded after:inset-0 after:block after:pointer-events-none">
@@ -73,7 +73,7 @@ const ProfileHeader = React.forwardRef<
 				{fileInput(backgroundInputRef, 'backgroundUrl')}
 			</div>
 
-			<div className="relative size-30 aspect-square -translate-y-17.5 translate-x-15">
+			<div className="relative size-30 aspect-square -translate-y-17.5 md:translate-x-15">
 				{avatarUrl ? (
 					<Image
 						src={avatarUrl}
