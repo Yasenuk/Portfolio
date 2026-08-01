@@ -41,7 +41,7 @@ const ProfileNav = React.forwardRef<
 					<Link
 						key={href}
 						href={href}
-						className={cn('flex gap-x-2.5 items-center', active ? 'font-bold text-white' : 'text-muted')}
+						className={cn('flex gap-x-2.5 items-center whitespace-nowrap', active ? 'font-bold text-white' : 'text-muted')}
 					>
 						<Icon name={icon} />
 						{label}
