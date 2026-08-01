@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import { getSessionUser } from "../../../lib/session";
+import { getSessionUser } from "@portfolio/nft-marketplace-utils";
 import { ProfileNav } from "@portfolio/nft-marketplace";
 
 export default async function ProfileLayout({ children }: { children: React.ReactNode }) {

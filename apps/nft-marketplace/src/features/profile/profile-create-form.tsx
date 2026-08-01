@@ -67,7 +67,7 @@ export default function ProfileCreateForm() {
 			setImages((prev) => ({ ...prev, [field]: publicUrl }));
 			await refetch();
 		} catch (err) {
-			setImages((prev) => ({ ...prev, [field]: null })); // відкат прев'ю
+			setImages((prev) => ({ ...prev, [field]: null }));
 			setError(err instanceof Error ? err.message : 'Something went wrong');
 		} finally {
 			URL.revokeObjectURL(localPreview);

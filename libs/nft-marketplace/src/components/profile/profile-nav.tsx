@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { cn } from '@portfolio/nft-marketplace-utils';
-import { ButtonMain } from '../ui/button';
+import { ButtonMain } from '@portfolio/nft-marketplace';
 import { Icon } from '@portfolio/shared-ui';
 
 const TABS = [

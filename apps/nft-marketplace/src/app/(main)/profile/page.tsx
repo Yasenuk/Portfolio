@@ -29,9 +29,10 @@ export default async function ProfilePage() {
 		<div className="h-full relative">
 			<ProfileHeader
 				backgroundUrl={ (user!.profile!.backgroundUrl!) }
-				avatarUrl={ user!.profile!.avatarUrl! }
+				avatarUrl={user!.profile!.avatarUrl!}
+				tooltip
 			/>
-			<section className="pt-22.5 pb-10 flex flex-col gap-y-7.5">
+			<section className="pb-10 flex flex-col gap-y-7.5">
 				<div className="flex flex-wrap gap-5 items-center lg:justify-between">
 					<h1 className="basis-[100%] lg:flex-1 text-h4 md:text-h3 lg:text-h2 font-semibold pb-2.5 lg:pb-0">{user?.username}</h1>
 					<CopyAddressButton className="basis-[100%] md:basis-auto" address={wallet_address!.address} />

@@ -14,7 +14,7 @@ export async function apiFetch(input: RequestInfo, init?: RequestInit): Promise<
 	if (res.status !== 401) return res;
 
 	const refreshed = await refreshTokens();
-	if (!refreshed) return res; // сесії нема — віддаємо 401, викликач сам вирішує, що робити
+	if (!refreshed) return res;
 
 	return fetch(input, init);
 }

@@ -7,6 +7,7 @@ export * from './components/ui/action-timer';
 export * from './components/ui/ranking-list';
 export * from './components/ui/burger-menu';
 export * from './components/ui/nav-link';
+export * from './components/ui/tooltip';
 
 // cards
 export * from './components/cards/nft-card';

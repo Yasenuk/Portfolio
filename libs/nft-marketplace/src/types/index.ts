@@ -1,4 +1,5 @@
 export * from './data/ranking';
+export * from './data/profile-images';
 
 export * from './ui/card';
 export * from './ui/action-timer';

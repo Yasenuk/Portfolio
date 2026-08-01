@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import { Prisma, prisma } from "@portfolio/nft-marketplace-database";
 import { type NextRequest, NextResponse } from 'next/server';
-import { createSession, getClientMeta, setAuthCookies } from '../../../../lib/auth';
+import { createSession, getClientMeta, setAuthCookies } from "@portfolio/nft-marketplace-utils";
 
 export async function POST(req: NextRequest) {
 	const { username, email, password } = await req.json();
