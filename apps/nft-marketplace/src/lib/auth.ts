@@ -1,5 +1,7 @@
+import crypto from 'node:crypto';
 import jwt from 'jsonwebtoken';
 import { prisma } from "@portfolio/nft-marketplace-database";
+import type { SessionPayload, SessionMeta  } from "@portfolio/nft-marketplace-types";
 import { NextRequest, NextResponse } from 'next/server';
 
 if (!process.env.ACCESS_TOKEN_SECRET || !process.env.REFRESH_TOKEN_SECRET) {
@@ -15,18 +17,58 @@ export function getClientMeta(req: NextRequest) {
 	return { ip, userAgent }
 }
 
-export async function createSession(userId: string, meta?: { ip: string | null; userAgent: string | null }) {
-	const accessToken = jwt.sign({ userId }, process.env.ACCESS_TOKEN_SECRET!, { expiresIn: '15m' });
-	const refreshToken = jwt.sign({ userId }, process.env.REFRESH_TOKEN_SECRET!, { expiresIn: '7d' });
-	const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+const ACCESS_TTL_S = 15 * 60;
+const REFRESH_TTL_S = 7 * 24 * 60 * 60;
+const MAX_SESSIONS = 10;
 
-	await prisma.refreshToken.upsert({
-		where: { userId },
-		update: { token: refreshToken, expiresAt, ...meta },
-		create: { token: refreshToken, expiresAt, userId, ...meta },
+export const hashToken = (token: string) =>
+	crypto.createHash('sha256').update(token).digest('hex');
+
+function signPair(userId: string, jti: string) {
+  const payload: SessionPayload = { userId, jti };
+  return {
+    accessToken: jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET!, { expiresIn: ACCESS_TTL_S }),
+    refreshToken: jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET!, { expiresIn: REFRESH_TTL_S }),
+  };
+}
+
+export async function createSession(userId: string, meta?: SessionMeta) {
+	const jti = crypto.randomUUID();
+	const { accessToken, refreshToken } = signPair(userId, jti);
+
+	await prisma.refreshToken.create({
+		data: {
+			id: jti,
+			userId,
+			tokenHash: hashToken(refreshToken),
+			expiresAt: new Date(Date.now() + REFRESH_TTL_S * 1000),
+			lastUsedAt: new Date(),
+			...meta
+		}
 	});
 
+	await pruneSessions(userId);
+
 	return { accessToken, refreshToken };
+}
+
+async function pruneSessions(userId: string) {
+	await prisma.refreshToken.deleteMany({
+		where: { userId, expiresAt: { lt: new Date() } },
+	});
+
+	const stale = await prisma.refreshToken.findMany({
+		where: { userId },
+		orderBy: { lastUsedAt: 'desc' },
+		skip: MAX_SESSIONS,
+		select: { id: true }
+	});
+
+	if (stale.length) {
+		await prisma.refreshToken.deleteMany({
+			where: { id: { in: stale.map(s => s.id) } }
+		});
+	}
 }
 
 export function setAuthCookies(res: NextResponse, tokens: { accessToken: string; refreshToken: string }) {
