@@ -1,7 +1,9 @@
-import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+
 import { NextResponse, type NextRequest } from "next/server";
+
 import { prisma } from '@portfolio/nft-marketplace-database';
+
 import { requireUserId } from '../../../../lib/session';
 import { setAuthCookies, createSession, getClientMeta } from '../../../../lib/auth';
 
