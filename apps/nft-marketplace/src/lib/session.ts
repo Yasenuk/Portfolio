@@ -31,18 +31,16 @@ export const getSessionUser = cache(async () => {
 	}
 });
 
-export async function requireUserId(req: NextRequest) {
-	const accessToken = req.cookies.get('access_token')?.value;
-	if (!accessToken) {
-		return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-	}
+export class UnauthorizedError extends Error { };
 
-	let userId: string;
+export function requireUserId(req: NextRequest): string {
+	const accessToken = req.cookies.get('access_token')?.value;
+	if (!accessToken) throw new UnauthorizedError();
+
 	try {
-		({ userId } = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET!) as { userId: string });
+		const { userId } = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET!) as { userId: string };
+		return userId;
 	} catch {
-		return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+		throw new UnauthorizedError();
 	}
-	
-	return userId;
 }
