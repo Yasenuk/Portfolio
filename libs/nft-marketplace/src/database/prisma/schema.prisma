@@ -56,29 +56,31 @@ enum SocialPlatform {
 // - User -
 
 model User {
-  id               String   @id @default(cuid())
-  username         String   @unique
-  email            String   @unique
+  id               String    @id @default(cuid())
+  username         String    @unique
+  email            String    @unique
   passwordhash     String
-  twoFactorEnabled Boolean  @default(false)
+  twoFactorEnabled Boolean   @default(false)
   twoFactorSecret  String?
-  createdAt        DateTime @default(now())
+  emailVerified    DateTime?
+  createdAt        DateTime  @default(now())
 
-  profile           UserProfile?
-  socialLinks       UserSocialLink[]
-  wallets           Wallet[]
-  collections       Collection[]
-  createdNfts       Nft[]                 @relation("NftCreator")
-  ownedNfts         Nft[]                 @relation("NftOwner")
-  bids              Bid[]
-  salesTransactions Transaction[]         @relation("TransactionSeller")
-  buyTransactions   Transaction[]         @relation("TransactionBuyer")
-  likes             Like[]
-  events            Event[]
-  followers         Follow[]              @relation("Following")
-  following         Follow[]              @relation("Follower")
-  backupCode        TwoFactorBackupCode[]
-  refreshToken      RefreshToken?
+  profile            UserProfile?
+  socialLinks        UserSocialLink[]
+  wallets            Wallet[]
+  collections        Collection[]
+  createdNfts        Nft[]                 @relation("NftCreator")
+  ownedNfts          Nft[]                 @relation("NftOwner")
+  bids               Bid[]
+  salesTransactions  Transaction[]         @relation("TransactionSeller")
+  buyTransactions    Transaction[]         @relation("TransactionBuyer")
+  likes              Like[]
+  events             Event[]
+  followers          Follow[]              @relation("Following")
+  following          Follow[]              @relation("Follower")
+  backupCode         TwoFactorBackupCode[]
+  refreshToken       RefreshToken?
+  emailChangeRequest EmailChangeRequest?
 }
 
 // User Profile
@@ -113,6 +115,18 @@ model TwoFactorBackupCode {
   userId String
   code   String
   usedAt DateTime?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Email Verification
+
+model EmailChangeRequest {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  newEmail  String
+  tokenHash String
+  expiresAt DateTime
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
