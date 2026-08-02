@@ -71,6 +71,39 @@ async function pruneSessions(userId: string) {
 	}
 }
 
+export async function rotateSession(oldToken: string, meta?: SessionMeta) {
+	let payload: SessionPayload;
+	try {
+		payload = jwt.verify(oldToken, process.env.REFRESH_TOKEN_SECRET!) as SessionPayload;
+	} catch {
+		return null;
+	}
+
+	const { userId, jti } = payload;
+	const next = signPair(userId, jti);
+
+	const { count } = await prisma.refreshToken.updateMany({
+		where: {
+			id: jti,
+			tokenHash: hashToken(oldToken),
+			expiresAt: { gt: new Date() }
+		},
+		data: {
+			tokenHash: hashToken(next.refreshToken),
+			expiresAt: new Date(Date.now() + REFRESH_TTL_S * 1000),
+			lastUsedAt: new Date(),
+			...meta
+		}
+	});
+
+	if (count === 0) {
+		await prisma.refreshToken.deleteMany({ where: { id: jti } });
+		return null;
+	}
+
+	return next;
+}
+
 export function setAuthCookies(res: NextResponse, tokens: { accessToken: string; refreshToken: string }) {
 	const base = {
 		httpOnly: true,
