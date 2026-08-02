@@ -79,8 +79,8 @@ model User {
   followers          Follow[]              @relation("Following")
   following          Follow[]              @relation("Follower")
   backupCode         TwoFactorBackupCode[]
-  refreshToken       RefreshToken?
-  emailChangeRequest EmailChangeRequest?
+  refreshToken       RefreshToken[]
+  emailChangeRequest EmailChangeRequest[]
 }
 
 // User Profile
@@ -123,12 +123,15 @@ model TwoFactorBackupCode {
 
 model EmailChangeRequest {
   id        String   @id @default(cuid())
-  userId    String   @unique
+  userId    String
   newEmail  String
   tokenHash String
   expiresAt DateTime
+  createdAt DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 // - Wallet -
@@ -295,8 +298,8 @@ model Like {
 
 model RefreshToken {
   id         String    @id @default(cuid())
-  userId     String    @unique
-  token      String    @unique
+  userId     String    
+  tokenHash  String    @unique
   ip         String?
   userAgent  String?
   lastUsedAt DateTime?
@@ -306,6 +309,7 @@ model RefreshToken {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
+  @@index([expiresAt])
 }
 
 // -- Rate Limiting --
