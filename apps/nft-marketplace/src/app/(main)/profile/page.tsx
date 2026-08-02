@@ -3,6 +3,7 @@ import { ButtonMain, ProfileHeader, StatsBar } from "@portfolio/nft-marketplace"
 import { getSessionUser } from "../../../lib/session";
 import { CopyAddressButton } from "../../../features/wallet/copy-address-button";
 import { ProfileHeaderEditable } from "../../../features/profile/profile-header-editable";
+import { redirect } from "next/navigation";
 
 export const metadata = { title: 'My profile' };
 
