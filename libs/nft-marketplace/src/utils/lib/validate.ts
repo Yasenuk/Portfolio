@@ -21,3 +21,13 @@ export const changePasswordSchema = z.object({
 	newPassword: passwordSchema,
 });
 
+export async function parseBody<T extends z.ZodTypeAny>(req: Request, schema: T) {
+	const raw = await req.json().catch(() => null);
+	const res = schema.safeParse(raw);
+
+	if (!res.success) {
+		return { error: res.error.issues[0].message } as const;
+	}
+
+	return { data: res.data as z.infer<T> } as const;
+}
