@@ -125,7 +125,7 @@ model EmailChangeRequest {
   id        String   @id @default(cuid())
   userId    String
   newEmail  String
-  tokenHash String
+  tokenHash String   @unique
   expiresAt DateTime
   createdAt DateTime @default(now())
 
