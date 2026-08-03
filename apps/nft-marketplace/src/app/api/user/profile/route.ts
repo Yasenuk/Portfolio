@@ -1,7 +1,6 @@
-import jwt from 'jsonwebtoken';
 import { NextResponse, type NextRequest } from "next/server";
 import { prisma } from '@portfolio/nft-marketplace-database';
-import { requireUserId } from '../../../../lib/session';
+import { requireUserId, UnauthorizedError } from '../../../../lib/session';
 
 const R2_URL = process.env.NEXT_PUBLIC_R2_PUBLIC_URL!;
 
@@ -13,8 +12,15 @@ function validateImageUrl(value: unknown): string | undefined | null {
 }
 
 export async function PATCH(req: NextRequest) {
-	const userId = await requireUserId(req);
-	if (typeof userId !== 'string') return userId;
+	let userId: string;
+	try {
+		userId = requireUserId(req);
+	} catch (err) {
+		if (err instanceof UnauthorizedError) {
+			return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+		}
+		throw err;
+	}
 
 	const body = await req.json();
 	let avatarUrl, backgroundUrl;
