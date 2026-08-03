@@ -1,7 +1,7 @@
 import { after, type NextRequest, NextResponse } from "next/server";
 import { Prisma, prisma } from "@portfolio/nft-marketplace-database";
 
-import { sha256 } from "@portfolio/nft-marketplace-utils";
+import { sha256 } from "../../../../../lib/tokens";
 import { sendEmailChanged } from "../../../../../lib/mail";
 
 export async function POST(req: NextRequest) {

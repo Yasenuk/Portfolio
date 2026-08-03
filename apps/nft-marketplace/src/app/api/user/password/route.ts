@@ -6,7 +6,8 @@ import { prisma } from '@portfolio/nft-marketplace-database';
 
 import { requireUserId, UnauthorizedError } from '../../../../lib/session';
 import { setAuthCookies, createSession, getClientMeta } from '../../../../lib/auth';
-import { changePasswordSchema, parseBody, RateLimit } from '@portfolio/nft-marketplace-utils';
+import { changePasswordSchema, parseBody } from '@portfolio/nft-marketplace-utils';
+import { RateLimit } from '../../../../lib/rate-limit';
 import { sendPasswordChanged } from '../../../../lib/mail';
 
 export async function POST(req: NextRequest) {

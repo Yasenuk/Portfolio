@@ -4,7 +4,9 @@ import { NextResponse, after, type NextRequest } from "next/server";
 import { prisma } from '@portfolio/nft-marketplace-database';
 
 import { requireUserId, UnauthorizedError } from '../../../../lib/session';
-import { RateLimit, parseBody, changeEmailSchema, generateToken } from '@portfolio/nft-marketplace-utils';
+import { parseBody, changeEmailSchema } from '@portfolio/nft-marketplace-utils';
+import { RateLimit } from '../../../../lib/rate-limit';
+import { generateToken } from '../../../../lib/tokens';
 import { sendEmailChangeConfirmation, sendEmailChangeRequested, sendEmailTakenWarning } from '../../../../lib/mail';
 
 const TOKEN_TTL_MS = 30 * 60 * 1000;
