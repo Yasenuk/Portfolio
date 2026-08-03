@@ -1,30 +1,48 @@
 import bcrypt from 'bcrypt';
 
-import { NextResponse, type NextRequest } from "next/server";
+import { after, NextResponse, type NextRequest } from "next/server";
 
 import { prisma } from '@portfolio/nft-marketplace-database';
 
-import { requireUserId } from '../../../../lib/session';
+import { requireUserId, UnauthorizedError } from '../../../../lib/session';
 import { setAuthCookies, createSession, getClientMeta } from '../../../../lib/auth';
 import { changePasswordSchema, parseBody, RateLimit } from '@portfolio/nft-marketplace-utils';
 
 export async function POST(req: NextRequest) {
-	const userId = requireUserId(req);
-	if (typeof userId !== 'string') return userId;
+	let userId: string;
+  try {
+    userId = requireUserId(req);
+  } catch (err) {
+    if (err instanceof UnauthorizedError) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+    throw err;
+  }
 
 	const rateLimit = await RateLimit('pwd:' + userId, 5, 3600_000);
 	if (!rateLimit.ok) {
-		return NextResponse.json(
-			{ error: 'Too many password change attempts. Please try again later.' },
-			{ status: 429, headers: { 'Retry-After': rateLimit.retryAfter?.toString() ?? '' } }
-		);
+		const retryAfter = Math.ceil((+rateLimit.retryAfter! - Date.now()) / 1000);
+    return NextResponse.json(
+      { error: 'Too many attempts. Try again later.' },
+      { status: 429, headers: { 'Retry-After': String(retryAfter) } },
+    );
 	}
 
-	await parseBody(req, changePasswordSchema);
+	const body = await parseBody(req, changePasswordSchema);
+		if ('error' in body) return NextResponse.json({ error: body.error }, { status: 400 });
 
-	const { currentPassword, newPassword } = await req.json();
+	const { currentPassword, newPassword } = body.data;
 	
-	const user = await prisma.user.findUnique({ where: { id: userId } });
+	const user = await prisma.user.findUnique({
+		where: { id: userId },
+		select: {
+			id: true,
+			email: true,
+			passwordhash: true,
+			twoFactorEnabled: true
+		}
+	});
+
 	if (!user || !await bcrypt.compare(currentPassword, user.passwordhash))
 		return NextResponse.json(
 			{ error: 'Current password is incorrect' },
@@ -33,7 +51,7 @@ export async function POST(req: NextRequest) {
 
 	if (user.twoFactorEnabled) {
 		return NextResponse.json(
-			{ error: 'Two-factor authentication is required but not yet supported.' },
+			{ error: 'Two-factor authentication is required but not yet supported' },
 			{ status: 403 }
 		);
 	}
@@ -45,19 +63,25 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
-	await prisma.$transaction(async (tx) => {
-		await tx.user.update({
+	await prisma.$transaction([
+		prisma.user.update({
 			where: { id: userId },
 			data: { passwordhash: await bcrypt.hash(newPassword, 12) }
-		});
-
-		await tx.refreshToken.deleteMany({ where: { userId } });
-		await tx.emailChangeRequest.deleteMany({ where: { userId } });
-	});
+		}),
+		prisma.refreshToken.deleteMany({ where: { userId } }),
+		prisma.emailChangeRequest.deleteMany({ where: { userId } }),
+	]);
 
 	const res = NextResponse.json({ ok: true });
-
 	setAuthCookies(res, await createSession(userId, getClientMeta(req)));
+
+	after(async () => {
+		try {
+
+		} catch (err) {
+			console.error('[password] notification failed', err);
+		}
+	})
 
 	return res;
 }
