@@ -6,32 +6,55 @@ import { prisma } from '@portfolio/nft-marketplace-database';
 
 import { requireUserId } from '../../../../lib/session';
 import { setAuthCookies, createSession, getClientMeta } from '../../../../lib/auth';
+import { changePasswordSchema, parseBody, RateLimit } from '@portfolio/nft-marketplace-utils';
 
 export async function POST(req: NextRequest) {
-	const userId = await requireUserId(req);
+	const userId = requireUserId(req);
 	if (typeof userId !== 'string') return userId;
 
-	const { currentPassword, newPassword } = await req.json();
-
-	if (typeof newPassword !== 'string' || newPassword.length < 8)
+	const rateLimit = await RateLimit('pwd:' + userId, 5, 3600_000);
+	if (!rateLimit.ok) {
 		return NextResponse.json(
-			{ error: 'New password must be at least 8 characters long' },
-			{ status: 400 }
+			{ error: 'Too many password change attempts. Please try again later.' },
+			{ status: 429, headers: { 'Retry-After': rateLimit.retryAfter?.toString() ?? '' } }
 		);
+	}
+
+	await parseBody(req, changePasswordSchema);
+
+	const { currentPassword, newPassword } = await req.json();
 	
 	const user = await prisma.user.findUnique({ where: { id: userId } });
 	if (!user || !await bcrypt.compare(currentPassword, user.passwordhash))
 		return NextResponse.json(
 			{ error: 'Current password is incorrect' },
+			{ status: 401 }
+		);
+
+	if (user.twoFactorEnabled) {
+		return NextResponse.json(
+			{ error: 'Two-factor authentication is required but not yet supported.' },
+			{ status: 403 }
+		);
+	}
+
+	if (currentPassword === newPassword) {
+		return NextResponse.json(
+			{ error: 'New password must be different from the current password' },
 			{ status: 400 }
 		);
-	
-	await prisma.user.update({
-		where: { id: userId },
-		data: { passwordhash: await bcrypt.hash(newPassword, 12) }
+	}
+
+	await prisma.$transaction(async (tx) => {
+		await tx.user.update({
+			where: { id: userId },
+			data: { passwordhash: await bcrypt.hash(newPassword, 12) }
+		});
+
+		await tx.refreshToken.deleteMany({ where: { userId } });
+		await tx.emailChangeRequest.deleteMany({ where: { userId } });
 	});
 
-	await prisma.refreshToken.deleteMany({ where: { userId } });
 	const res = NextResponse.json({ ok: true });
 
 	setAuthCookies(res, await createSession(userId, getClientMeta(req)));
