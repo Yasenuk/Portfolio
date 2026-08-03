@@ -1,5 +1,3 @@
-export * from './lib/api';
-
 export * from './lib/rate-limit';
 export * from './lib/validate';
 export * from './lib/tokens';

@@ -1,13 +1,13 @@
 'use client';
 
 import * as React from 'react';
-import { apiFetch } from "@portfolio/nft-marketplace-utils";
 
 import type {
 	ProfileField,
 	UploadStatus,
 	ProfileImages
 } from '@portfolio/nft-marketplace-types';
+import { apiFetch } from '../../../../../apps/nft-marketplace/src/lib/api';
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
 const IDLE: Record<ProfileField, UploadStatus> = {

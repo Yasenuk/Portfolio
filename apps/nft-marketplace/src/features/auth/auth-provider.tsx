@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { SessionUser } from '@portfolio/nft-marketplace-types';
-import { apiFetch } from '@portfolio/nft-marketplace-utils';
+import { apiFetch } from '../../lib/api';
 
 type AuthContextValue = {
 	user: SessionUser | null;
