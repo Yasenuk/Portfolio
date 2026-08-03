@@ -7,6 +7,7 @@ import { prisma } from '@portfolio/nft-marketplace-database';
 import { requireUserId, UnauthorizedError } from '../../../../lib/session';
 import { setAuthCookies, createSession, getClientMeta } from '../../../../lib/auth';
 import { changePasswordSchema, parseBody, RateLimit } from '@portfolio/nft-marketplace-utils';
+import { sendPasswordChanged } from '../../../../lib/mail';
 
 export async function POST(req: NextRequest) {
 	let userId: string;
@@ -77,7 +78,7 @@ export async function POST(req: NextRequest) {
 
 	after(async () => {
 		try {
-
+			await sendPasswordChanged(user.email);
 		} catch (err) {
 			console.error('[password] notification failed', err);
 		}

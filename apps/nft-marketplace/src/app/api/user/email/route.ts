@@ -5,6 +5,7 @@ import { prisma } from '@portfolio/nft-marketplace-database';
 
 import { requireUserId, UnauthorizedError } from '../../../../lib/session';
 import { RateLimit, parseBody, changeEmailSchema, generateToken } from '@portfolio/nft-marketplace-utils';
+import { sendEmailChangeConfirmation, sendEmailChangeRequested, sendEmailTakenWarning } from '../../../../lib/mail';
 
 const TOKEN_TTL_MS = 30 * 60 * 1000;
 
@@ -76,9 +77,10 @@ export async function POST(req: NextRequest) {
 	after(async () => {
 		try {
 			if (taken) {
-
+				await sendEmailTakenWarning(newEmail);
 			} else {
-
+				await sendEmailChangeConfirmation(newEmail, token);
+				await sendEmailChangeRequested(user.email, newEmail);
 			}
 		} catch (err) {
       console.error('[email] delivery failed', err);
