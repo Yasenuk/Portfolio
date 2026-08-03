@@ -4,6 +4,7 @@ import * as React from 'react';
 import { AuthForm, ButtonMain, Form, InputMain, InputPassword } from "@portfolio/nft-marketplace";
 import { useRouter } from 'next/navigation';
 import { useSession } from './auth-provider';
+import Link from 'next/link';
 
 export default function LoginForm() {
 	const router = useRouter();
@@ -67,6 +68,7 @@ export default function LoginForm() {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 				<ButtonMain disabled={pending} size="xs" className='mt-[15px] w-full'>Create account</ButtonMain>
+				<p>Don't have an account? <Link className='font-semibold underline' href='/register'>Register</Link></p>
 			</Form>
 		</AuthForm>
 	);
