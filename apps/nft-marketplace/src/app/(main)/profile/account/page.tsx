@@ -1,11 +1,13 @@
-import { ButtonMain, Heading, InputMain, SubscribeForm } from "@portfolio/nft-marketplace";
-import { getSessionUser } from '../../../../lib/session';
-import { prisma } from "@portfolio/nft-marketplace-database";
-import { LogoutButton } from "../../../../features/auth/logout-button";
 import { redirect } from "next/navigation";
 
+import { Heading } from "@portfolio/nft-marketplace";
+
+import { getSessionUser } from '../../../../lib/session';
+import { LogoutButton } from "../../../../features/auth/logout-button";
+import { ChangeEmailForm } from "../../../../features/profile/change-email-form";
+
 export default async function AccountPage() {
-	const user = (await getSessionUser())!;
+	const user = await getSessionUser();
 	if (!user) redirect('/login');
 
 	return (
@@ -15,17 +17,19 @@ export default async function AccountPage() {
 				title="Email &amp; account"
 				description="Manage Your mail and account data."
 			/>
-			<div className="col-span-2 border border-bg-secondary rounded p-5 grid grid-cols-2 grid-rows-2 items-center gap-y-3 gap-x-5">
-				<span className="text-label uppercase">Current email</span>
-				<span className="row-span-2 col-end-4"></span> {/* is confirmed */}
-				<span>{user?.email}</span>
+			<div className="col-span-2 border border-bg-secondary rounded p-5 grid grid-rows-2 items-center gap-y-3 gap-x-5">
+				<span className="text-label uppercase">
+					Current email
+					{user.emailVerified
+						? <span className="text-success"> (confirmed)</span>
+						: <span className="text-warning"> (not confirmed)</span>
+					}
+				</span>
+				<span>{user.email}</span>
 			</div>
 			<div className="col-span-2 border border-bg-secondary rounded p-5 grid grid-cols-2 items-center gap-y-3 gap-x-5">
-				<span className="text-label uppercase">Change your email</span>
-				<SubscribeForm className="col-span-2 md:bg-bg-secondary">
-					<InputMain className="text-text placeholder:text-text bg-bg-secondary" icon="envelopesimple" variant='subscribe' placeholder="Enter Your new email" />
-					<ButtonMain className="min-w-60" size='sm' icon="pen">Change</ButtonMain>
-				</SubscribeForm>
+				<span className="text-label uppercase col-span-2">Change your email</span>
+				<ChangeEmailForm />
 			</div>
 			<div className="col-span-2 md:col-span-1 rounded border border-bg-secondary p-5 grid gap-y-3">
 				<span className="text-label uppercase">User ID</span>

@@ -17,6 +17,7 @@ export const getSessionUser = cache(async () => {
 				username: true,
 				email: true,
 				createdAt: true,
+				emailVerified: true,
 				profile: {
 					select: {
 						avatarUrl: true,

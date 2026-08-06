@@ -129,7 +129,7 @@ export function sendEmailChangeConfirmation(newEmail: string, token: string) {
 			'If this wasn\'t you, just delete this message — nothing will change.',
 		],
 		action: {
-			href: `${API_URL}/profile/account/confirm?token=${encodeURIComponent(token)}`,
+			href: `${API_URL}/confirm-email?token=${encodeURIComponent(token)}`,
 			label: 'Confirm address',
 		},
 		footer: DEFAULT_FOOTER,

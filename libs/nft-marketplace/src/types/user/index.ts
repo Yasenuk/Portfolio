@@ -1,6 +1,7 @@
 export type SessionUser = {
 	id: string;
 	username: string;
+	emailVerified: string | null;
 	email: string;
 	profile?: { avatarUrl: string | null } | null;
 };

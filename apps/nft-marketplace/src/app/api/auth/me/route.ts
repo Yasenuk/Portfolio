@@ -17,6 +17,7 @@ export async function GET(res: NextResponse) {
 				id: true,
 				username: true,
 				email: true,
+				emailVerified: true,
 				profile: {
 					select: { avatarUrl: true }
 				}
