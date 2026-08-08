@@ -8,6 +8,7 @@ export * from './components/ui/ranking-list';
 export * from './components/ui/burger-menu';
 export * from './components/ui/nav-link';
 export * from './components/ui/tooltip';
+export * from './components/ui/switch';
 
 // cards
 export * from './components/cards/nft-card';

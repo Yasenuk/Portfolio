@@ -1,4 +1,4 @@
-import { Heading } from "@portfolio/nft-marketplace";
+import { Heading, Switch } from "@portfolio/nft-marketplace";
 import { redirect } from "next/navigation";
 
 import { getSessionUser } from "../../../../lib/session";
@@ -19,9 +19,9 @@ export default async function SecurityPage() {
 				<span className="text-label uppercase">Change your password</span>
 				<ChangePasswordForm />
 			</div>
-			<div className="col-span-2 border border-bg-secondary rounded p-5 grid gap-y-3">
+			<div className="col-span-2 border border-bg-secondary rounded p-5 flex items-center justify-between gap-y-3">
 				<span className="text-label uppercase">Two-factor authentication</span>
-				<span>{user.twoFactorEnabled ? 'Enabled' : 'Not set up'}</span>
+				<Switch defaultChecked={user.twoFactorEnabled} />
 			</div>
 		</section>
 	)
