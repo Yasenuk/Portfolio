@@ -52,7 +52,7 @@ export function ChangeEmailForm() {
 	}
 
 	return (
-		<Form className="w-full lg:max-w-none gap-y-4" onSubmit={submit}>
+		<Form className="w-full lg:max-w-none gap-y-4 gap-x-3 grid grid-cols-2 place-items-end" onSubmit={submit}>
 			<InputMain
 				type="email"
 				icon="envelopesimple"
@@ -73,7 +73,7 @@ export function ChangeEmailForm() {
 
 			{error && <p className="text-danger text-caption">{error}</p>}
 
-			<ButtonMain className="w-full md:w-60" size="sm" icon="pen" disabled={pending}>
+			<ButtonMain className="col-span-2" size="sm" icon="pen" disabled={pending}>
 				{pending ? 'Sending...' : 'Change'}
 			</ButtonMain>
 		</Form>

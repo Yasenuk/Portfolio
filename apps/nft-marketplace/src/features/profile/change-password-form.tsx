@@ -56,8 +56,9 @@ export function ChangePasswordForm() {
 	}
 
 	return (
-		<Form className="w-full lg:max-w-none gap-y-4" onSubmit={submit}>
+		<Form className="w-full lg:max-w-none gap-y-4 gap-x-3 grid place-items-end" onSubmit={submit}>
 			<InputPassword
+				className='col-span-2'
 				icon="lockkey"
 				placeholder="Current password"
 				autoComplete="current-password"
@@ -91,7 +92,7 @@ export function ChangePasswordForm() {
 				</p>
 			)}
 
-			<ButtonMain className="w-full md:w-60" size="sm" icon="pen" disabled={pending}>
+			<ButtonMain className="col-span-2" size="sm" icon="pen" disabled={pending}>
 				{pending ? 'Saving...' : 'Change password'}
 			</ButtonMain>
 		</Form>

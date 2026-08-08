@@ -27,8 +27,8 @@ export default async function AccountPage() {
 				</span>
 				<span>{user.email}</span>
 			</div>
-			<div className="col-span-2 border border-bg-secondary rounded p-5 grid grid-cols-2 items-center gap-y-3 gap-x-5">
-				<span className="text-label uppercase col-span-2">Change your email</span>
+			<div className="col-span-2 border border-bg-secondary rounded p-5 grid items-center gap-y-3 gap-x-5">
+				<span className="text-label uppercase">Change your email</span>
 				<ChangeEmailForm />
 			</div>
 			<div className="col-span-2 md:col-span-1 rounded border border-bg-secondary p-5 grid gap-y-3">
