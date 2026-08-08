@@ -2,6 +2,7 @@ export type SessionUser = {
 	id: string;
 	username: string;
 	emailVerified: string | null;
+	twoFactorEnabled: boolean;
 	email: string;
 	profile?: { avatarUrl: string | null } | null;
 };
