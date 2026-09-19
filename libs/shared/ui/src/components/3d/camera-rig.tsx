@@ -12,8 +12,10 @@ import {
 	useHelper,
 	PerspectiveCamera
 } from '@react-three/drei';
-import { T_RIG, T_RIG_Path } from '@/libs/types';
+
 import { scroll } from './scroll-damper';
+
+import { T_RIG, T_RIG_Path } from '@portfolio/shared-types';
 
 
 function Rig({ cam, path, lookPath }: T_RIG & T_RIG_Path) {

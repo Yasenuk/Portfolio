@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as THREE from 'three';
 
-import { useFrame } from '@react-three'
+import { useFrame } from '@react-three/fiber';
 
 const scroll = { target: 0, current: 0, velocity: 0 };
 
