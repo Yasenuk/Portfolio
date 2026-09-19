@@ -56,3 +56,5 @@ out
 
 # prisma generated client
 libs/nft-marketplace/src/database/src/generated
+
+/**/*.md
