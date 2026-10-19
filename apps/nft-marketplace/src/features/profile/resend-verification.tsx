@@ -41,9 +41,9 @@ export function ResendVerificationButton() {
 	return (
 		<span className="inline-flex flex-col items-start gap-y-2 normal-case">
 			<ButtonMain
-				size="sm"
+				size="none"
 				px="sm"
-				icon="envelopesimple"
+				variant='outlined'
 				disabled={status === 'pending'}
 				onClick={requestVerification}
 			>
