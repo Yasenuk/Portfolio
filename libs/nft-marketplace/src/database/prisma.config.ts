@@ -4,7 +4,7 @@ import { defineConfig } from 'prisma/config';
 dotenv.config({
 	path: [
 		'apps/nft-marketplace/.env.local',
-		'../../apps/nft-marketplace/.env.local',
+		'../../../../apps/nft-marketplace/.env.local',
 	],
 });
 
@@ -14,6 +14,7 @@ export default defineConfig({
 		path: 'prisma/migrations',
 	},
 	datasource: {
-		url: process.env.DIRECT_URL,
+		url: process.env.DATABASE_URL,
+		shadowDatabaseUrl: process.env.SHADOW_DATABASE_URL,
 	},
 });

@@ -1,10 +1,13 @@
 {
   "name": "nft-marketplace-database",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/nft-marketplace/database/src",
+  "sourceRoot": "libs/nft-marketplace/src/database/src",
   "projectType": "library",
   "tags": ["scope:nft-marketplace", "type:server-only"],
   "targets": {
+    "prisma-dev": {
+      "command": "prisma dev --config libs/nft-marketplace/src/database/prisma.config.ts"
+    },
     "prisma-generate": {
       "command": "prisma generate --config libs/nft-marketplace/src/database/prisma.config.ts"
     },
