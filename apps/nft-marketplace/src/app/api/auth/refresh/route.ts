@@ -1,10 +1,10 @@
-import jwt from 'jsonwebtoken';
 import { type NextRequest, NextResponse } from "next/server";
-import { prisma } from '@portfolio/nft-marketplace-database';
-import { setAuthCookies } from '../../../../lib/auth';
+
+import { getClientMeta, rotateSession, setAuthCookies } from '../../../../lib/auth';
 
 export async function POST(req: NextRequest) {
 	const refreshToken = req.cookies.get('refresh_token')?.value;
+
 	if (!refreshToken) {
 		return NextResponse.json(
 			{ error: 'Refresh token not found' },
@@ -12,39 +12,22 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
-	try {
-		const payload = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET!) as { userId: string };
+	const next = await rotateSession(refreshToken, getClientMeta(req));
 
-		const newAccessToken = jwt.sign(
-			{ userId: payload.userId },
-			process.env.ACCESS_TOKEN_SECRET!,
-			{ expiresIn: '15m' }
-		);
-
-		const newRefreshToken = jwt.sign(
-			{ userId: payload.userId },
-			process.env.REFRESH_TOKEN_SECRET!,
-			{ expiresIn: '7d' }
-		);
-
-		await prisma.refreshToken.update({
-			where: { token: refreshToken },
-			data: {
-				token: newRefreshToken,
-				expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-				lastUsedAt: new Date(),
-			}
-		});
-
-		const res = NextResponse.json({ ok: true });
-
-		await setAuthCookies(res, { accessToken: newAccessToken, refreshToken: newRefreshToken });
-
-		return res;
-	} catch {
-		return NextResponse.json(
+	if (!next) {
+		const res = NextResponse.json(
 			{ error: 'Invalid refresh token' },
 			{ status: 401 }
 		);
+
+		res.cookies.set('access_token', '', { maxAge: 0 });
+		res.cookies.set('refresh_token', '', { maxAge: 0, path: '/api/auth/refresh' });
+
+		return res;
 	}
+
+	const res = NextResponse.json({ ok: true });
+	setAuthCookies(res, next);
+
+	return res;
 }

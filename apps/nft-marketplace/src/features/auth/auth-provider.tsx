@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { SessionUser } from '@portfolio/nft-marketplace-types';
-import { apiFetch } from '../../lib/api';
+import { apiFetch, refreshTokens } from '../../lib/api';
 
 type AuthContextValue = {
 	user: SessionUser | null;
@@ -44,7 +44,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 	React.useEffect(() => {
 		if (!user) return;
 
-		const refresh = () => fetch('/api/auth/refresh', { method: 'POST' });
+		const refresh = () => refreshTokens();
 
 		const intervalId = setInterval(refresh, 10 * 60 * 1000);
 		const onVisibilityChange = () => {

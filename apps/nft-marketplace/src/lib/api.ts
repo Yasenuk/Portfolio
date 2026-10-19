@@ -1,6 +1,6 @@
 let refreshPromise: Promise<boolean> | null = null;
 
-async function refreshTokens(): Promise<boolean> {
+export async function refreshTokens(): Promise<boolean> {
 	refreshPromise ??= fetch('/api/auth/refresh', { method: 'POST' })
 		.then((res) => res.ok)
 		.finally(() => setTimeout(() => (refreshPromise = null), 0));
