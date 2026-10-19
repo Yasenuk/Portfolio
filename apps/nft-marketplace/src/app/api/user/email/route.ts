@@ -8,8 +8,7 @@ import { parseBody, changeEmailSchema } from '@portfolio/nft-marketplace-utils';
 import { RateLimit } from '../../../../lib/rate-limit';
 import { generateToken } from '../../../../lib/tokens';
 import { sendEmailChangeConfirmation, sendEmailChangeRequested, sendEmailTakenWarning } from '../../../../lib/mail';
-
-const TOKEN_TTL_MS = 30 * 60 * 1000;
+import { CHANGE_TTL_MS, createEmailRequest } from '../../../../lib/email-verification';
 
 export async function POST(req: NextRequest) {
 	let userId: string;
@@ -66,14 +65,10 @@ export async function POST(req: NextRequest) {
     select: { id: true },
   });
 
-	const { token, tokenHash } = generateToken();
-  const expiresAt = new Date(Date.now() + TOKEN_TTL_MS);
+	let token: string;
 
   if (!taken) {
-    await prisma.$transaction([
-      prisma.emailChangeRequest.deleteMany({ where: { userId } }),
-      prisma.emailChangeRequest.create({ data: { userId, newEmail, tokenHash, expiresAt } }),
-    ]);
+    token = await createEmailRequest(userId, newEmail, CHANGE_TTL_MS);
 	}
 	
 	after(async () => {

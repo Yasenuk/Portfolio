@@ -31,6 +31,7 @@ export async function POST(req: NextRequest) {
 	}
 
 	const oldEmail = request.user.email;
+	const isChange = request.newEmail !== oldEmail;
 
 	try {
 		await prisma.$transaction([
@@ -42,7 +43,9 @@ export async function POST(req: NextRequest) {
 				}
 			}),
 			prisma.emailChangeRequest.deleteMany({ where: { userId: request.userId } }),
-			prisma.refreshToken.deleteMany({ where: { userId: request.userId } }),
+			...(isChange
+				? [prisma.refreshToken.deleteMany({ where: { userId: request.userId } })]
+				: []),
 		]);
 	} catch (err) {
 		if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
@@ -55,13 +58,16 @@ export async function POST(req: NextRequest) {
 		throw err;
 	}
 
-	const res = NextResponse.json({ ok: true, email: request.newEmail });
-	res.cookies.set('access_token', '', { maxAge: 0 });
-	res.cookies.set('refresh_token', '', { maxAge: 0, path: '/api/auth/refresh' });
+	const res = NextResponse.json({ ok: true, email: request.newEmail, isChange });
+
+	if (isChange) {
+		res.cookies.set('access_token', '', { maxAge: 0 });
+		res.cookies.set('refresh_token', '', { maxAge: 0, path: '/api/auth/refresh' });
+	}
 
 	after(async () => {
 		try {
-			await sendEmailChanged(oldEmail, request.newEmail);
+			if (isChange) await sendEmailChanged(oldEmail, request.newEmail);
 		} catch (err) {
 			console.error('[email] notice failed', err);
 		}

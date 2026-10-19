@@ -5,6 +5,7 @@ import { Heading } from "@portfolio/nft-marketplace";
 import { getSessionUser } from '../../../../lib/session';
 import { LogoutButton } from "../../../../features/auth/logout-button";
 import { ChangeEmailForm } from "../../../../features/profile/change-email-form";
+import { ResendVerificationButton } from "../../../../features/profile/resend-verification";
 
 export default async function AccountPage() {
 	const user = await getSessionUser();
@@ -22,7 +23,7 @@ export default async function AccountPage() {
 					Current email
 					{user.emailVerified
 						? <span className="text-success"> (confirmed)</span>
-						: <span className="text-warning"> (not confirmed)</span>
+						: <ResendVerificationButton />
 					}
 				</span>
 				<span>{user.email}</span>

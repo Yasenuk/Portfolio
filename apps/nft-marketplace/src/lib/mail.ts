@@ -136,6 +136,23 @@ export function sendEmailChangeConfirmation(newEmail: string, token: string) {
 	});
 }
 
+export function sendEmailVerification(email: string, token: string) {
+	return send({
+		to: email,
+		subject: 'Verify your email address',
+		heading: 'Verify your email',
+		lines: [
+			'Confirm this address to finish setting up your account.',
+			'The link is valid for <strong>24 hours</strong> and works only once.',
+		],
+		action: {
+			href: `${API_URL}/confirm-email?token=${encodeURIComponent(token)}`,
+			label: 'Verify address',
+		},
+		footer: DEFAULT_FOOTER,
+	});
+}
+
 export function sendEmailTakenWarning(email: string) {
 	return send({
 		to: email,
