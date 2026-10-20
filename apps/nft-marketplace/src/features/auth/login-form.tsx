@@ -48,7 +48,7 @@ export default function LoginForm() {
 
 	return (
 		<AuthForm
-			title='Create account'
+			title='Login to your account'
 			description='Welcome! enter your details and start creating, collecting and selling NFTs.'
 			imageSrc='form_img.png'
 		>
