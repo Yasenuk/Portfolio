@@ -155,7 +155,7 @@ model Wallet {
 model WalletNonce {
   nonce     String @id
   expiresAt DateTime
-  userAt    DateTime?
+  usedAt    DateTime?
   createdAt DateTime @default(now())
 
   @@index([expiresAt])

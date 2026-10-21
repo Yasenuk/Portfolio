@@ -5,16 +5,6 @@ import { generateSiweNonce } from "viem/siwe";
 export async function GET() {
 	const nonce = generateSiweNonce();
 
-	const { count } = await prisma.walletNonce.updateMany({
-		where: { nonce, usedAt: null, expiresAt: { gt: new Date() } },
-		data: { usedAt: new Date() },
-	});
-
-	if (count === 0) return NextResponse.json(
-		{ error: 'Nonce expired or already used' },
-		{ status: 400 }
-	);
-
 	await prisma.walletNonce.create({
 		data: {
 			nonce,

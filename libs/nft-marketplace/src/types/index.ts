@@ -6,3 +6,4 @@ export * from './ui/action-timer';
 
 export * from './auth';
 export * from './user';
+export * from './wallet';

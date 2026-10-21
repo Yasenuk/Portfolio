@@ -9,7 +9,7 @@ export function buildWalletMessage(params: {
 	address: `0x${string}`;
 	chainId: number;
 	nonce: string;
-	statment: string;
+	statement: string;
 }) {
 	const now = Date.now();
 
@@ -20,7 +20,7 @@ export function buildWalletMessage(params: {
 		address: params.address,
 		chainId: params.chainId,
 		nonce: params.nonce,
-		statement: params.statment,
+		statement: params.statement,
 		issuedAt: new Date(now),
 		expirationTime: new Date(now + 5 * 60 * 1000),
 	});
