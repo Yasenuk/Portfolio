@@ -57,7 +57,7 @@ export default async function ProfilePage() {
 				</div>
 				<div>
 					<span className="text-h5 font-sans text-label">Links</span>
-					{links.map(link => (<SocialLink platform={link.platform} url={link.url} />))}
+					{links.map(link => (<SocialLink key={link.platform} platform={link.platform} url={link.url} />))}
 				</div>
 			</section>
 		</div>
