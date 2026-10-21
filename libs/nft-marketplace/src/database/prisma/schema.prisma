@@ -58,8 +58,8 @@ enum SocialPlatform {
 model User {
   id               String    @id @default(cuid())
   username         String    @unique
-  email            String    @unique
-  passwordhash     String
+  email            String?   @unique
+  passwordhash     String?
   twoFactorEnabled Boolean   @default(false)
   twoFactorSecret  String?
   emailVerified    DateTime?
@@ -139,7 +139,7 @@ model EmailChangeRequest {
 model Wallet {
   id              String         @id @default(cuid())
   userId          String
-  address         String
+  address         String         @unique
   network         WalletNetwork
   provider        WalletProvider
   isPrimary       Boolean        @default(false)
@@ -148,6 +148,17 @@ model Wallet {
   connectedAt     DateTime       @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// - Wallet Nonce -
+
+model WalletNonce {
+  nonce     String @id
+  expiresAt DateTime
+  userAt    DateTime?
+  createdAt DateTime @default(now())
+
+  @@index([expiresAt])
 }
 
 // - Follow -
@@ -218,8 +229,6 @@ model Collection {
   author User            @relation(fields: [authorId], references: [id], onDelete: Cascade)
   nfts   CollectionNft[]
   events Event[]
-
-  @@unique([authorId, isDefault])
 }
 
 model CollectionNft {
