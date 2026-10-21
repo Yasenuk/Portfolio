@@ -6,11 +6,11 @@ import { ButtonMain, Heading, InputMain } from "@portfolio/nft-marketplace";
 import type { SocialLinks, SocialPlatform } from '@portfolio/nft-marketplace-types';
 
 const FIELDS = [
-	{ key: 'website', icon: 'globe', placeholder: 'https://example.com' },
-	{ key: 'twitter', icon: 'twitterlogo', placeholder: 'https://x.com/example' },
-	{ key: 'instagram', icon: 'instagramlogo', placeholder: 'https://www.instagram.com/example' },
-	{ key: 'discord', icon: 'discordlogo', placeholder: 'https://discord.gg/example' },
-	{ key: 'youtube', icon: 'youtubelogo', placeholder: 'https://www.youtube.com/@example' },
+	{ key: 'website', placeholder: 'https://example.com' },
+	{ key: 'twitter', placeholder: 'https://x.com/example' },
+	{ key: 'instagram', placeholder: 'https://www.instagram.com/example' },
+	{ key: 'discord', placeholder: 'https://discord.gg/example' },
+	{ key: 'youtube', placeholder: 'https://www.youtube.com/@example' },
 ] as const;
 
 type Status = 'idle' | 'pending' | 'done' | 'failed';
@@ -59,10 +59,10 @@ export default function SocialLinksForm({ initial }: { initial: SocialLinks }) {
 				description="Add your social links."
 			/>
 			<div className="grid gap-x-3 gap-y-4 mt-5 mb-8 lg:grid-cols-2">
-				{FIELDS.map(({ key, icon, placeholder }) => (
+				{FIELDS.map(({ key, placeholder }) => (
 					<InputMain
 						key={key}
-						icon={icon}
+						icon={key}
 						pholder="sm"
 						placeholder={placeholder}
 						value={links[key]}

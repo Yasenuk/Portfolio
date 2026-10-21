@@ -9,6 +9,7 @@ export * from './components/ui/burger-menu';
 export * from './components/ui/nav-link';
 export * from './components/ui/tooltip';
 export * from './components/ui/switch';
+export * from './components/ui/social-link';
 
 // cards
 export * from './components/cards/nft-card';

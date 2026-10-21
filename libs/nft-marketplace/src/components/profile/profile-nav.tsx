@@ -16,7 +16,7 @@ const TABS = [
 	{ icon: 'envelopesimple', href: '/profile/notifications', label: 'Notifications' },
 	{ icon: 'wallet', href: '/profile/wallets', label: 'Connected Wallets' },
 	{ icon: 'eye', href: '/profile/sessions', label: 'Sessions' },
-	{ icon: 'globe', href: '/profile/social', label: 'Social Links' },
+	{ icon: 'website', href: '/profile/social', label: 'Social Links' },
 	{ icon: 'usercircle', href: '/profile/settings', label: 'Settings' },
 ];
 

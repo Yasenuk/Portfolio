@@ -1,5 +1,5 @@
 import { prisma } from "@portfolio/nft-marketplace-database";
-import { ButtonMain, ProfileHeader, StatsBar } from "@portfolio/nft-marketplace";
+import { ButtonMain, ProfileHeader, SocialLink, StatsBar } from "@portfolio/nft-marketplace";
 import { getSessionUser } from "../../../lib/session";
 import { CopyAddressButton } from "../../../features/wallet/copy-address-button";
 import { ProfileHeaderEditable } from "../../../features/profile/profile-header-editable";
@@ -11,7 +11,7 @@ export default async function ProfilePage() {
 	const user = (await getSessionUser())!;
 	if (!user) redirect('/login');
 
-	const [createdNFTs, ownedNFTs, collections, primaryWallet, followers] = await Promise.all([
+	const [createdNFTs, ownedNFTs, collections, primaryWallet, followers, links] = await Promise.all([
 		prisma.nft.count({ where: { creatorId: user?.id } }),
 		prisma.nft.count({ where: { ownerId: user?.id } }),
 		prisma.collection.count({ where: { authorId: user?.id } }),
@@ -23,6 +23,13 @@ export default async function ProfilePage() {
 			select: { address: true }
 		}),
 		prisma.follow.count({ where: { followingId: user.id } }),
+		prisma.userSocialLink.findMany({
+			where: { userId: user.id },
+			select: {
+				platform: true,
+				url: true,
+			}
+		}),
 	]);
 
 	return (
@@ -47,6 +54,10 @@ export default async function ProfilePage() {
 				<div>
 					<span className="text-h5 font-sans text-label">Bio</span>
 					<p className="text-body lg:text-body capitalize whitespace-nowrap">{ user.profile?.bio } dfdff</p>
+				</div>
+				<div>
+					<span className="text-h5 font-sans text-label">Links</span>
+					{links.map(link => (<SocialLink platform={link.platform} url={link.url} />))}
 				</div>
 			</section>
 		</div>
