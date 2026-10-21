@@ -6,7 +6,6 @@ import { prisma } from '@portfolio/nft-marketplace-database';
 import { requireUserId, UnauthorizedError } from '../../../../lib/session';
 import { parseBody, changeEmailSchema } from '@portfolio/nft-marketplace-utils';
 import { RateLimit } from '../../../../lib/rate-limit';
-import { generateToken } from '../../../../lib/tokens';
 import { sendEmailChangeConfirmation, sendEmailChangeRequested, sendEmailTakenWarning } from '../../../../lib/mail';
 import { CHANGE_TTL_MS, createEmailRequest } from '../../../../lib/email-verification';
 
@@ -45,7 +44,7 @@ export async function POST(req: NextRequest) {
 		}
 	});
 
-	if (!user || !(await bcrypt.compare(currentPassword, user.passwordhash))) {
+	if (!user?.passwordhash || !(await bcrypt.compare(currentPassword, user.passwordhash))) {
     return NextResponse.json({ error: 'Current password is incorrect' }, { status: 401 });
   }
 
@@ -65,22 +64,26 @@ export async function POST(req: NextRequest) {
     select: { id: true },
   });
 
-	let token: string;
+	if (taken) {
+		after(async () => {
+			try {
+				await sendEmailTakenWarning(newEmail);
+			} catch (err) {
+				console.error('[email] delivery failed', err);
+			}
+		});
 
-  if (!taken) {
-    token = await createEmailRequest(userId, newEmail, CHANGE_TTL_MS);
+		return NextResponse.json({ ok: true });
 	}
-	
+
+	const token = await createEmailRequest(userId, newEmail, CHANGE_TTL_MS);
+
 	after(async () => {
 		try {
-			if (taken) {
-				await sendEmailTakenWarning(newEmail);
-			} else {
-				await sendEmailChangeConfirmation(newEmail, token);
-				await sendEmailChangeRequested(user.email, newEmail);
-			}
+			await sendEmailChangeConfirmation(newEmail, token);
+			if (user.email) await sendEmailChangeRequested(user.email, newEmail);
 		} catch (err) {
-      console.error('[email] delivery failed', err);
+			console.error('[email] delivery failed', err);
 		}
 	});
 

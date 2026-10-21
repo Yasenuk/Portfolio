@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
 	if (!request || request.expiresAt < new Date()) {
 		if (request) await prisma.emailChangeRequest.delete({ where: { id: request.id } });
 		return NextResponse.json(
-			{ error: 'This link has expiret or is`n longer valid' },
+			{ error: 'This link has expired or is no longer valid' },
 			{ status: 400 }
 		);
 	}
@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
 		if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
 			await prisma.emailChangeRequest.deleteMany({ where: { userId: request.userId } });
 			return NextResponse.json(
-				{ error: 'This email address is`n longer avalible' },
+				{ error: 'This email address is no longer available' },
 				{ status: 409 }
 			);
 		}
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
 
 	after(async () => {
 		try {
-			if (isChange) await sendEmailChanged(oldEmail, request.newEmail);
+			if (isChange && oldEmail) await sendEmailChanged(oldEmail, request.newEmail);
 		} catch (err) {
 			console.error('[email] notice failed', err);
 		}

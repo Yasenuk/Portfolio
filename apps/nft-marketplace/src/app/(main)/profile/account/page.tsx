@@ -21,12 +21,14 @@ export default async function AccountPage() {
 			<div className="col-span-2 border border-bg-secondary rounded p-5 grid grid-rows-2 items-center gap-y-3 gap-x-5">
 				<span className="text-label uppercase">
 					Current email
-					{user.emailVerified
-						? <span className="text-success"> (confirmed)</span>
-						: <ResendVerificationButton />
+					{!user.email
+						? <span className="text-label"> (not set)</span>
+						: user.emailVerified
+							? <span className="text-success"> (confirmed)</span>
+							: <ResendVerificationButton />
 					}
 				</span>
-				<span>{user.email}</span>
+				<span>{user.email ?? '—'}</span>
 			</div>
 			<div className="col-span-2 border border-bg-secondary rounded p-5 grid items-center gap-y-3 gap-x-5">
 				<span className="text-label uppercase">Change your email</span>

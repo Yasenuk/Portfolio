@@ -3,7 +3,7 @@ export type SessionUser = {
 	username: string;
 	emailVerified: string | null;
 	twoFactorEnabled: boolean;
-	email: string;
+	email: string | null;
 	profile?: { avatarUrl: string | null } | null;
 };
 

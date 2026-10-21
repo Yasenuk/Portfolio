@@ -45,12 +45,12 @@ export async function POST(req: NextRequest) {
 		}
 	});
 
-	if (!user || !await bcrypt.compare(currentPassword, user.passwordhash))
+	if (!user?.passwordhash  || !await bcrypt.compare(currentPassword, user.passwordhash))
 		return NextResponse.json(
 			{ error: 'Current password is incorrect' },
 			{ status: 401 }
 		);
-
+	
 	if (user.twoFactorEnabled) {
 		return NextResponse.json(
 			{ error: 'Two-factor authentication is required but not yet supported' },
@@ -79,7 +79,7 @@ export async function POST(req: NextRequest) {
 
 	after(async () => {
 		try {
-			await sendPasswordChanged(user.email);
+			if (user?.email) await sendPasswordChanged(user.email);
 		} catch (err) {
 			console.error('[password] notification failed', err);
 		}

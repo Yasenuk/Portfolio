@@ -49,11 +49,19 @@ export async function POST(req: NextRequest) {
 		);
 	}
 
-	const token = await createEmailRequest(userId, user.email, VERIFY_TTL_MS);
+	if (!user.email) {
+		return NextResponse.json(
+			{ error: 'No email address on this account' },
+			{ status: 409 }
+		);
+	}
+
+	const email = user.email;
+	const token = await createEmailRequest(userId, email, VERIFY_TTL_MS);
 
 	after(async () => {
 		try {
-			await sendEmailVerification(user.email, token);
+			await sendEmailVerification(email, token);
 		} catch (err) {
 			console.error('[verify] delivery failed', err);
 		}
