@@ -1,5 +1,7 @@
 import { z } from "zod";
 
+import { SOCIAL_PLATFORMS, SocialPlatform } from "@portfolio/nft-marketplace-types";
+
 export const emailSchema = z
 	.string()
 	.trim()
@@ -20,6 +22,23 @@ export const changePasswordSchema = z.object({
 	currentPassword: z.string().min(1, 'Current password is required'),
 	newPassword: passwordSchema,
 });
+
+const socialUrl = z
+	.string()
+	.trim()
+	.max(2048)
+	.refine(v => {
+		if (!v) return true;
+		try {
+			return ['http:', 'https:'].includes(new URL(v).protocol);
+		} catch {
+			return false;
+		}
+	}, 'Only http(s) links are allowed');
+
+export const socialLinksSchema = z.object(
+	Object.fromEntries(SOCIAL_PLATFORMS.map(p => [p, socialUrl])) as Record<SocialPlatform, typeof socialUrl>
+);
 
 export async function parseBody<T extends z.ZodTypeAny>(req: Request, schema: T) {
 	const raw = await req.json().catch(() => null);

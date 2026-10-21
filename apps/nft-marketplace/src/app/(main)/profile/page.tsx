@@ -15,15 +15,13 @@ export default async function ProfilePage() {
 		prisma.nft.count({ where: { creatorId: user?.id } }),
 		prisma.nft.count({ where: { ownerId: user?.id } }),
 		prisma.collection.count({ where: { authorId: user?.id } }),
-		prisma.wallet.findFirst(
-			{
-				where: {
-					userId: user.id,
-					isPrimary: true
-				},
-				select: { address: true }
-			}
-		),
+		prisma.wallet.findFirst({
+			where: {
+				userId: user.id,
+				isPrimary: true
+			},
+			select: { address: true }
+		}),
 		prisma.follow.count({ where: { followingId: user.id } }),
 	]);
 
@@ -45,7 +43,11 @@ export default async function ProfilePage() {
 					{ value: '0', label: 'Volume' },
 					{ value: '0', label: 'NFTs sold' },
 					{ value: String(followers), label: 'Followers' },
-				]}/>
+				]} />
+				<div>
+					<span className="text-h5 font-sans text-label">Bio</span>
+					<p className="text-body lg:text-body capitalize whitespace-nowrap">{ user.profile?.bio } dfdff</p>
+				</div>
 			</section>
 		</div>
 	)

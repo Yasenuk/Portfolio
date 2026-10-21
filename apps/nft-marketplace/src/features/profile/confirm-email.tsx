@@ -36,9 +36,6 @@ export function ConfirmEmail({ token }: { token: string }) {
 				return;
 			}
 
-			// ?? true — безпечний дефолт: якщо сервер не сказав, вважаємо зміною
-			// і скидаємо сесію, бо показати залогіненим того, кого розлогінило,
-			// гірше, ніж навпаки
 			const changed = data?.isChange ?? true;
 
 			setEmail(data?.email ?? null);

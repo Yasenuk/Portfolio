@@ -13,10 +13,15 @@ const inputVariants = cva(
 			variant: {
 				default: "",
 				subscribe: "md:pr-3 md:bg-transparent md:border-0"
+			},
+			pholder: {
+				default: "placeholder:text-bg placeholder:capitalize",
+				sm: ""
 			}
 		},
 		defaultVariants: {
-			variant: "default"
+			variant: "default",
+			pholder: 'default'
 		}
 	}
 );
@@ -29,8 +34,8 @@ interface InputProps
 }
 
 const InputMain = React.forwardRef<HTMLInputElement, InputProps>(
-	({ className, icon, variant, placeholder, trailing, type = "text", ...props }, ref) => (
-		<div className={cn(inputVariants({ variant }), className)}>
+	({ className, icon, variant, pholder, placeholder, trailing, type = "text", ...props }, ref) => (
+		<div className={cn(inputVariants({ variant, pholder }), className)}>
 			{icon && (
 				<Icon
 					name={icon}
@@ -43,7 +48,6 @@ const InputMain = React.forwardRef<HTMLInputElement, InputProps>(
 				className={
 					cn(
 						"w-full bg-transparent outline-none text-bg text-body",
-						"placeholder:text-bg placeholder:capitalize",
 						className
 					)
 				}
