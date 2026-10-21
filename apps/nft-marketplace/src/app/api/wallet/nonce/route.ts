@@ -1,16 +1,26 @@
-import { randomBytes } from "crypto";
+import { prisma } from "@portfolio/nft-marketplace-database";
 import { NextResponse } from "next/server";
+import { generateSiweNonce } from "viem/siwe";
 
 export async function GET() {
-	const nonce = randomBytes(32).toString('hex');
+	const nonce = generateSiweNonce();
 
-	const res = NextResponse.json({ nonce });
-	res.cookies.set('wallet_nonce', nonce, {
-		httpOnly: true,
-		secure: process.env.MODE_ENV === 'production',
-		sameSite: 'lax',
-		maxAge: 5 * 60
+	const { count } = await prisma.walletNonce.updateMany({
+		where: { nonce, usedAt: null, expiresAt: { gt: new Date() } },
+		data: { usedAt: new Date() },
 	});
 
-	return res;
+	if (count === 0) return NextResponse.json(
+		{ error: 'Nonce expired or already used' },
+		{ status: 400 }
+	);
+
+	await prisma.walletNonce.create({
+		data: {
+			nonce,
+			expiresAt: new Date(Date.now() + 5 * 60 * 1000)
+		}
+	});
+
+	return NextResponse.json({ nonce });
 }
