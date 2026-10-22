@@ -5,6 +5,8 @@ import { AuthForm, ButtonMain, Form, InputMain, InputPassword } from "@portfolio
 import { useRouter } from 'next/navigation';
 import { useSession } from './auth-provider';
 import Link from 'next/link';
+import { Web3Provider } from '../wallet/web3-provider';
+import { WalletSignIn } from './wallet-sign-in';
 
 export default function LoginForm() {
 	const router = useRouter();
@@ -67,9 +69,13 @@ export default function LoginForm() {
 					value={password}
 					onChange={(e) => setPassword(e.target.value)}
 				/>
-				<ButtonMain disabled={pending} size="xs" className='mt-[15px] w-full'>Create account</ButtonMain>
-				<p>Don't have an account? <Link className='font-semibold underline' href='/register'>Register</Link></p>
+				<ButtonMain disabled={pending} size="xs" className='mt-[15px] w-full'>Sign in</ButtonMain>
+				<p>Don&apos;t have an account? <Link className='font-semibold underline' href='/register'>Register</Link></p>
 			</Form>
+
+			<Web3Provider>
+				<WalletSignIn />
+			</Web3Provider>
 		</AuthForm>
 	);
 }

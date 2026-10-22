@@ -67,7 +67,14 @@ export default function WalletConnectForm({
 
 		try {
 			const nonceRes = await apiFetch('/api/wallet/nonce');
-			const { nonce } = await nonceRes.json();
+			const nonceData = await nonceRes.json().catch(() => null);
+			const nonce: unknown = nonceData?.nonce;
+
+			if (!nonceRes.ok || typeof nonce !== 'string') {
+				console.error('[wallet] bad nonce response', nonceRes.status, nonceData);
+				setError('Could not start linking, try again');
+				return;
+			}
 
 			const message = buildWalletMessage({ address, nonce, chainId, statement: SIWE_STATEMENTS.link });
 			const signature = await signMessageAsync({ message });

@@ -20,8 +20,11 @@ export default async function SecurityPage() {
 				<ChangePasswordForm />
 			</div>
 			<div className="col-span-2 border border-bg-secondary rounded p-5 flex items-center justify-between gap-y-3">
-				<span className="text-label uppercase">Two-factor authentication</span>
-				<Switch defaultChecked={user.twoFactorEnabled} />
+				<div className="flex flex-col gap-y-1">
+					<span className="text-label uppercase">Two-factor authentication</span>
+					<span className="text-caption text-label">Coming soon</span>
+				</div>
+				<Switch checked={user.twoFactorEnabled} disabled />
 			</div>
 		</section>
 	)
