@@ -10,6 +10,7 @@ import type { Wallet } from '@portfolio/nft-marketplace-types';
 import { apiFetch } from '../../lib/api';
 import { CopyAddressButton } from './copy-address-button';
 import { cn } from '@portfolio/nft-marketplace-utils';
+import { Icon } from '@portfolio/shared-ui';
 
 const NETWORK_LABEL: Record<string, { name: string; symbol: string }> = {
 	ethereum: { name: 'Ethereum', symbol: 'ETH' },
@@ -111,6 +112,7 @@ export function WalletsList({ wallets }: { wallets: Wallet[] }) {
 							>
 								<div className="flex flex-col gap-2">
 									<div className="flex items-center gap-3">
+										<Icon name={wallet.provider} />
 										<span className="text-label uppercase">{network.name}</span>
 										{wallet.isPrimary ? (
 											<span className="text-caption text-text uppercase font-bold">primary</span>
