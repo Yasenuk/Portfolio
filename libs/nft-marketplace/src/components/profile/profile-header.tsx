@@ -26,7 +26,7 @@ const ProfileHeader = React.forwardRef<
 	const avatarInputRef = React.useRef<HTMLInputElement>(null);
 
 	const fileInput = (
-		r: React.RefObject<HTMLInputElement>,
+		r: React.RefObject<HTMLInputElement | null>,
 		field: ProfileField,
 	) => (
 		<input

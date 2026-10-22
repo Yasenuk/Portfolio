@@ -3,9 +3,9 @@
 import * as React from 'react';
 import { useConnect, useAccount, useDisconnect, useSignMessage } from 'wagmi';
 import { AuthForm, ButtonMain, NavLink } from "@portfolio/nft-marketplace";
-import { buildWalletMessage } from '../../lib/wallet';
 import { useRouter } from 'next/navigation';
 import { apiFetch } from '../../lib/api';
+import { buildWalletMessage, SIWE_STATEMENTS } from '../../lib/siwe-message';
 
 const PROVIDER_MAP: Record<string, string> = {
 	'MetaMask': 'metamask',
@@ -15,7 +15,7 @@ const PROVIDER_MAP: Record<string, string> = {
 
 export default function WalletConnectForm() {
 	const { connectors, connect, isPending, error: connectError } = useConnect();
-	const { address, isConnected, connector } = useAccount();
+	const { address, isConnected, connector, chainId } = useAccount();
 	const { disconnect } = useDisconnect();
 	const { signMessageAsync } = useSignMessage();
 
@@ -25,37 +25,44 @@ export default function WalletConnectForm() {
 	const router = useRouter();
 
 	async function linkWallet() {
-		if (!address) return;
+		if (!address || !chainId) return;
 		setError(null);
 		setLinking(true);
+
+		const provider = PROVIDER_MAP[connector?.name ?? ''];
+		if (!provider) {
+			setError('This wallet provider is not supported yet');
+			setLinking(false);
+			return;
+		}
 
 		try {
 			const nonceRes = await apiFetch('/api/wallet/nonce');
 			const { nonce } = await nonceRes.json();
 
-			const message = buildWalletMessage(address, nonce);
+			const message = buildWalletMessage({ address, nonce, chainId, statement: SIWE_STATEMENTS.link });
 			const signature = await signMessageAsync({ message });
 
 			const res = await apiFetch('/api/wallet/connect', {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					address,
+					message,
 					signature,
-					network: 'ethereum',
-					provider: PROVIDER_MAP[connector?.name ?? ''],
+					provider,
 				})
 			});
 
 			if (!res.ok) {
-				const { error } = await res.json();
-				setError(error ?? 'Failed to link wallet');
+				const data = await res.json().catch(() => null);
+				setError(data?.error ?? 'Failed to link wallet');
 				return;
 			}
 
-			router.push('/profile/create');
+			router.push('/profile/wallets');
 		} catch (err) {
-			setError('Signature rejected');
+			console.error('[wallet] link failed', err);
+			setError('Signature rejected or network error');
 		} finally {
 			setLinking(false);
 		}
