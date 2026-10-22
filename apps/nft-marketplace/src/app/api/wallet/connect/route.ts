@@ -1,10 +1,11 @@
 import { Prisma, prisma } from "@portfolio/nft-marketplace-database";
 import { NextRequest, NextResponse } from "next/server";
 import { parseSiweMessage } from 'viem/siwe';
-import { NETWORK_BY_CHAIN, isWalletProvider } from '@portfolio/nft-marketplace-types';
+import { NETWORK_BY_CHAIN, SupportedNetwork, isWalletProvider } from '@portfolio/nft-marketplace-types';
 
 import { checkSiwe } from '../../../../lib/wallet';
 import { requireUserId, UnauthorizedError } from '../../../../lib/session';
+import { refreshBalance } from "../../../../lib/chain";
 
 export async function POST(req: NextRequest) {
 	let userId: string;
@@ -73,8 +74,9 @@ export async function POST(req: NextRequest) {
 
 	const hasWallet = await prisma.wallet.count({ where: { userId } });
 
+	let wallet;
 	try {
-		const wallet = await prisma.wallet.create({
+		wallet = await prisma.wallet.create({
 			data: {
 				userId,
 				address: normalized,
@@ -90,14 +92,26 @@ export async function POST(req: NextRequest) {
 				provider: true,
 				isPrimary: true,
 				connectedAt: true,
+				balanceCache: true,
+				balanceUpdateAt: true,
 			},
 		});
-
-		return NextResponse.json({ wallet }, { status: 201 });
 	} catch (err) {
 		if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
 			return NextResponse.json({ error: 'Wallet already linked' }, { status: 409 });
 		}
 		throw err;
 	}
+
+	let balance = wallet.balanceCache.toString();
+	try {
+		({ balance } = await refreshBalance({
+			...wallet,
+			network: wallet.network as SupportedNetwork,
+		}));
+	} catch (err) {
+		console.error('[balance] initial fetch failed', wallet.network, err);
+	}
+
+	return NextResponse.json({ wallet: { ...wallet, balanceCache: balance } }, { status: 201 });
 }

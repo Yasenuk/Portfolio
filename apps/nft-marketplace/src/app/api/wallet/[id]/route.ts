@@ -5,12 +5,19 @@ import { requireUserId, UnauthorizedError } from "../../../../lib/session";
 
 type Context = { params: Promise<{ id: string }> };
 
-function authorize(req: NextRequest) {
+type Authorized =
+	| { ok: true; userId: string }
+	| { ok: false; response: NextResponse };
+
+function authorize(req: NextRequest): Authorized {
 	try {
-		return { userId: requireUserId(req) };
+		return { ok: true, userId: requireUserId(req) };
 	} catch (err) {
 		if (err instanceof UnauthorizedError) {
-			return { response: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }) };
+			return {
+				ok: false,
+				response: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }),
+			};
 		}
 		throw err;
 	}
@@ -27,7 +34,7 @@ async function findOwnWallet(id: string, userId: string) {
 
 export async function DELETE(req: NextRequest, { params }: Context) {
 	const auth = authorize(req);
-	if (auth.response) return auth.response;
+	if (!auth.ok) return auth.response;
 	const { userId } = auth;
 
 	const { id } = await params;
@@ -70,7 +77,7 @@ export async function DELETE(req: NextRequest, { params }: Context) {
 
 export async function PATCH(req: NextRequest, { params }: Context) {
 	const auth = authorize(req);
-	if (auth.response) return auth.response;
+	if (!auth.ok) return auth.response;
 	const { userId } = auth;
 
 	const { id } = await params;
