@@ -39,7 +39,6 @@ export async function PUT(req: NextRequest) {
 		prisma.userSocialLink.deleteMany({ where: { userId } }),
 		prisma.userSocialLink.createMany({ data: entries  }),
 	]);
-	
 
 	return NextResponse.json({ links: parsed.data });
 }
