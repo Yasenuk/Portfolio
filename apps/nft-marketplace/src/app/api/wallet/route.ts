@@ -13,7 +13,22 @@ export async function GET(req: NextRequest) {
 		throw err;
 	}
 
-	const wallets = await prisma.wallet.findMany({ where: { userId } });
+	const wallets = await prisma.wallet.findMany({
+		where: { userId },
+		orderBy: [{ isPrimary: 'desc' }, { connectedAt: 'asc' }],
+		select: {
+			id: true,
+			address: true,
+			network: true,
+			provider: true,
+			isPrimary: true,
+			balanceCache: true,
+			balanceUpdateAt: true,
+			connectedAt: true,
+		},
+	});
 
-	return NextResponse.json({ wallets });
+	return NextResponse.json({
+		wallets: wallets.map((w) => ({ ...w, balanceCache: w.balanceCache.toString() })),
+	});
 }

@@ -1,34 +1,93 @@
-import { useRouter } from 'next/router'
-
 import { prisma } from "@portfolio/nft-marketplace-database";
 import { type NextRequest, NextResponse } from "next/server";
 
-export async function DELETE(req: NextRequest) {
-	const router = useRouter();
-	const id = router.query.slug as string;
+import { requireUserId, UnauthorizedError } from "../../../../lib/session";
 
-	const user = await prisma.user.findUnique({
+type Context = { params: Promise<{ id: string }> };
+
+function authorize(req: NextRequest) {
+	try {
+		return { userId: requireUserId(req) };
+	} catch (err) {
+		if (err instanceof UnauthorizedError) {
+			return { response: NextResponse.json({ error: 'Unauthorized' }, { status: 401 }) };
+		}
+		throw err;
+	}
+}
+
+async function findOwnWallet(id: string, userId: string) {
+	const wallet = await prisma.wallet.findUnique({
 		where: { id },
-		select: { id: true, passwordhash: true }
+		select: { id: true, userId: true, isPrimary: true },
 	});
 
-	if (!user?.id) return NextResponse.json(
-		{ error: 'User is not defined' },
-		{ status: 401 }
-	);
+	return wallet && wallet.userId === userId ? wallet : null;
+}
 
-	const wallets = await prisma.wallet.count({ where: { userId: user?.id } });
+export async function DELETE(req: NextRequest, { params }: Context) {
+	const auth = authorize(req);
+	if (auth.response) return auth.response;
+	const { userId } = auth;
 
-	if (!user?.passwordhash && wallets === 1) {
+	const { id } = await params;
+
+	const wallet = await findOwnWallet(id, userId);
+	if (!wallet) {
+		return NextResponse.json({ error: 'Wallet not found' }, { status: 404 });
+	}
+
+	const [user, walletCount] = await Promise.all([
+		prisma.user.findUnique({ where: { id: userId }, select: { passwordhash: true } }),
+		prisma.wallet.count({ where: { userId } }),
+	]);
+
+	if (!user?.passwordhash && walletCount === 1) {
 		return NextResponse.json(
-			{ error: 'Cannot delete the only wallet' },
-			{ status: 403 }
+			{ error: 'Cannot remove your only sign-in method' },
+			{ status: 409 }
 		);
 	}
 
+	await prisma.$transaction(async (tx) => {
+		await tx.wallet.delete({ where: { id } });
+
+		if (wallet.isPrimary) {
+			const next = await tx.wallet.findFirst({
+				where: { userId },
+				orderBy: { connectedAt: 'asc' },
+				select: { id: true },
+			});
+
+			if (next) {
+				await tx.wallet.update({ where: { id: next.id }, data: { isPrimary: true } });
+			}
+		}
+	});
+
+	return NextResponse.json({ ok: true });
+}
+
+export async function PATCH(req: NextRequest, { params }: Context) {
+	const auth = authorize(req);
+	if (auth.response) return auth.response;
+	const { userId } = auth;
+
+	const { id } = await params;
+
+	const wallet = await findOwnWallet(id, userId);
+	if (!wallet) {
+		return NextResponse.json({ error: 'Wallet not found' }, { status: 404 });
+	}
+
+	if (wallet.isPrimary) {
+		return NextResponse.json({ ok: true });
+	}
+
 	await prisma.$transaction([
-		prisma.wallet.deleteMany({ where: { userId: user.id, isPrimary: true } }),
-		prisma.wallet.updateMany({ where: { userId: user.id }, data: { isPrimary: false } }),
+		prisma.wallet.updateMany({ where: { userId }, data: { isPrimary: false } }),
 		prisma.wallet.update({ where: { id }, data: { isPrimary: true } }),
 	]);
+
+	return NextResponse.json({ ok: true });
 }
