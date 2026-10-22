@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
 
 	const wallets = await prisma.wallet.findMany({
 		where: { userId },
-		orderBy: [{ isPrimary: 'desc' }, { connectedAt: 'asc' }],
+		orderBy: [{ connectedAt: 'asc' }],
 		select: {
 			id: true,
 			address: true,

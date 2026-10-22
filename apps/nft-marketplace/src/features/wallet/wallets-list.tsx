@@ -4,11 +4,12 @@ import * as React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-import { ButtonMain, Heading } from '@portfolio/nft-marketplace';
+import { ButtonMain, Card, Heading } from '@portfolio/nft-marketplace';
 import type { Wallet } from '@portfolio/nft-marketplace-types';
 
 import { apiFetch } from '../../lib/api';
 import { CopyAddressButton } from './copy-address-button';
+import { cn } from '@portfolio/nft-marketplace-utils';
 
 const NETWORK_LABEL: Record<string, { name: string; symbol: string }> = {
 	ethereum: { name: 'Ethereum', symbol: 'ETH' },
@@ -101,27 +102,42 @@ export function WalletsList({ wallets }: { wallets: Wallet[] }) {
 						const balance = balances[wallet.id] ?? wallet.balanceCache;
 
 						return (
-							<li
+							<Card
 								key={wallet.id}
-								className="border border-bg-secondary rounded p-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between"
+								className={cn(
+									"border-2 border-bg-secondary rounded p-5 flex flex-col gap-4 md:flex-row md:items-center md:justify-between",
+									wallet.isPrimary ? 'border-action' : 'border-bg-secondary'
+								)}
 							>
 								<div className="flex flex-col gap-2">
 									<div className="flex items-center gap-3">
 										<span className="text-label uppercase">{network.name}</span>
-										{wallet.isPrimary && (
-											<span className="text-caption text-action uppercase">primary</span>
+										{wallet.isPrimary ? (
+											<span className="text-caption text-text uppercase font-bold">primary</span>
+										) : (
+											<ButtonMain
+												type="button"
+												size="none"
+												px='none'
+												variant='action'
+												className='text-caption uppercase'
+												disabled={!!action}
+												onClick={() => makePrimary(wallet.id)}
+											>
+												{action === 'primary' ? 'Saving...' : 'Make primary'}
+											</ButtonMain>
 										)}
 									</div>
 
-									<CopyAddressButton address={wallet.address} className="w-fit" />
+									<CopyAddressButton address={wallet.address} className="w-full md:w-fit" />
 
-									<span className="text-caption text-label">
+									<span className="text-caption text-label text-center md:text-left">
 										{formatBalance(balance)} {network.symbol} &middot;{' '}
 										{formatUpdatedAt(wallet.balanceUpdateAt)}
 									</span>
 								</div>
 
-								<div className="flex flex-wrap items-center gap-3">
+								<div className="flex flex-col md:flex-row items-center gap-3 *:w-full">
 									<ButtonMain
 										type="button"
 										size='md'
@@ -132,19 +148,6 @@ export function WalletsList({ wallets }: { wallets: Wallet[] }) {
 									>
 										{action === 'balance' ? 'Refreshing...' : 'Refresh'}
 									</ButtonMain>
-
-									{!wallet.isPrimary && (
-										<ButtonMain
-											type="button"
-											size='md'
-											px='sm'
-											variant="outlined"
-											disabled={!!action}
-											onClick={() => makePrimary(wallet.id)}
-										>
-											{action === 'primary' ? 'Saving...' : 'Make primary'}
-										</ButtonMain>
-									)}
 
 									<ButtonMain
 										type="button"
@@ -162,7 +165,7 @@ export function WalletsList({ wallets }: { wallets: Wallet[] }) {
 								{error?.id === wallet.id && (
 									<p className="text-danger text-caption md:w-full">{error.message}</p>
 								)}
-							</li>
+							</Card>
 						);
 					})}
 				</ul>

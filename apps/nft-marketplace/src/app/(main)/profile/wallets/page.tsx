@@ -10,7 +10,7 @@ export default async function WalletsPage() {
 
 	const wallets = await prisma.wallet.findMany({
 		where: { userId: user.id },
-		orderBy: [{ isPrimary: 'desc' }, { connectedAt: 'asc' }],
+		orderBy: [{ connectedAt: 'asc' }],
 		select: {
 			id: true,
 			address: true,
