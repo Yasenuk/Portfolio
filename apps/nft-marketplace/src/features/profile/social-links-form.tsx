@@ -5,6 +5,8 @@ import * as React from 'react';
 import { ButtonMain, Heading, InputMain } from "@portfolio/nft-marketplace";
 import type { SocialLinks, SocialPlatform } from '@portfolio/nft-marketplace-types';
 
+import { apiFetch } from '../../lib/api';
+
 const FIELDS = [
 	{ key: 'website', placeholder: 'https://example.com' },
 	{ key: 'twitter', placeholder: 'https://x.com/example' },
@@ -31,7 +33,7 @@ export default function SocialLinksForm({ initial }: { initial: SocialLinks }) {
 		setError(null);
 
 		try {
-			const res = await fetch('/api/user/profile/social-links', {
+			const res = await apiFetch('/api/user/profile/social-links', {
 				method: 'PUT',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify(links),

@@ -4,7 +4,7 @@ import { prisma } from '@portfolio/nft-marketplace-database';
 
 import { requireUserId, UnauthorizedError } from '../../../../../lib/session';
 
-import { socialLinksSchema } from "@portfolio/nft-marketplace-utils";
+import { parseBody, socialLinksSchema } from "@portfolio/nft-marketplace-utils";
 import type { SocialPlatform } from "@portfolio/nft-marketplace-types";
 
 export async function PUT(req: NextRequest) {
@@ -18,12 +18,9 @@ export async function PUT(req: NextRequest) {
 		throw err;
 	}
 
-	const parsed = socialLinksSchema.safeParse(await req.json());
-	if (!parsed.success) {
-		return NextResponse.json(
-			{ error: parsed.error.issues[0].message },
-			{ status: 400 }
-		);
+	const parsed = await parseBody(req, socialLinksSchema);
+	if ('error' in parsed) {
+		return NextResponse.json({ error: parsed.error }, { status: 400 });
 	}
 
 	const entries = Object.entries(parsed.data)
