@@ -12,3 +12,14 @@ export const NETWORK_BY_CHAIN: Record<number, SupportedNetwork | undefined> = {
 
 export const isWalletProvider = (value: unknown): value is WalletProviderName =>
 	typeof value === 'string' && (WALLET_PROVIDERS as readonly string[]).includes(value);
+
+export type Wallet = {
+	id: string;
+	address: string;
+	network: string;
+	provider: string;
+	isPrimary: boolean;
+	balanceCache: string;
+	balanceUpdateAt: Date | null;
+	connectedAt: Date;
+};
