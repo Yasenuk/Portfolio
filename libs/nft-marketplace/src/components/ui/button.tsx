@@ -15,7 +15,8 @@ const buttonVariants = cva(
 				default: "bg-action text-text",
 				outlined: "bg-transparent text-action",
 				wallet: "bg-bg-secondary h-15 border gap-x-5 px-10 py-3.5 lg:py-4 justify-start",
-				action: "text-action border-none"
+				action: "text-action border-none",
+				tab: "border-none text-text"
 			},
 			size: {
 				default: "lg:h-18 lg:text-h5",

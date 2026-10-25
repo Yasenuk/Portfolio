@@ -23,7 +23,7 @@ const StatsBar = React.forwardRef<
 	>
 		{stats.map(stat => (
 			<section key={stat.label} className="basis-1/3 flex-shrink">
-				<h3 className="text-h5 lg:text-h4 font-semibold">{stat.value}k+</h3>
+				<h3 className="text-h5 lg:text-h4 font-display font-semibold">{stat.value}k+</h3>
 				<span className="text-body lg:text-body capitalize whitespace-nowrap">{stat.label}</span>
 			</section>
 		))}

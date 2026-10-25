@@ -16,7 +16,7 @@ const SocialLink = React.forwardRef<
 	<a
 		ref={ref}
 		className={cn(
-			"size-6 lg:size-8 text-label",
+			"text-label hover:text-text transition-colors duration-100",
 			className
 		)}
 		href={url}
@@ -24,7 +24,7 @@ const SocialLink = React.forwardRef<
 		rel="noopener noreferrer nofollow"
 		{...props}
 	>
-		<Icon name={platform} />
+		<Icon className="size-6 lg:size-8" name={platform} />
 	</a>
 ));
 SocialLink.displayName = 'SocialLink';

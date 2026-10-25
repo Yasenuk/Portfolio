@@ -1,8 +1,19 @@
 import { prisma } from "@portfolio/nft-marketplace-database";
-import { ButtonMain, ProfileHeader, SocialLink, StatsBar } from "@portfolio/nft-marketplace";
+
+import {
+	ButtonMain,
+	SocialLink,
+	StatsBar,
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger
+} from "@portfolio/nft-marketplace";
+
 import { getSessionUser } from "../../../lib/session";
 import { CopyAddressButton } from "../../../features/wallet/copy-address-button";
 import { ProfileHeaderEditable } from "../../../features/profile/profile-header-editable";
+
 import { redirect } from "next/navigation";
 
 export const metadata = { title: 'My profile' };
@@ -53,13 +64,24 @@ export default async function ProfilePage() {
 				]} />
 				<div>
 					<span className="text-h5 font-sans text-label">Bio</span>
-					<p className="text-body lg:text-body capitalize whitespace-nowrap">{ user.profile?.bio } dfdff</p>
+					<p className="text-body lg:text-body capitalize whitespace-nowrap">{user.profile?.bio ?? '-'}</p>
 				</div>
-				<div>
-					<span className="text-h5 font-sans text-label">Links</span>
+				<div className="flex flex-wrap gap-x-2.5">
+					<span className="text-h5 font-sans text-label w-full">Links</span>
 					{links.map(link => (<SocialLink key={link.platform} platform={link.platform} url={link.url} />))}
 				</div>
 			</section>
+			<Tabs defaultValue="owned">
+				<TabsList>
+					<TabsTrigger valueCount={ownedNFTs} value="owned">Owned</TabsTrigger>
+					<TabsTrigger valueCount={createdNFTs} value="created">Created</TabsTrigger>
+					<TabsTrigger valueCount={collections} value="collections">Collections</TabsTrigger>
+				</TabsList>
+
+				<TabsContent value="owned">Owned</TabsContent>
+				<TabsContent value="created">Created</TabsContent>
+				<TabsContent value="collections">Collections</TabsContent>
+			</Tabs>
 		</div>
 	)
 }
