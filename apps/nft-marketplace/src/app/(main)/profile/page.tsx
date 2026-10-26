@@ -4,15 +4,12 @@ import {
 	ButtonMain,
 	SocialLink,
 	StatsBar,
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger
 } from "@portfolio/nft-marketplace";
 
 import { getSessionUser } from "../../../lib/session";
 import { CopyAddressButton } from "../../../features/wallet/copy-address-button";
 import { ProfileHeaderEditable } from "../../../features/profile/profile-header-editable";
+import { getProfileCounts } from "../../../lib/_data";
 
 import { redirect } from "next/navigation";
 
@@ -22,10 +19,8 @@ export default async function ProfilePage() {
 	const user = (await getSessionUser())!;
 	if (!user) redirect('/login');
 
-	const [createdNFTs, ownedNFTs, collections, primaryWallet, followers, links] = await Promise.all([
-		prisma.nft.count({ where: { creatorId: user?.id } }),
-		prisma.nft.count({ where: { ownerId: user?.id } }),
-		prisma.collection.count({ where: { authorId: user?.id } }),
+	const [counts, primaryWallet, followers, links] = await Promise.all([
+		getProfileCounts(user.id),
 		prisma.wallet.findFirst({
 			where: {
 				userId: user.id,
@@ -71,17 +66,6 @@ export default async function ProfilePage() {
 					{links.map(link => (<SocialLink key={link.platform} platform={link.platform} url={link.url} />))}
 				</div>
 			</section>
-			<Tabs defaultValue="owned">
-				<TabsList>
-					<TabsTrigger valueCount={ownedNFTs} value="owned">Owned</TabsTrigger>
-					<TabsTrigger valueCount={createdNFTs} value="created">Created</TabsTrigger>
-					<TabsTrigger valueCount={collections} value="collections">Collections</TabsTrigger>
-				</TabsList>
-
-				<TabsContent value="owned">Owned</TabsContent>
-				<TabsContent value="created">Created</TabsContent>
-				<TabsContent value="collections">Collections</TabsContent>
-			</Tabs>
 		</div>
 	)
 }

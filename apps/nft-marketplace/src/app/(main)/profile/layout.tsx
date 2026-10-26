@@ -2,18 +2,25 @@ import { redirect } from "next/navigation";
 import { getSessionUser } from '../../../lib/session';
 import { ProfileNav } from "@portfolio/nft-marketplace";
 
-export default async function ProfileLayout({ children }: { children: React.ReactNode }) {
+export default async function ProfileLayout(
+	{ children, tabs }: {
+		children: React.ReactNode,
+		tabs: React.ReactNode
+	}) {
 	const user = await getSessionUser();
 	if (!user) redirect('/login');
 
 	return (
-		<div className="container max-w-[1440px] flex flex-col gap-8 py-5 lg:flex-row border-b border-bg-secondary">
-			<aside className="lg:w-60 shrink-0 relative">
-				<ProfileNav />
-			</aside>
-			<main className="flex-1">
-				{children}
-			</main>
-		</div>
+		<>
+			<div className="container max-w-[1440px] flex flex-col gap-8 py-5 lg:flex-row border-b border-bg-secondary">
+				<aside className="lg:w-60 shrink-0 relative">
+					<ProfileNav />
+				</aside>
+				<main className="flex-1">
+					{children}
+				</main>
+			</div>
+			{tabs}
+		</>
 	)
 }
